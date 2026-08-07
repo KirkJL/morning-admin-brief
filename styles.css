@@ -1608,12 +1608,31 @@ svg {
       );
   }
 }
+/* Read articles retain their colour identity */
+
 .update-card.is-read {
-  opacity: 0.68;
+    background: rgba(255,255,255,.015);
 }
 
-.update-card.is-read:hover {
-  opacity: 0.85;
+/* Slightly mute the text */
+
+.update-card.is-read .update-title,
+.update-card.is-read .update-summary,
+.update-card.is-read .update-footer,
+.update-card.is-read .update-why {
+    opacity: .65;
+}
+
+/* Leave all badges at full strength */
+
+.update-card.is-read .badge {
+    opacity: 1;
+}
+
+/* Keep the coloured product stripe */
+
+.update-card.is-read::before {
+    opacity: 1;
 }
 
 /* =========================================================
