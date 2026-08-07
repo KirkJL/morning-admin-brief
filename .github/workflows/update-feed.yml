@@ -1,0 +1,78 @@
+name: Refresh Microsoft update feed
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: "15 6 * * *"
+    - cron: "15 12 * * *"
+    - cron: "15 18 * * *"
+    - cron: "15 0 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: morning-admin-brief-feed
+  cancel-in-progress: false
+
+jobs:
+  refresh-feed:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Generate Microsoft update feed
+        run: |
+          python scripts/feed.py
+
+      - name: Validate generated JSON
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          feed = Path("updates.json")
+
+          if not feed.exists():
+              raise SystemExit("updates.json was not generated")
+
+          with feed.open("r", encoding="utf-8") as handle:
+              data = json.load(handle)
+
+          if "updates" not in data:
+              raise SystemExit("updates.json does not contain an updates array")
+
+          if not isinstance(data["updates"], list):
+              raise SystemExit("updates must be a list")
+
+          print(f"Validated {len(data['updates'])} updates")
+          PY
+
+      - name: Commit feed changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add updates.json
+
+          if git diff --cached --quiet; then
+            echo "No feed changes to commit"
+            exit 0
+          fi
+
+          git commit -m "Update Microsoft admin feed"
+          git push
