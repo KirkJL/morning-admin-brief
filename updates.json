@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-07T13:41:09Z",
+  "generatedAt": "2026-08-07T19:16:39Z",
   "updateCount": 160,
   "products": [
     "Entra",
@@ -974,6 +974,48 @@
       "actionRequired": false,
       "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#insider-risk-management",
       "sourceName": "Microsoft Purview",
+      "sourceType": "Microsoft Learn"
+    },
+    {
+      "id": "467315b8aec1b4961d73",
+      "product": "Defender",
+      "title": "Deprecation completed: Legacy grouped recommendations removed from Azure portal",
+      "summary": "July 31, 2026 Retirement of legacy grouped recommendations (sub-assessments) has started. Customers can no longer access the deprecated data through the API. The Azure portal and Azure Resource Graph might take a few days to reflect the change. Individual recommendations replace the legacy grouped recommendations, as announced in May 2026 . Customers who…",
+      "whyItMatters": "An existing feature or workflow is being removed or replaced, so check whether your environment still uses it.",
+      "publishedDate": "2026-07-01",
+      "releaseStatus": null,
+      "changeType": "Retirement",
+      "actionRequired": true,
+      "sourceUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/release-notes#deprecation-completed-legacy-grouped-recommendations-removed-from-azure-portal",
+      "sourceName": "Microsoft Defender for Cloud",
+      "sourceType": "Microsoft Learn"
+    },
+    {
+      "id": "a18480e1c656aaba6109",
+      "product": "Defender",
+      "title": "Foundational CSPM moves to opt-in model for new Azure subscriptions",
+      "summary": "July 30, 2026 Starting October 27, 2026, Foundational CSPM will move to an opt-in model and will no longer be enabled by default for new Azure subscriptions. This change gives you more control over how security posture management is configured for each new Azure subscription and is part of the transition of cloud security posture management to the Microsoft…",
+      "whyItMatters": "This may change security capabilities, detections, recommendations or investigation workflows.",
+      "publishedDate": "2026-07-01",
+      "releaseStatus": null,
+      "changeType": "Security",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/release-notes#foundational-cspm-moves-to-opt-in-model-for-new-azure-subscriptions",
+      "sourceName": "Microsoft Defender for Cloud",
+      "sourceType": "Microsoft Learn"
+    },
+    {
+      "id": "da05833782a4432c709e",
+      "product": "Defender",
+      "title": "Database-level recommendations for SQL Vulnerability Assessment (GA)",
+      "summary": "July 26, 2026 The SQL vulnerability assessment recommendations created as part of the transition from grouped to individual recommendations are now generally available. Each SQL vulnerability assessment rule is surfaced as its own recommendation, reported directly on the affected SQL database resource. For a deeper explanation of this change, see Transition…",
+      "whyItMatters": "This may change security capabilities, detections, recommendations or investigation workflows.",
+      "publishedDate": "2026-07-01",
+      "releaseStatus": "General availability",
+      "changeType": "Security",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/release-notes#database-level-recommendations-for-sql-vulnerability-assessment-ga",
+      "sourceName": "Microsoft Defender for Cloud",
       "sourceType": "Microsoft Learn"
     },
     {
@@ -2279,34 +2321,6 @@
       "sourceType": "Microsoft Learn"
     },
     {
-      "id": "935b6a6c2d3655dc4c4a",
-      "product": "Defender",
-      "title": "General availability of container security capabilities in Azure Government cloud",
-      "summary": "April 1, 2026 The service helps U.S. federal and government agencies, including the Department of Defense (DoD) and civilian agencies, secure Kubernetes workloads by providing cloud security posture management, vulnerability assessment, and runtime threat protection for containerized environments. The Defender for Containers plan in Azure Government cloud…",
-      "whyItMatters": "This may affect device compliance policies, reporting or how access decisions are made.",
-      "publishedDate": "2026-04-01",
-      "releaseStatus": "General availability",
-      "changeType": "Security",
-      "actionRequired": false,
-      "sourceUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/release-notes#general-availability-of-container-security-capabilities-in-azure-government-cloud",
-      "sourceName": "Microsoft Defender for Cloud",
-      "sourceType": "Microsoft Learn"
-    },
-    {
-      "id": "633670ca0c71cc366873",
-      "product": "Defender",
-      "title": "Update to Defender for SQL servers on machines plan for Fairfax customers",
-      "summary": "April 1, 2026 The Defender for SQL Server on machines plan in Microsoft Defender for Cloud protects SQL Server instances hosted on Azure, AWS, GCP, and on-premises machines. To simplify onboarding and improve protection coverage, we're releasing an enhanced agent solution for Fairfax customers at the end of April. The new solution uses the existing SQL…",
-      "whyItMatters": "This may change security capabilities, detections, recommendations or investigation workflows.",
-      "publishedDate": "2026-04-01",
-      "releaseStatus": null,
-      "changeType": "Update",
-      "actionRequired": false,
-      "sourceUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/release-notes#update-to-defender-for-sql-servers-on-machines-plan-for-fairfax-customers",
-      "sourceName": "Microsoft Defender for Cloud",
-      "sourceType": "Microsoft Learn"
-    },
-    {
       "id": "de5675a09da5ca0ec713",
       "product": "Purview",
       "title": "Deployment models",
@@ -2318,20 +2332,6 @@
       "actionRequired": false,
       "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#deployment-models",
       "sourceName": "Microsoft Purview",
-      "sourceType": "Microsoft Learn"
-    },
-    {
-      "id": "7b5755c4c8e14be08c48",
-      "product": "Defender",
-      "title": "Automated malware remediation in Defender for Storage",
-      "summary": "March 31, 2026 Automated malware remediation in Defender for Storage is now generally available. Defender for Cloud now lets you automatically soft-delete malicious blobs detected during on-upload or on-demand malware scanning. Soft-deleted blobs are quarantined and can be recovered for further investigation. You can enable or disable automated malware…",
-      "whyItMatters": "This may change security capabilities, detections, recommendations or investigation workflows.",
-      "publishedDate": "2026-03-01",
-      "releaseStatus": null,
-      "changeType": "Update",
-      "actionRequired": false,
-      "sourceUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/release-notes#automated-malware-remediation-in-defender-for-storage",
-      "sourceName": "Microsoft Defender for Cloud",
       "sourceType": "Microsoft Learn"
     }
   ]
