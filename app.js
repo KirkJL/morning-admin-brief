@@ -1,5 +1,8 @@
 const FEED_URL = "updates.json";
 
+let currentUpdates = [];
+let currentProduct = "all";
+
 document.addEventListener("DOMContentLoaded", init);
 
 async function init() {
@@ -10,25 +13,24 @@ async function init() {
     return;
   }
 
+  bindFilters();
+
   try {
-    const response = await fetch(`${FEED_URL}?v=${Date.now()}`, {
-      cache: "no-store"
-    });
+    const data = await loadFeed();
 
-    if (!response.ok) {
-      throw new Error(`Feed request failed with status ${response.status}`);
-    }
+    currentUpdates = Array.isArray(data.updates)
+      ? data.updates
+      : [];
 
-    const data = await response.json();
+    updateHeaderTimestamp(data.generatedAt);
 
-    const updates = Array.isArray(data.updates) ? data.updates : [];
-
-    renderSummary(summaryElement, data, updates);
-    renderFeed(feedElement, updates);
+    renderSummary(data, currentUpdates);
+    renderFeed(currentUpdates);
   } catch (error) {
     console.error("Failed to load Morning Admin Brief:", error);
 
-    summaryElement.textContent = "Unable to load the latest brief.";
+    summaryElement.textContent =
+      "Unable to load the latest brief.";
 
     feedElement.innerHTML = `
       <div class="error-state">
@@ -38,55 +40,253 @@ async function init() {
   }
 }
 
-function renderSummary(summaryElement, data, updates) {
-  const totalUpdates = updates.length;
-
-  const actionRequiredCount = updates.filter(
-    update => update.actionRequired === true
-  ).length;
-
-  const unreadCount = updates.filter(
-    update => !isRead(update.id)
-  ).length;
-
-  const generatedText = formatGeneratedDate(data.generatedAt);
-
-  const estimatedMinutes = Math.max(
-    1,
-    Math.ceil(totalUpdates * 0.5)
+async function loadFeed() {
+  const response = await fetch(
+    `${FEED_URL}?v=${Date.now()}`,
+    {
+      cache: "no-store"
+    }
   );
 
-  const parts = [];
-
-  parts.push(
-    `${totalUpdates} update${totalUpdates === 1 ? "" : "s"}`
-  );
-
-  parts.push(
-    `${unreadCount} unread`
-  );
-
-  if (actionRequiredCount > 0) {
-    parts.push(
-      `${actionRequiredCount} may require action`
+  if (!response.ok) {
+    throw new Error(
+      `Feed request failed with status ${response.status}`
     );
   }
 
-  parts.push(
-    `about ${estimatedMinutes} minute${estimatedMinutes === 1 ? "" : "s"} to read`
-  );
-
-  summaryElement.textContent =
-    `${parts.join(" • ")}${generatedText ? ` • Updated ${generatedText}` : ""}`;
+  return response.json();
 }
 
-function renderFeed(feedElement, updates) {
+
+/* =========================================================
+   FILTERS
+   ========================================================= */
+
+function bindFilters() {
+  const tabs = document.querySelectorAll(".filter-tab");
+  const select = document.getElementById("productFilter");
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      const product = tab.dataset.product || "all";
+
+      currentProduct = product;
+
+      tabs.forEach(item => {
+        item.classList.remove("active");
+      });
+
+      tab.classList.add("active");
+
+      if (select) {
+        select.value = product;
+      }
+
+      renderFeed(getFilteredUpdates());
+    });
+  });
+
+  if (select) {
+    select.addEventListener("change", () => {
+      currentProduct = select.value || "all";
+
+      tabs.forEach(tab => {
+        const isActive =
+          (tab.dataset.product || "all") === currentProduct;
+
+        tab.classList.toggle("active", isActive);
+      });
+
+      renderFeed(getFilteredUpdates());
+    });
+  }
+}
+
+function getFilteredUpdates() {
+  if (currentProduct === "all") {
+    return currentUpdates;
+  }
+
+  return currentUpdates.filter(update => {
+    return String(update.product || "")
+      .toLowerCase() === currentProduct.toLowerCase();
+  });
+}
+
+
+/* =========================================================
+   SUMMARY
+   ========================================================= */
+
+function renderSummary(data, updates) {
+  const summaryElement = document.getElementById("summaryText");
+
+  const updatesCount =
+    document.getElementById("summaryUpdates");
+
+  const actionsCount =
+    document.getElementById("summaryActions");
+
+  const unreadCount =
+    document.getElementById("summaryUnread");
+
+  const minutesCount =
+    document.getElementById("summaryMinutes");
+
+  const newCount =
+    document.getElementById("summaryNew");
+
+  const total = updates.length;
+
+  const actions = updates.filter(
+    update => update.actionRequired === true
+  ).length;
+
+  const unread = updates.filter(
+    update => !isRead(update.id)
+  ).length;
+
+  const estimatedMinutes = Math.max(
+    1,
+    Math.ceil(total * 0.45)
+  );
+
+  if (updatesCount) {
+    updatesCount.textContent = total;
+  }
+
+  if (actionsCount) {
+    actionsCount.textContent = actions;
+  }
+
+  if (unreadCount) {
+    unreadCount.textContent = unread;
+  }
+
+  if (minutesCount) {
+    minutesCount.textContent = `~${estimatedMinutes}`;
+  }
+
+  if (newCount) {
+    newCount.textContent = getNewUpdatesText(updates);
+  }
+
+  if (summaryElement) {
+    summaryElement.textContent =
+      `${total} updates • ${unread} unread • ` +
+      `${actions} require attention • ` +
+      `about ${estimatedMinutes} minute${estimatedMinutes === 1 ? "" : "s"} to read`;
+  }
+}
+
+function getNewUpdatesText(updates) {
+  const now = new Date();
+
+  const recent = updates.filter(update => {
+    if (!update.publishedDate) {
+      return false;
+    }
+
+    const date = new Date(update.publishedDate);
+
+    if (Number.isNaN(date.getTime())) {
+      return false;
+    }
+
+    const diff =
+      now.getTime() - date.getTime();
+
+    const hours =
+      diff / (1000 * 60 * 60);
+
+    return hours <= 24;
+  });
+
+  if (recent.length === 0) {
+    return "Latest Microsoft changes";
+  }
+
+  return `${recent.length} new in the last 24 hours`;
+}
+
+
+/* =========================================================
+   HEADER TIMESTAMP
+   ========================================================= */
+
+function updateHeaderTimestamp(dateValue) {
+  const element =
+    document.getElementById("lastUpdated");
+
+  if (!element) {
+    return;
+  }
+
+  if (!dateValue) {
+    return;
+  }
+
+  const date = new Date(dateValue);
+
+  if (Number.isNaN(date.getTime())) {
+    return;
+  }
+
+  const formatted =
+    new Intl.DateTimeFormat(
+      "en-GB",
+      {
+        day: "numeric",
+        month: "short",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit"
+      }
+    ).format(date);
+
+  element.innerHTML = `
+    <span
+      class="last-updated-icon"
+      aria-hidden="true"
+    >
+      ◷
+    </span>
+
+    <span>
+      Updated ${formatted}
+    </span>
+
+    <span
+      class="status-dot"
+      aria-hidden="true"
+    ></span>
+  `;
+}
+
+
+/* =========================================================
+   FEED
+   ========================================================= */
+
+function renderFeed(updates) {
+  const feedElement =
+    document.getElementById("feed");
+
+  if (!feedElement) {
+    return;
+  }
+
+  feedElement.setAttribute(
+    "aria-busy",
+    "false"
+  );
+
   feedElement.innerHTML = "";
 
-  if (updates.length === 0) {
+  if (!Array.isArray(updates) || updates.length === 0) {
     feedElement.innerHTML = `
       <div class="empty-state">
-        No Microsoft admin updates are currently available.
+        No Microsoft admin updates match this filter.
       </div>
     `;
 
@@ -94,20 +294,25 @@ function renderFeed(feedElement, updates) {
   }
 
   const sortedUpdates = [...updates].sort((a, b) => {
-    const dateA = new Date(a.publishedDate || 0);
-    const dateB = new Date(b.publishedDate || 0);
+    const dateA =
+      new Date(a.publishedDate || 0);
+
+    const dateB =
+      new Date(b.publishedDate || 0);
 
     return dateB - dateA;
   });
 
   for (const update of sortedUpdates) {
     const card = createUpdateCard(update);
+
     feedElement.appendChild(card);
   }
 }
 
 function createUpdateCard(update) {
-  const article = document.createElement("article");
+  const article =
+    document.createElement("article");
 
   article.className = "update-card";
 
@@ -115,7 +320,9 @@ function createUpdateCard(update) {
     article.style.opacity = "0.72";
   }
 
-  const meta = document.createElement("div");
+  const meta =
+    document.createElement("div");
+
   meta.className = "update-meta";
 
   meta.appendChild(
@@ -127,7 +334,9 @@ function createUpdateCard(update) {
 
   if (update.changeType) {
     meta.appendChild(
-      createBadge(update.changeType)
+      createBadge(
+        update.changeType
+      )
     );
   }
 
@@ -135,9 +344,9 @@ function createUpdateCard(update) {
     meta.appendChild(
       createBadge(
         update.releaseStatus,
-        update.releaseStatus.toLowerCase() === "preview"
-          ? "preview"
-          : ""
+        getStatusClass(
+          update.releaseStatus
+        )
       )
     );
   }
@@ -151,12 +360,22 @@ function createUpdateCard(update) {
     );
   }
 
-  const title = document.createElement("h2");
-  title.className = "update-title";
-  title.textContent = update.title || "Untitled Microsoft update";
+  const title =
+    document.createElement("h2");
 
-  const summary = document.createElement("p");
-  summary.className = "update-summary";
+  title.className =
+    "update-title";
+
+  title.textContent =
+    update.title ||
+    "Untitled Microsoft update";
+
+  const summary =
+    document.createElement("p");
+
+  summary.className =
+    "update-summary";
+
   summary.textContent =
     update.summary ||
     "No summary is available for this update.";
@@ -166,14 +385,23 @@ function createUpdateCard(update) {
   article.appendChild(summary);
 
   if (update.whyItMatters) {
-    const why = document.createElement("div");
-    why.className = "update-why";
+    const why =
+      document.createElement("div");
 
-    const strong = document.createElement("strong");
-    strong.textContent = "Why it matters: ";
+    why.className =
+      "update-why";
 
-    const text = document.createElement("span");
-    text.textContent = update.whyItMatters;
+    const strong =
+      document.createElement("strong");
+
+    strong.textContent =
+      "Why it matters:";
+
+    const text =
+      document.createElement("span");
+
+    text.textContent =
+      ` ${update.whyItMatters}`;
 
     why.appendChild(strong);
     why.appendChild(text);
@@ -181,27 +409,54 @@ function createUpdateCard(update) {
     article.appendChild(why);
   }
 
-  const footer = document.createElement("div");
-  footer.className = "update-footer";
+  const footer =
+    document.createElement("div");
 
-  const date = document.createElement("span");
-  date.textContent = formatUpdateDate(update.publishedDate);
+  footer.className =
+    "update-footer";
+
+  const date =
+    document.createElement("span");
+
+  date.textContent =
+    formatUpdateDate(
+      update.publishedDate
+    );
 
   footer.appendChild(date);
 
   if (update.sourceUrl) {
-    const link = document.createElement("a");
+    const link =
+      document.createElement("a");
 
-    link.href = update.sourceUrl;
-    link.target = "_blank";
-    link.rel = "noopener noreferrer";
-    link.textContent = "Read Microsoft source →";
+    link.href =
+      update.sourceUrl;
 
-    link.addEventListener("click", () => {
-      markAsRead(update.id);
-      article.style.opacity = "0.72";
-      refreshSummary();
-    });
+    link.target =
+      "_blank";
+
+    link.rel =
+      "noopener noreferrer";
+
+    link.textContent =
+      "Read Microsoft source →";
+
+    link.addEventListener(
+      "click",
+      () => {
+        markAsRead(update.id);
+
+        article.style.opacity =
+          "0.72";
+
+        renderSummary(
+          {
+            generatedAt: null
+          },
+          currentUpdates
+        );
+      }
+    );
 
     footer.appendChild(link);
   }
@@ -211,17 +466,30 @@ function createUpdateCard(update) {
   return article;
 }
 
-function createBadge(text, extraClass = "") {
-  const badge = document.createElement("span");
 
-  badge.className = `badge${extraClass ? ` ${extraClass}` : ""}`;
+/* =========================================================
+   BADGES
+   ========================================================= */
+
+function createBadge(
+  text,
+  extraClass = ""
+) {
+  const badge =
+    document.createElement("span");
+
+  badge.className =
+    `badge${extraClass ? ` ${extraClass}` : ""}`;
+
   badge.textContent = text;
 
   return badge;
 }
 
 function getProductClass(product) {
-  const value = String(product || "").toLowerCase();
+  const value =
+    String(product || "")
+      .toLowerCase();
 
   if (value.includes("intune")) {
     return "intune";
@@ -242,42 +510,49 @@ function getProductClass(product) {
   return "";
 }
 
+function getStatusClass(status) {
+  const value =
+    String(status || "")
+      .toLowerCase();
+
+  if (value.includes("preview")) {
+    return "preview";
+  }
+
+  return "";
+}
+
+
+/* =========================================================
+   DATE FORMATTING
+   ========================================================= */
+
 function formatUpdateDate(dateValue) {
   if (!dateValue) {
     return "Date unavailable";
   }
 
-  const date = new Date(dateValue);
+  const date =
+    new Date(dateValue);
 
   if (Number.isNaN(date.getTime())) {
     return String(dateValue);
   }
 
-  return new Intl.DateTimeFormat("en-GB", {
-    day: "numeric",
-    month: "long",
-    year: "numeric"
-  }).format(date);
+  return new Intl.DateTimeFormat(
+    "en-GB",
+    {
+      day: "numeric",
+      month: "long",
+      year: "numeric"
+    }
+  ).format(date);
 }
 
-function formatGeneratedDate(dateValue) {
-  if (!dateValue) {
-    return "";
-  }
 
-  const date = new Date(dateValue);
-
-  if (Number.isNaN(date.getTime())) {
-    return "";
-  }
-
-  return new Intl.DateTimeFormat("en-GB", {
-    day: "numeric",
-    month: "short",
-    hour: "2-digit",
-    minute: "2-digit"
-  }).format(date);
-}
+/* =========================================================
+   READ STATE
+   ========================================================= */
 
 function getReadStorageKey(id) {
   return `morning-admin-brief-read-${id}`;
@@ -289,9 +564,11 @@ function isRead(id) {
   }
 
   try {
-    return localStorage.getItem(
-      getReadStorageKey(id)
-    ) === "true";
+    return (
+      localStorage.getItem(
+        getReadStorageKey(id)
+      ) === "true"
+    );
   } catch {
     return false;
   }
@@ -309,30 +586,5 @@ function markAsRead(id) {
     );
   } catch {
     // Local storage may be unavailable.
-  }
-}
-
-async function refreshSummary() {
-  const summaryElement = document.getElementById("summaryText");
-
-  if (!summaryElement) {
-    return;
-  }
-
-  try {
-    const response = await fetch(`${FEED_URL}?v=${Date.now()}`, {
-      cache: "no-store"
-    });
-
-    if (!response.ok) {
-      return;
-    }
-
-    const data = await response.json();
-    const updates = Array.isArray(data.updates) ? data.updates : [];
-
-    renderSummary(summaryElement, data, updates);
-  } catch {
-    // Summary refresh is non-critical.
   }
 }
