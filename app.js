@@ -10,6 +10,7 @@ async function init() {
   const summaryElement = document.getElementById("summaryText");
 
   if (!feedElement || !summaryElement) {
+    console.error("Required page elements are missing.");
     return;
   }
 
@@ -24,7 +25,7 @@ async function init() {
 
     updateHeaderTimestamp(data.generatedAt);
 
-    renderSummary(data, currentUpdates);
+    renderSummary(currentUpdates);
     renderFeed(currentUpdates);
   } catch (error) {
     console.error("Failed to load Morning Admin Brief:", error);
@@ -66,9 +67,14 @@ function bindFilters() {
   const tabs = document.querySelectorAll(".filter-tab");
   const select = document.getElementById("productFilter");
 
+  console.log(
+    `Morning Admin Brief: found ${tabs.length} filter tabs`
+  );
+
   tabs.forEach(tab => {
     tab.addEventListener("click", () => {
-      const product = tab.dataset.product || "all";
+      const product =
+        tab.getAttribute("data-product") || "all";
 
       currentProduct = product;
 
@@ -82,7 +88,13 @@ function bindFilters() {
         select.value = product;
       }
 
-      renderFeed(getFilteredUpdates());
+      const filteredUpdates = getFilteredUpdates();
+
+      console.log(
+        `Filter clicked: ${product}. Showing ${filteredUpdates.length} of ${currentUpdates.length} updates`
+      );
+
+      renderFeed(filteredUpdates);
     });
   });
 
@@ -91,10 +103,13 @@ function bindFilters() {
       currentProduct = select.value || "all";
 
       tabs.forEach(tab => {
-        const isActive =
-          (tab.dataset.product || "all") === currentProduct;
+        const product =
+          tab.getAttribute("data-product") || "all";
 
-        tab.classList.toggle("active", isActive);
+        tab.classList.toggle(
+          "active",
+          product === currentProduct
+        );
       });
 
       renderFeed(getFilteredUpdates());
@@ -107,24 +122,25 @@ function getFilteredUpdates() {
     return currentUpdates;
   }
 
-  const selectedProduct = currentProduct.toLowerCase();
+  const selectedProduct =
+    currentProduct.toLowerCase();
 
   return currentUpdates.filter(update => {
-    const product = String(update.product || "").toLowerCase();
+    const product =
+      String(update.product || "").toLowerCase();
 
     return product.includes(selectedProduct);
   });
 }
-
-  
 
 
 /* =========================================================
    SUMMARY
    ========================================================= */
 
-function renderSummary(data, updates) {
-  const summaryElement = document.getElementById("summaryText");
+function renderSummary(updates) {
+  const summaryElement =
+    document.getElementById("summaryText");
 
   const updatesCount =
     document.getElementById("summaryUpdates");
@@ -173,7 +189,8 @@ function renderSummary(data, updates) {
   }
 
   if (newCount) {
-    newCount.textContent = getNewUpdatesText(updates);
+    newCount.textContent =
+      getNewUpdatesText(updates);
   }
 
   if (summaryElement) {
@@ -192,19 +209,20 @@ function getNewUpdatesText(updates) {
       return false;
     }
 
-    const date = new Date(update.publishedDate);
+    const date =
+      new Date(update.publishedDate);
 
     if (Number.isNaN(date.getTime())) {
       return false;
     }
 
-    const diff =
+    const difference =
       now.getTime() - date.getTime();
 
     const hours =
-      diff / (1000 * 60 * 60);
+      difference / (1000 * 60 * 60);
 
-    return hours <= 24;
+    return hours >= 0 && hours <= 24;
   });
 
   if (recent.length === 0) {
@@ -223,15 +241,12 @@ function updateHeaderTimestamp(dateValue) {
   const element =
     document.getElementById("lastUpdated");
 
-  if (!element) {
+  if (!element || !dateValue) {
     return;
   }
 
-  if (!dateValue) {
-    return;
-  }
-
-  const date = new Date(dateValue);
+  const date =
+    new Date(dateValue);
 
   if (Number.isNaN(date.getTime())) {
     return;
@@ -288,7 +303,10 @@ function renderFeed(updates) {
 
   feedElement.innerHTML = "";
 
-  if (!Array.isArray(updates) || updates.length === 0) {
+  if (
+    !Array.isArray(updates) ||
+    updates.length === 0
+  ) {
     feedElement.innerHTML = `
       <div class="empty-state">
         No Microsoft admin updates match this filter.
@@ -298,18 +316,20 @@ function renderFeed(updates) {
     return;
   }
 
-  const sortedUpdates = [...updates].sort((a, b) => {
-    const dateA =
-      new Date(a.publishedDate || 0);
+  const sortedUpdates =
+    [...updates].sort((a, b) => {
+      const dateA =
+        new Date(a.publishedDate || 0);
 
-    const dateB =
-      new Date(b.publishedDate || 0);
+      const dateB =
+        new Date(b.publishedDate || 0);
 
-    return dateB - dateA;
-  });
+      return dateB - dateA;
+    });
 
   for (const update of sortedUpdates) {
-    const card = createUpdateCard(update);
+    const card =
+      createUpdateCard(update);
 
     feedElement.appendChild(card);
   }
@@ -454,12 +474,7 @@ function createUpdateCard(update) {
         article.style.opacity =
           "0.72";
 
-        renderSummary(
-          {
-            generatedAt: null
-          },
-          currentUpdates
-        );
+        renderSummary(currentUpdates);
       }
     );
 
