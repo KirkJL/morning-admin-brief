@@ -1,51 +1,486 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-<title>Morning Admin Brief</title>
+  <meta
+    name="theme-color"
+    content="#111315"
+  >
 
-<link rel="stylesheet" href="styles.css">
+  <meta
+    name="description"
+    content="Morning Admin Brief - Microsoft Entra, Intune, Purview and Defender updates in one simple daily briefing."
+  >
 
+  <title>Morning Admin Brief</title>
+
+  <link
+    rel="stylesheet"
+    href="styles.css"
+  >
 </head>
 
 <body>
 
-<header>
+  <div class="site-shell">
 
-<h1>☕ Morning Admin Brief</h1>
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
 
-<p>
-Everything new across Microsoft 365 while you were asleep.
-</p>
+    <header class="site-header">
 
-</header>
+      <div class="brand">
 
-<main>
+        <div
+          class="brand-icon"
+          aria-hidden="true"
+        >
+          <svg
+            viewBox="0 0 64 64"
+            role="img"
+            aria-hidden="true"
+          >
+            <path
+              d="M12 42h40"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
 
-<section id="summary">
+            <path
+              d="M18 37h28"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
 
-<h2>Today's Brief</h2>
+            <path
+              d="M20 31c2-10 8-16 12-19"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
 
-<p id="summaryText">
+            <path
+              d="M44 31c-2-10-8-16-12-19"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
 
-Loading...
+            <path
+              d="M25 9l7-5 7 5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
 
-</p>
+        <div class="brand-copy">
 
-</section>
+          <h1>
+            Morning Admin Brief
+          </h1>
 
-<section id="feed">
+          <p>
+            Everything new across Microsoft 365 while you were asleep.
+          </p>
 
-Loading updates...
+        </div>
 
-</section>
+      </div>
 
-</main>
+      <div
+        class="last-updated"
+        id="lastUpdated"
+        aria-live="polite"
+      >
 
-<script src="app.js"></script>
+        <span
+          class="last-updated-icon"
+          aria-hidden="true"
+        >
+          ◷
+        </span>
+
+        <span>
+          Waiting for latest update
+        </span>
+
+        <span
+          class="status-dot"
+          aria-hidden="true"
+        ></span>
+
+      </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main>
+
+      <!-- ===================================================
+           SUMMARY
+           =================================================== -->
+
+      <section
+        id="summary"
+        class="summary-panel"
+        aria-labelledby="summaryHeading"
+      >
+
+        <h2
+          id="summaryHeading"
+          class="sr-only"
+        >
+          Today's Brief
+        </h2>
+
+        <p
+          id="summaryText"
+          class="sr-only"
+        >
+          Loading...
+        </p>
+
+        <div class="summary-grid">
+
+          <div class="summary-item">
+
+            <div
+              class="summary-icon summary-icon-updates"
+              aria-hidden="true"
+            >
+              ▤
+            </div>
+
+            <div class="summary-content">
+
+              <strong
+                class="summary-number"
+                id="summaryUpdates"
+              >
+                0
+              </strong>
+
+              <span class="summary-label">
+                updates
+              </span>
+
+              <small
+                class="summary-detail"
+                id="summaryNew"
+              >
+                Latest Microsoft changes
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <div class="summary-item">
+
+            <div
+              class="summary-icon summary-icon-action"
+              aria-hidden="true"
+            >
+              △
+            </div>
+
+            <div class="summary-content">
+
+              <strong
+                class="summary-number"
+                id="summaryActions"
+              >
+                0
+              </strong>
+
+              <span class="summary-label">
+                require attention
+              </span>
+
+              <small class="summary-detail">
+                Review soon
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <div class="summary-item">
+
+            <div
+              class="summary-icon summary-icon-unread"
+              aria-hidden="true"
+            >
+              ✉
+            </div>
+
+            <div class="summary-content">
+
+              <strong
+                class="summary-number"
+                id="summaryUnread"
+              >
+                0
+              </strong>
+
+              <span class="summary-label">
+                unread
+              </span>
+
+              <small class="summary-detail">
+                Keep up to date
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <div class="summary-item">
+
+            <div
+              class="summary-icon summary-icon-time"
+              aria-hidden="true"
+            >
+              ◷
+            </div>
+
+            <div class="summary-content">
+
+              <strong
+                class="summary-number"
+                id="summaryMinutes"
+              >
+                ~1
+              </strong>
+
+              <span class="summary-label">
+                minutes to read
+              </span>
+
+              <small class="summary-detail">
+                Quick summary
+              </small>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ===================================================
+           FILTERS
+           =================================================== -->
+
+      <section
+        class="filter-bar"
+        aria-label="Filter updates"
+      >
+
+        <div
+          class="product-tabs"
+          role="group"
+          aria-label="Filter by product"
+        >
+
+          <button
+            class="filter-tab active"
+            type="button"
+            data-product="all"
+          >
+            All updates
+          </button>
+
+          <button
+            class="filter-tab"
+            type="button"
+            data-product="Entra"
+          >
+            Entra
+          </button>
+
+          <button
+            class="filter-tab"
+            type="button"
+            data-product="Intune"
+          >
+            Intune
+          </button>
+
+          <button
+            class="filter-tab"
+            type="button"
+            data-product="Purview"
+          >
+            Purview
+          </button>
+
+          <button
+            class="filter-tab"
+            type="button"
+            data-product="Defender"
+          >
+            Defender
+          </button>
+
+        </div>
+
+
+        <div class="filter-select-wrapper">
+
+          <label
+            class="sr-only"
+            for="productFilter"
+          >
+            Filter by product
+          </label>
+
+          <select
+            id="productFilter"
+            class="product-filter"
+          >
+            <option value="all">
+              Filter by product
+            </option>
+
+            <option value="Entra">
+              Entra
+            </option>
+
+            <option value="Intune">
+              Intune
+            </option>
+
+            <option value="Purview">
+              Purview
+            </option>
+
+            <option value="Defender">
+              Defender
+            </option>
+          </select>
+
+        </div>
+
+      </section>
+
+
+      <!-- ===================================================
+           UPDATE FEED
+           app.js injects cards into this element.
+           =================================================== -->
+
+      <section
+        id="feed"
+        class="feed"
+        aria-live="polite"
+        aria-busy="true"
+      >
+        Loading updates...
+      </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer class="site-footer">
+
+      <div class="footer-note">
+
+        <span
+          class="footer-shield"
+          aria-hidden="true"
+        >
+          ◈
+        </span>
+
+        <div>
+
+          <strong>
+            Microsoft official sources only
+          </strong>
+
+          <span>
+            No ads. No tracking. Just signal.
+          </span>
+
+        </div>
+
+      </div>
+
+    </footer>
+
+  </div>
+
+
+  <!-- =======================================================
+       BUY ME A COFFEE
+       Persistent support button.
+       ======================================================= -->
+
+  <a
+    class="coffee-button"
+    href="https://buymeacoffee.com/kirk"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Buy me a coffee"
+  >
+
+    <span
+      class="coffee-icon"
+      aria-hidden="true"
+    >
+      ☕
+    </span>
+
+    <span>
+      Buy me a coffee
+    </span>
+
+    <span
+      class="coffee-external"
+      aria-hidden="true"
+    >
+      ↗
+    </span>
+
+  </a>
+
+
+  <!-- =======================================================
+       SCRIPT
+       ======================================================= -->
+
+  <script src="app.js"></script>
 
 </body>
 </html>
