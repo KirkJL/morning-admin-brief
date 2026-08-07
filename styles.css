@@ -1608,7 +1608,13 @@ svg {
       );
   }
 }
+.update-card.is-read {
+  opacity: 0.68;
+}
 
+.update-card.is-read:hover {
+  opacity: 0.85;
+}
 
 /* =========================================================
    REDUCED MOTION
