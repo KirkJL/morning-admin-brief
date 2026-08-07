@@ -25,8 +25,7 @@ async function init() {
 
     updateHeaderTimestamp(data.generatedAt);
 
-    renderSummary(currentUpdates);
-    renderFeed(currentUpdates);
+    renderCurrentView();
   } catch (error) {
     console.error("Failed to load Morning Admin Brief:", error);
 
@@ -60,6 +59,18 @@ async function loadFeed() {
 
 
 /* =========================================================
+   CURRENT VIEW
+   ========================================================= */
+
+function renderCurrentView() {
+  const visibleUpdates = getFilteredUpdates();
+
+  renderSummary(visibleUpdates);
+  renderFeed(visibleUpdates);
+}
+
+
+/* =========================================================
    FILTERS
    ========================================================= */
 
@@ -88,13 +99,7 @@ function bindFilters() {
         select.value = product;
       }
 
-      const filteredUpdates = getFilteredUpdates();
-
-      console.log(
-        `Filter clicked: ${product}. Showing ${filteredUpdates.length} of ${currentUpdates.length} updates`
-      );
-
-      renderFeed(filteredUpdates);
+      renderCurrentView();
     });
   });
 
@@ -112,7 +117,7 @@ function bindFilters() {
         );
       });
 
-      renderFeed(getFilteredUpdates());
+      renderCurrentView();
     });
   }
 }
@@ -342,7 +347,7 @@ function createUpdateCard(update) {
   article.className = "update-card";
 
   if (isRead(update.id)) {
-    article.style.opacity = "0.72";
+    article.classList.add("is-read");
   }
 
   const meta =
@@ -471,10 +476,11 @@ function createUpdateCard(update) {
       () => {
         markAsRead(update.id);
 
-        article.style.opacity =
-          "0.72";
+        article.classList.add("is-read");
 
-        renderSummary(currentUpdates);
+        renderSummary(
+          getFilteredUpdates()
+        );
       }
     );
 
@@ -571,8 +577,22 @@ function formatUpdateDate(dateValue) {
 
 
 /* =========================================================
-   READ STATE
+   DEVICE-LOCAL READ STATE
    ========================================================= */
+
+/*
+ * Read state is intentionally stored in localStorage.
+ *
+ * This means:
+ *
+ * - Phone keeps its own read history
+ * - Laptop keeps its own read history
+ * - Work PC keeps its own read history
+ * - No account is required
+ * - Nothing is uploaded anywhere
+ *
+ * Clearing browser/site storage will reset the history.
+ */
 
 function getReadStorageKey(id) {
   return `morning-admin-brief-read-${id}`;
@@ -607,4 +627,4 @@ function markAsRead(id) {
   } catch {
     // Local storage may be unavailable.
   }
-}
+      }
