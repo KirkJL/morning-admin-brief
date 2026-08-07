@@ -107,11 +107,16 @@ function getFilteredUpdates() {
     return currentUpdates;
   }
 
+  const selectedProduct = currentProduct.toLowerCase();
+
   return currentUpdates.filter(update => {
-    return String(update.product || "")
-      .toLowerCase() === currentProduct.toLowerCase();
+    const product = String(update.product || "").toLowerCase();
+
+    return product.includes(selectedProduct);
   });
 }
+
+  
 
 
 /* =========================================================
