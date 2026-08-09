@@ -1,17 +1,31 @@
+/* =========================================================
+   365IN5
+   MAIN STYLESHEET
+   ========================================================= */
+
+
+/* =========================================================
+   VARIABLES
+   ========================================================= */
+
 :root {
+  /* Base */
   --bg: #0d0f11;
   --surface: #131619;
   --surface-2: #171b1f;
   --surface-3: #1d2227;
 
+  /* Text */
   --text: #f4f4f1;
   --text-soft: #d5d7da;
   --muted: #969ca3;
   --muted-2: #70767d;
 
+  /* Borders */
   --border: #2a3036;
   --border-strong: #383f46;
 
+  /* General UI colours */
   --blue: #3b82f6;
   --blue-soft: rgba(59, 130, 246, 0.12);
 
@@ -27,9 +41,29 @@
   --red: #ef4444;
   --red-soft: rgba(239, 68, 68, 0.1);
 
+  /* Microsoft product colours */
+  --product-entra: #4f6bed;
+  --product-intune: #0078d4;
+  --product-defender: #7a5af8;
+  --product-purview: #00a4a6;
+  --product-azure: #0089d6;
+  --product-sharepoint: #038387;
+
+  /* Read state */
+  --product-read: #8b9198;
+  --product-read-bg: rgba(139, 145, 152, 0.16);
+  --product-read-border: rgba(139, 145, 152, 0.32);
+
+  /* Why it matters */
+  --why-green: #63c174;
+  --why-green-soft: rgba(99, 193, 116, 0.045);
+  --why-green-border: rgba(99, 193, 116, 0.42);
+
+  /* Coffee */
   --coffee: #ffcf3f;
   --coffee-hover: #ffda66;
 
+  /* Layout */
   --shadow:
     0 12px 36px rgba(0, 0, 0, 0.22);
 
@@ -58,6 +92,8 @@ html {
 body {
   margin: 0;
 
+  min-height: 100vh;
+
   background:
     radial-gradient(
       circle at top left,
@@ -79,8 +115,6 @@ body {
 
   font-size: 16px;
   line-height: 1.6;
-
-  min-height: 100vh;
 }
 
 button,
@@ -312,7 +346,7 @@ svg {
 
 
 /* =========================================================
-   SUMMARY
+   SUMMARY PANEL
    ========================================================= */
 
 .summary-panel {
@@ -411,6 +445,10 @@ svg {
   color: var(--muted);
 }
 
+.summary-icon-read {
+  color: var(--product-read);
+}
+
 .summary-content {
   display: grid;
 
@@ -450,6 +488,88 @@ svg {
   font-size: 0.78rem;
 
   line-height: 1.3;
+}
+
+
+/* =========================================================
+   SUMMARY FILTER BUTTONS
+   ========================================================= */
+
+.summary-filter {
+  appearance: none;
+
+  width: 100%;
+
+  text-align: left;
+
+  color: inherit;
+
+  border: 0;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  transition:
+    background 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.summary-filter:hover {
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.018
+    );
+}
+
+.summary-filter.active {
+  background:
+    rgba(
+      59,
+      130,
+      246,
+      0.055
+    );
+
+  box-shadow:
+    inset
+    0
+    -2px
+    0
+    var(--blue);
+}
+
+.summary-filter:focus-visible {
+  outline:
+    2px
+    solid
+    var(--blue);
+
+  outline-offset:
+    -2px;
+}
+
+.summary-filter[data-status="all"].active
+.summary-icon {
+  color: var(--blue);
+}
+
+.summary-filter[data-status="action"].active
+.summary-icon {
+  color: var(--amber);
+}
+
+.summary-filter[data-status="unread"].active
+.summary-icon {
+  color: #60a5fa;
+}
+
+.summary-filter[data-status="read"].active
+.summary-icon {
+  color: #8f98a3;
 }
 
 
@@ -536,6 +656,46 @@ svg {
   background: var(--blue);
 }
 
+
+/* Product-specific active tab colours */
+
+.filter-tab-entra.active {
+  color: var(--product-entra);
+}
+
+.filter-tab-entra.active::after {
+  background: var(--product-entra);
+}
+
+.filter-tab-intune.active {
+  color: var(--product-intune);
+}
+
+.filter-tab-intune.active::after {
+  background: var(--product-intune);
+}
+
+.filter-tab-defender.active {
+  color: var(--product-defender);
+}
+
+.filter-tab-defender.active::after {
+  background: var(--product-defender);
+}
+
+.filter-tab-purview.active {
+  color: var(--product-purview);
+}
+
+.filter-tab-purview.active::after {
+  background: var(--product-purview);
+}
+
+
+/* =========================================================
+   PRODUCT SELECT
+   ========================================================= */
+
 .filter-select-wrapper {
   flex: 0 0 auto;
 
@@ -591,6 +751,22 @@ svg {
 
 
 /* =========================================================
+   ACTIVE FILTER DESCRIPTION
+   ========================================================= */
+
+.active-filter-description {
+  margin:
+    -2px
+    0
+    14px;
+
+  color: var(--muted);
+
+  font-size: 0.82rem;
+}
+
+
+/* =========================================================
    FEED
    ========================================================= */
 
@@ -604,7 +780,6 @@ svg {
 
 /* =========================================================
    UPDATE CARDS
-   Existing app.js generates .update-card
    ========================================================= */
 
 .update-card {
@@ -665,23 +840,31 @@ svg {
 
 
 /* =========================================================
-   CARD PRODUCT COLOURS
+   PRODUCT CARD STRIPES
    ========================================================= */
 
-.update-card:has(.badge.entra)::before {
-  background: var(--blue);
+.update-card.product-entra::before {
+  background: var(--product-entra);
 }
 
-.update-card:has(.badge.intune)::before {
-  background: var(--purple);
+.update-card.product-intune::before {
+  background: var(--product-intune);
 }
 
-.update-card:has(.badge.purview)::before {
-  background: var(--amber);
+.update-card.product-defender::before {
+  background: var(--product-defender);
 }
 
-.update-card:has(.badge.defender)::before {
-  background: var(--green);
+.update-card.product-purview::before {
+  background: var(--product-purview);
+}
+
+.update-card.product-azure::before {
+  background: var(--product-azure);
+}
+
+.update-card.product-sharepoint::before {
+  background: var(--product-sharepoint);
 }
 
 
@@ -732,85 +915,135 @@ svg {
   text-transform: uppercase;
 }
 
+
+/* =========================================================
+   PRODUCT BADGES
+   ========================================================= */
+
 .badge.entra {
-  color: #dceaff;
+  color: #e6ebff;
 
   background:
     rgba(
-      37,
-      99,
-      235,
-      0.45
+      79,
+      107,
+      237,
+      0.26
     );
 
   border-color:
     rgba(
-      59,
-      130,
-      246,
-      0.24
+      79,
+      107,
+      237,
+      0.48
     );
 }
 
 .badge.intune {
-  color: #eadfff;
+  color: #e1f2ff;
 
   background:
     rgba(
-      109,
-      40,
-      217,
-      0.45
-    );
-
-  border-color:
-    rgba(
-      139,
-      92,
-      246,
-      0.24
-    );
-}
-
-.badge.purview {
-  color: #fff1d2;
-
-  background:
-    rgba(
-      146,
-      85,
       0,
-      0.48
+      120,
+      212,
+      0.27
     );
 
   border-color:
     rgba(
-      245,
-      158,
-      11,
-      0.22
+      0,
+      120,
+      212,
+      0.5
     );
 }
 
 .badge.defender {
-  color: #ddffea;
+  color: #ede8ff;
 
   background:
     rgba(
-      20,
-      110,
-      62,
-      0.5
+      122,
+      90,
+      248,
+      0.26
     );
 
   border-color:
     rgba(
-      56,
-      178,
-      108,
-      0.22
+      122,
+      90,
+      248,
+      0.48
     );
 }
+
+.badge.purview {
+  color: #dfffff;
+
+  background:
+    rgba(
+      0,
+      164,
+      166,
+      0.23
+    );
+
+  border-color:
+    rgba(
+      0,
+      164,
+      166,
+      0.48
+    );
+}
+
+.badge.azure {
+  color: #e0f4ff;
+
+  background:
+    rgba(
+      0,
+      137,
+      214,
+      0.25
+    );
+
+  border-color:
+    rgba(
+      0,
+      137,
+      214,
+      0.5
+    );
+}
+
+.badge.sharepoint {
+  color: #dfffff;
+
+  background:
+    rgba(
+      3,
+      131,
+      135,
+      0.25
+    );
+
+  border-color:
+    rgba(
+      3,
+      131,
+      135,
+      0.5
+    );
+}
+
+
+/* =========================================================
+   STATUS BADGES
+   ========================================================= */
 
 .badge.action-required {
   margin-left: auto;
@@ -913,6 +1146,7 @@ svg {
 
 /* =========================================================
    WHY IT MATTERS
+   Always green regardless of product or read state.
    ========================================================= */
 
 .update-why {
@@ -938,42 +1172,25 @@ svg {
   border:
     1px
     solid
-    var(--border-strong);
+    var(--why-green-border);
 
   border-left:
-    3px
+    4px
     solid
-    var(--blue);
+    var(--why-green);
 
   border-radius: 8px;
 
   background:
-    rgba(
-      255,
-      255,
-      255,
-      0.008
-    );
+    var(--why-green-soft);
 
   font-size: 0.92rem;
 
   line-height: 1.45;
 }
 
-.update-card:has(.badge.intune) .update-why {
-  border-left-color: var(--purple);
-}
-
-.update-card:has(.badge.purview) .update-why {
-  border-left-color: var(--amber);
-}
-
-.update-card:has(.badge.defender) .update-why {
-  border-left-color: var(--green);
-}
-
 .update-why strong {
-  color: var(--text);
+  color: var(--why-green);
 
   white-space: nowrap;
 }
@@ -1027,6 +1244,113 @@ svg {
   text-decoration: underline;
 
   text-underline-offset: 3px;
+}
+
+
+/* =========================================================
+   READ STATE
+   Product identity becomes neutral once read.
+   Article content remains full strength.
+   Why-it-matters remains green.
+   ========================================================= */
+
+.update-card.is-read {
+  opacity: 1;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.012),
+      rgba(255, 255, 255, 0.004)
+    );
+}
+
+
+/*
+ * IMPORTANT:
+ * This selector deliberately comes AFTER all product stripe
+ * rules so the read state always wins.
+ */
+
+.update-card.is-read::before {
+  background:
+    var(--product-read);
+}
+
+
+/*
+ * Only the product badge becomes neutral.
+ *
+ * Status badges such as Action Required, Preview and
+ * Upcoming Change retain their own visual meaning.
+ */
+
+.update-card.is-read .badge.entra,
+.update-card.is-read .badge.intune,
+.update-card.is-read .badge.defender,
+.update-card.is-read .badge.purview,
+.update-card.is-read .badge.azure,
+.update-card.is-read .badge.sharepoint {
+  color: #e0e3e6;
+
+  background:
+    var(--product-read-bg);
+
+  border-color:
+    var(--product-read-border);
+}
+
+
+/*
+ * Never dim read article content.
+ */
+
+.update-card.is-read .update-title,
+.update-card.is-read .update-summary,
+.update-card.is-read .update-footer,
+.update-card.is-read .update-why {
+  opacity: 1;
+}
+
+
+/*
+ * Why it matters stays green even after reading.
+ */
+
+.update-card.is-read .update-why {
+  border:
+    1px
+    solid
+    var(--why-green-border);
+
+  border-left:
+    4px
+    solid
+    var(--why-green);
+
+  background:
+    var(--why-green-soft);
+}
+
+.update-card.is-read .update-why strong {
+  color: var(--why-green);
+}
+
+
+/* =========================================================
+   READ INDICATOR
+   ========================================================= */
+
+.read-indicator {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 4px;
+
+  color: var(--product-read);
+
+  font-weight: 600;
 }
 
 
@@ -1366,6 +1690,9 @@ svg {
     font-size: 0.8rem;
   }
 
+
+  /* Summary */
+
   .summary-panel {
     padding:
       18px
@@ -1422,6 +1749,19 @@ svg {
       var(--border);
   }
 
+  .summary-filter {
+    min-height: 92px;
+  }
+
+  .summary-filter.active {
+    box-shadow:
+      inset
+      0
+      -2px
+      0
+      var(--blue);
+  }
+
   .summary-icon {
     min-width: 30px;
 
@@ -1439,6 +1779,9 @@ svg {
   .summary-detail {
     display: none;
   }
+
+
+  /* Product filters */
 
   .filter-bar {
     display: block;
@@ -1463,6 +1806,9 @@ svg {
   .filter-select-wrapper {
     display: none;
   }
+
+
+  /* Feed */
 
   .feed,
   #feed {
@@ -1536,9 +1882,15 @@ svg {
     margin-right: 8px;
   }
 
+
+  /* Footer */
+
   .site-footer {
     padding-top: 14px;
   }
+
+
+  /* Coffee */
 
   .coffee-button {
     right: 12px;
@@ -1608,32 +1960,7 @@ svg {
       );
   }
 }
-/* Read articles retain their colour identity */
 
-.update-card.is-read {
-    background: rgba(255,255,255,.015);
-}
-
-/* Slightly mute the text */
-
-.update-card.is-read .update-title,
-.update-card.is-read .update-summary,
-.update-card.is-read .update-footer,
-.update-card.is-read .update-why {
-    opacity: .65;
-}
-
-/* Leave all badges at full strength */
-
-.update-card.is-read .badge {
-    opacity: 1;
-}
-
-/* Keep the coloured product stripe */
-
-.update-card.is-read::before {
-    opacity: 1;
-}
 
 /* =========================================================
    REDUCED MOTION
@@ -1657,529 +1984,4 @@ svg {
     animation-iteration-count:
       1 !important;
   }
-}
-/* =========================================================
-   365IN5 PRODUCT COLOURS + FILTERING
-   ========================================================= */
-
-
-/* ---------------------------------------------------------
-   PRODUCT COLOUR VARIABLES
-
-   Restrained colours inspired by the Microsoft product
-   families rather than random dashboard colours.
-   --------------------------------------------------------- */
-
-:root {
-  --product-entra: #4f6bed;
-  --product-intune: #0078d4;
-  --product-defender: #7a5af8;
-  --product-purview: #00a4a6;
-  --product-azure: #0089d6;
-  --product-sharepoint: #038387;
-
-  --product-read: #646b73;
-}
-
-
-/* =========================================================
-   SUMMARY FILTER BUTTONS
-   ========================================================= */
-
-.summary-filter {
-  appearance: none;
-
-  width: 100%;
-
-  text-align: left;
-
-  color: inherit;
-
-  border: 0;
-
-  background: transparent;
-
-  cursor: pointer;
-
-  transition:
-    background 160ms ease,
-    box-shadow 160ms ease;
-}
-
-
-.summary-filter:hover {
-  background:
-    rgba(
-      255,
-      255,
-      255,
-      0.018
-    );
-}
-
-
-.summary-filter.active {
-  background:
-    rgba(
-      59,
-      130,
-      246,
-      0.055
-    );
-
-  box-shadow:
-    inset
-    0
-    -2px
-    0
-    var(--blue);
-}
-
-
-.summary-filter:focus-visible {
-  outline:
-    2px
-    solid
-    var(--blue);
-
-  outline-offset:
-    -2px;
-}
-
-
-/* Updates */
-
-.summary-filter[data-status="all"].active
-.summary-icon {
-  color: var(--blue);
-}
-
-
-/* Action */
-
-.summary-filter[data-status="action"].active
-.summary-icon {
-  color: var(--amber);
-}
-
-
-/* Unread */
-
-.summary-filter[data-status="unread"].active
-.summary-icon {
-  color: #60a5fa;
-}
-
-
-/* Read */
-
-.summary-icon-read {
-  color: var(--product-read);
-}
-
-
-.summary-filter[data-status="read"].active
-.summary-icon {
-  color: #8f98a3;
-}
-
-
-/* =========================================================
-   ACTIVE FILTER DESCRIPTION
-   ========================================================= */
-
-.active-filter-description {
-  margin:
-    -2px
-    0
-    14px;
-
-  color: var(--muted);
-
-  font-size: 0.82rem;
-}
-
-
-/* =========================================================
-   PRODUCT TABS
-   ========================================================= */
-
-.filter-tab-entra.active {
-  color: var(--product-entra);
-}
-
-
-.filter-tab-entra.active::after {
-  background: var(--product-entra);
-}
-
-
-.filter-tab-intune.active {
-  color: var(--product-intune);
-}
-
-
-.filter-tab-intune.active::after {
-  background: var(--product-intune);
-}
-
-
-.filter-tab-defender.active {
-  color: var(--product-defender);
-}
-
-
-.filter-tab-defender.active::after {
-  background: var(--product-defender);
-}
-
-
-.filter-tab-purview.active {
-  color: var(--product-purview);
-}
-
-
-.filter-tab-purview.active::after {
-  background: var(--product-purview);
-}
-
-
-/* =========================================================
-   PRODUCT BADGES
-   ========================================================= */
-
-.badge.entra {
-  color: #e6ebff;
-
-  background:
-    rgba(
-      79,
-      107,
-      237,
-      0.26
-    );
-
-  border-color:
-    rgba(
-      79,
-      107,
-      237,
-      0.48
-    );
-}
-
-
-.badge.intune {
-  color: #e1f2ff;
-
-  background:
-    rgba(
-      0,
-      120,
-      212,
-      0.27
-    );
-
-  border-color:
-    rgba(
-      0,
-      120,
-      212,
-      0.5
-    );
-}
-
-
-.badge.defender {
-  color: #ede8ff;
-
-  background:
-    rgba(
-      122,
-      90,
-      248,
-      0.26
-    );
-
-  border-color:
-    rgba(
-      122,
-      90,
-      248,
-      0.48
-    );
-}
-
-
-.badge.purview {
-  color: #dfffff;
-
-  background:
-    rgba(
-      0,
-      164,
-      166,
-      0.23
-    );
-
-  border-color:
-    rgba(
-      0,
-      164,
-      166,
-      0.48
-    );
-}
-
-
-.badge.azure {
-  color: #e0f4ff;
-
-  background:
-    rgba(
-      0,
-      137,
-      214,
-      0.25
-    );
-
-  border-color:
-    rgba(
-      0,
-      137,
-      214,
-      0.5
-    );
-}
-
-
-.badge.sharepoint {
-  color: #dfffff;
-
-  background:
-    rgba(
-      3,
-      131,
-      135,
-      0.25
-    );
-
-  border-color:
-    rgba(
-      3,
-      131,
-      135,
-      0.5
-    );
-}
-
-
-/* =========================================================
-   PRODUCT CARD STRIPES
-   ========================================================= */
-
-.update-card.product-entra::before {
-  background:
-    var(--product-entra);
-}
-
-
-.update-card.product-intune::before {
-  background:
-    var(--product-intune);
-}
-
-
-.update-card.product-defender::before {
-  background:
-    var(--product-defender);
-}
-
-
-.update-card.product-purview::before {
-  background:
-    var(--product-purview);
-}
-
-
-.update-card.product-azure::before {
-  background:
-    var(--product-azure);
-}
-
-
-.update-card.product-sharepoint::before {
-  background:
-    var(--product-sharepoint);
-}
-
-
-/* =========================================================
-   WHY IT MATTERS PRODUCT STRIPE
-   ========================================================= */
-
-.update-card.product-entra
-.update-why {
-  border-left-color:
-    var(--product-entra);
-}
-
-
-.update-card.product-intune
-.update-why {
-  border-left-color:
-    var(--product-intune);
-}
-
-
-.update-card.product-defender
-.update-why {
-  border-left-color:
-    var(--product-defender);
-}
-
-
-.update-card.product-purview
-.update-why {
-  border-left-color:
-    var(--product-purview);
-}
-
-
-.update-card.product-azure
-.update-why {
-  border-left-color:
-    var(--product-azure);
-}
-
-
-.update-card.product-sharepoint
-.update-why {
-  border-left-color:
-    var(--product-sharepoint);
-}
-
-
-/* =========================================================
-   READ ARTICLES
-
-   Important:
-   DO NOT dim the entire card.
-
-   Read status is communicated through the removal of the
-   product colour instead.
-   ========================================================= */
-
-.update-card.is-read {
-  opacity: 1;
-}
-
-
-/*
- * Grey left stripe once read.
- */
-
-.update-card.is-read::before {
-  background:
-    var(--product-read);
-}
-
-
-/*
- * Grey only the PRODUCT badge.
-
- * Other badges such as:
- *
- * Preview
- * Action required
- * Retirement
- *
- * retain their meaning/colour.
- */
-
-.update-card.is-read
-.badge.entra,
-
-.update-card.is-read
-.badge.intune,
-
-.update-card.is-read
-.badge.defender,
-
-.update-card.is-read
-.badge.purview,
-
-.update-card.is-read
-.badge.azure,
-
-.update-card.is-read
-.badge.sharepoint {
-
-  color: #c8cdd2;
-
-  background:
-    rgba(
-      100,
-      107,
-      115,
-      0.18
-    );
-
-  border-color:
-    rgba(
-      130,
-      138,
-      146,
-      0.32
-    );
-}
-
-
-/*
- * Why-it-matters stripe also becomes neutral.
- */
-
-.update-card.is-read
-.update-why {
-  border-left-color:
-    var(--product-read);
-}
-
-
-/* =========================================================
-   READ INDICATOR
-   ========================================================= */
-
-.read-indicator {
-  display: inline-flex;
-
-  align-items: center;
-
-  gap: 4px;
-
-  color: #858d96;
-
-  font-weight: 600;
-}
-
-
-/* =========================================================
-   MOBILE SUMMARY BUTTON FIX
-   ========================================================= */
-
-@media (max-width: 700px) {
-
-  .summary-filter {
-    min-height: 92px;
-  }
-
-  .summary-filter.active {
-    box-shadow:
-      inset
-      0
-      -2px
-      0
-      var(--blue);
-  }
-
 }
