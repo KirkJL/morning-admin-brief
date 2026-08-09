@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-09T07:18:30Z",
+  "generatedAt": "2026-08-09T13:14:27Z",
   "updateCount": 160,
   "products": [
     "Entra",
@@ -946,6 +946,20 @@
       "actionRequired": true,
       "sourceUrl": "https://learn.microsoft.com/en-us/intune/whats-new/in-development#plan-for-change-new-settings-for-apple-ai-features-genmojis-writing-tools-screen-capture",
       "sourceName": "Microsoft Intune - In development",
+      "sourceType": "Microsoft Learn"
+    },
+    {
+      "id": "94f823af1565532cb1b9",
+      "product": "Defender",
+      "title": "On-demand malware scanning now supports scanning specific blobs, files, containers, and file shares",
+      "summary": "August 6, 2026 On-demand malware scanning in Microsoft Defender for Storage now supports targeted scanning of specific items. Instead of scanning an entire storage account, you can scope scans to a single blob or file, a specific container or file share, or all objects matching a path prefix. You can use filters in the REST API request body to specify which…",
+      "whyItMatters": "This may change security capabilities, detections, recommendations or investigation workflows.",
+      "publishedDate": "2026-08-01",
+      "releaseStatus": null,
+      "changeType": "Update",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/release-notes#on-demand-malware-scanning-now-supports-scanning-specific-blobs-files-containers-and-file-shares",
+      "sourceName": "Microsoft Defender for Cloud",
       "sourceType": "Microsoft Learn"
     },
     {
@@ -2303,20 +2317,6 @@
       "changeType": "Update",
       "actionRequired": false,
       "sourceUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/release-notes#dns-detection-for-kubernetes-is-now-generally-available",
-      "sourceName": "Microsoft Defender for Cloud",
-      "sourceType": "Microsoft Learn"
-    },
-    {
-      "id": "c4d74763a3428037febb",
-      "product": "Defender",
-      "title": "General availability of Defender for Storage integration in Azure portal Storage Center",
-      "summary": "April 20, 2026 This integration brings Defender for Storage insights directly into the native storage management experience. This approach makes it easier for customers to understand and improve their storage security posture at scale. Customers can now view Defender for Storage threat protection and security posture coverage directly in Storage Center,…",
-      "whyItMatters": "This may change security capabilities, detections, recommendations or investigation workflows.",
-      "publishedDate": "2026-04-01",
-      "releaseStatus": "General availability",
-      "changeType": "Security",
-      "actionRequired": false,
-      "sourceUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/release-notes#general-availability-of-defender-for-storage-integration-in-azure-portal-storage-center",
       "sourceName": "Microsoft Defender for Cloud",
       "sourceType": "Microsoft Learn"
     },
