@@ -198,36 +198,26 @@ svg {
 
   min-width: 0;
 }
-
 .brand-icon {
   width: 74px;
   height: 74px;
 
   flex: 0 0 auto;
 
-  display: grid;
-  place-items: center;
+  border-radius: 50%;
 
-  color: #e9ecef;
-
-  border:
-    1px
-    solid
-    var(--border-strong);
-
-  border-radius: 12px;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.025),
-      rgba(255, 255, 255, 0.008)
-    );
+  overflow: hidden;
 }
 
-.brand-icon svg {
-  width: 44px;
-  height: 44px;
+.brand-logo {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  border-radius: 50%;
 }
 
 .brand-copy {
