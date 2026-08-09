@@ -1,44 +1,88 @@
 const FEED_URL = "updates.json";
 
 let currentUpdates = [];
-let currentProduct = "all";
 
-document.addEventListener("DOMContentLoaded", init);
+/*
+ * Two independent filters.
+ *
+ * Example:
+ *
+ * currentProduct = "Intune"
+ * currentStatus  = "unread"
+ *
+ * = unread Intune updates only.
+ */
+
+let currentProduct = "all";
+let currentStatus = "all";
+
+
+document.addEventListener(
+  "DOMContentLoaded",
+  init
+);
+
+
+/* =========================================================
+   INITIALISATION
+   ========================================================= */
 
 async function init() {
-  const feedElement = document.getElementById("feed");
-  const summaryElement = document.getElementById("summaryText");
+  const feedElement =
+    document.getElementById("feed");
+
+  const summaryElement =
+    document.getElementById("summaryText");
 
   if (!feedElement || !summaryElement) {
-    console.error("Required page elements are missing.");
+    console.error(
+      "365in5: required page elements are missing."
+    );
+
     return;
   }
 
-  bindFilters();
+  bindProductFilters();
+  bindStatusFilters();
 
   try {
-    const data = await loadFeed();
+    const data =
+      await loadFeed();
 
-    currentUpdates = Array.isArray(data.updates)
-      ? data.updates
-      : [];
+    currentUpdates =
+      Array.isArray(data.updates)
+        ? data.updates
+        : [];
 
-    updateHeaderTimestamp(data.generatedAt);
+    updateHeaderTimestamp(
+      data.generatedAt
+    );
 
     renderCurrentView();
+
   } catch (error) {
-    console.error("Failed to load Morning Admin Brief:", error);
+
+    console.error(
+      "365in5: failed to load update feed:",
+      error
+    );
 
     summaryElement.textContent =
       "Unable to load the latest brief.";
 
     feedElement.innerHTML = `
       <div class="error-state">
-        The update feed could not be loaded. Try refreshing the page later.
+        The update feed could not be loaded.
+        Try refreshing the page later.
       </div>
     `;
   }
 }
+
+
+/* =========================================================
+   LOAD FEED
+   ========================================================= */
 
 async function loadFeed() {
   const response = await fetch(
@@ -63,79 +107,306 @@ async function loadFeed() {
    ========================================================= */
 
 function renderCurrentView() {
-  const visibleUpdates = getFilteredUpdates();
+  /*
+   * Product stats are calculated BEFORE the status filter.
+   *
+   * Example:
+   *
+   * If Intune is selected:
+   *
+   * 42 updates
+   * 4 action required
+   * 19 unread
+   * 23 read
+   *
+   * Then clicking "Unread" only changes the feed itself.
+   */
 
-  renderSummary(visibleUpdates);
-  renderFeed(visibleUpdates);
+  const productUpdates =
+    getProductFilteredUpdates();
+
+  const visibleUpdates =
+    getFilteredUpdates();
+
+  renderSummary(
+    productUpdates
+  );
+
+  renderFeed(
+    visibleUpdates
+  );
+
+  updateFilterDescription();
 }
 
 
 /* =========================================================
-   FILTERS
+   PRODUCT FILTERS
    ========================================================= */
 
-function bindFilters() {
-  const tabs = document.querySelectorAll(".filter-tab");
-  const select = document.getElementById("productFilter");
+function bindProductFilters() {
+  const tabs =
+    document.querySelectorAll(
+      ".filter-tab"
+    );
 
-  console.log(
-    `Morning Admin Brief: found ${tabs.length} filter tabs`
-  );
+  const select =
+    document.getElementById(
+      "productFilter"
+    );
 
   tabs.forEach(tab => {
-    tab.addEventListener("click", () => {
-      const product =
-        tab.getAttribute("data-product") || "all";
 
-      currentProduct = product;
+    tab.addEventListener(
+      "click",
+      () => {
 
-      tabs.forEach(item => {
-        item.classList.remove("active");
-      });
+        currentProduct =
+          tab.getAttribute(
+            "data-product"
+          ) || "all";
 
-      tab.classList.add("active");
+        tabs.forEach(item => {
+          item.classList.remove(
+            "active"
+          );
+        });
 
-      if (select) {
-        select.value = product;
+        tab.classList.add(
+          "active"
+        );
+
+        if (select) {
+          select.value =
+            currentProduct;
+        }
+
+        renderCurrentView();
       }
-
-      renderCurrentView();
-    });
+    );
   });
 
+
   if (select) {
-    select.addEventListener("change", () => {
-      currentProduct = select.value || "all";
 
-      tabs.forEach(tab => {
-        const product =
-          tab.getAttribute("data-product") || "all";
+    select.addEventListener(
+      "change",
+      () => {
 
-        tab.classList.toggle(
-          "active",
-          product === currentProduct
-        );
-      });
+        currentProduct =
+          select.value || "all";
 
-      renderCurrentView();
-    });
+        tabs.forEach(tab => {
+
+          const product =
+            tab.getAttribute(
+              "data-product"
+            ) || "all";
+
+          tab.classList.toggle(
+            "active",
+            product === currentProduct
+          );
+        });
+
+        renderCurrentView();
+      }
+    );
   }
 }
 
-function getFilteredUpdates() {
+
+/* =========================================================
+   STATUS FILTERS
+   ========================================================= */
+
+function bindStatusFilters() {
+  const filters =
+    document.querySelectorAll(
+      ".summary-filter"
+    );
+
+  filters.forEach(filter => {
+
+    filter.addEventListener(
+      "click",
+      () => {
+
+        currentStatus =
+          filter.getAttribute(
+            "data-status"
+          ) || "all";
+
+        filters.forEach(item => {
+
+          const active =
+            item === filter;
+
+          item.classList.toggle(
+            "active",
+            active
+          );
+
+          item.setAttribute(
+            "aria-pressed",
+            active
+              ? "true"
+              : "false"
+          );
+        });
+
+        renderCurrentView();
+      }
+    );
+  });
+}
+
+
+/* =========================================================
+   FILTERING
+   ========================================================= */
+
+function getProductFilteredUpdates() {
   if (currentProduct === "all") {
     return currentUpdates;
   }
 
   const selectedProduct =
-    currentProduct.toLowerCase();
+    normaliseProduct(
+      currentProduct
+    );
 
-  return currentUpdates.filter(update => {
-    const product =
-      String(update.product || "").toLowerCase();
+  return currentUpdates.filter(
+    update => {
 
-    return product.includes(selectedProduct);
-  });
+      const updateProduct =
+        normaliseProduct(
+          update.product
+        );
+
+      return updateProduct.includes(
+        selectedProduct
+      );
+    }
+  );
+}
+
+
+function getFilteredUpdates() {
+  let updates =
+    getProductFilteredUpdates();
+
+
+  switch (currentStatus) {
+
+    case "action":
+
+      updates =
+        updates.filter(
+          update =>
+            update.actionRequired === true
+        );
+
+      break;
+
+
+    case "unread":
+
+      updates =
+        updates.filter(
+          update =>
+            !isRead(update.id)
+        );
+
+      break;
+
+
+    case "read":
+
+      updates =
+        updates.filter(
+          update =>
+            isRead(update.id)
+        );
+
+      break;
+
+
+    case "all":
+    default:
+
+      break;
+  }
+
+
+  return updates;
+}
+
+
+function normaliseProduct(value) {
+  return String(
+    value || ""
+  )
+    .trim()
+    .toLowerCase();
+}
+
+
+/* =========================================================
+   ACTIVE FILTER DESCRIPTION
+   ========================================================= */
+
+function updateFilterDescription() {
+  const element =
+    document.getElementById(
+      "activeFilterDescription"
+    );
+
+  if (!element) {
+    return;
+  }
+
+
+  const productName =
+    currentProduct === "all"
+      ? "all products"
+      : currentProduct;
+
+
+  let statusText =
+    "all updates";
+
+
+  if (currentStatus === "action") {
+    statusText =
+      "updates requiring attention";
+  }
+
+  if (currentStatus === "unread") {
+    statusText =
+      "unread updates";
+  }
+
+  if (currentStatus === "read") {
+    statusText =
+      "read updates";
+  }
+
+
+  if (
+    currentProduct === "all" &&
+    currentStatus === "all"
+  ) {
+
+    element.textContent =
+      "Showing all updates";
+
+    return;
+  }
+
+
+  element.textContent =
+    `Showing ${statusText} for ${productName}`;
 }
 
 
@@ -145,96 +416,85 @@ function getFilteredUpdates() {
 
 function renderSummary(updates) {
   const summaryElement =
-    document.getElementById("summaryText");
+    document.getElementById(
+      "summaryText"
+    );
 
   const updatesCount =
-    document.getElementById("summaryUpdates");
+    document.getElementById(
+      "summaryUpdates"
+    );
 
   const actionsCount =
-    document.getElementById("summaryActions");
+    document.getElementById(
+      "summaryActions"
+    );
 
   const unreadCount =
-    document.getElementById("summaryUnread");
+    document.getElementById(
+      "summaryUnread"
+    );
 
-  const minutesCount =
-    document.getElementById("summaryMinutes");
+  const readCount =
+    document.getElementById(
+      "summaryRead"
+    );
 
-  const newCount =
-    document.getElementById("summaryNew");
 
-  const total = updates.length;
+  const total =
+    updates.length;
 
-  const actions = updates.filter(
-    update => update.actionRequired === true
-  ).length;
 
-  const unread = updates.filter(
-    update => !isRead(update.id)
-  ).length;
+  const actions =
+    updates.filter(
+      update =>
+        update.actionRequired === true
+    ).length;
 
-  const estimatedMinutes = Math.max(
-    1,
-    Math.ceil(total * 0.45)
-  );
+
+  const unread =
+    updates.filter(
+      update =>
+        !isRead(update.id)
+    ).length;
+
+
+  const read =
+    total - unread;
+
 
   if (updatesCount) {
-    updatesCount.textContent = total;
+    updatesCount.textContent =
+      total;
   }
+
 
   if (actionsCount) {
-    actionsCount.textContent = actions;
+    actionsCount.textContent =
+      actions;
   }
+
 
   if (unreadCount) {
-    unreadCount.textContent = unread;
+    unreadCount.textContent =
+      unread;
   }
 
-  if (minutesCount) {
-    minutesCount.textContent = `~${estimatedMinutes}`;
+
+  if (readCount) {
+    readCount.textContent =
+      read;
   }
 
-  if (newCount) {
-    newCount.textContent =
-      getNewUpdatesText(updates);
-  }
 
   if (summaryElement) {
+
     summaryElement.textContent =
-      `${total} updates • ${unread} unread • ` +
+      `${total} updates • ` +
       `${actions} require attention • ` +
-      `about ${estimatedMinutes} minute${estimatedMinutes === 1 ? "" : "s"} to read`;
+      `${unread} unread • ` +
+      `${read} read`;
   }
-}
-
-function getNewUpdatesText(updates) {
-  const now = new Date();
-
-  const recent = updates.filter(update => {
-    if (!update.publishedDate) {
-      return false;
-    }
-
-    const date =
-      new Date(update.publishedDate);
-
-    if (Number.isNaN(date.getTime())) {
-      return false;
-    }
-
-    const difference =
-      now.getTime() - date.getTime();
-
-    const hours =
-      difference / (1000 * 60 * 60);
-
-    return hours >= 0 && hours <= 24;
-  });
-
-  if (recent.length === 0) {
-    return "Latest Microsoft changes";
-  }
-
-  return `${recent.length} new in the last 24 hours`;
 }
 
 
@@ -242,20 +502,36 @@ function getNewUpdatesText(updates) {
    HEADER TIMESTAMP
    ========================================================= */
 
-function updateHeaderTimestamp(dateValue) {
+function updateHeaderTimestamp(
+  dateValue
+) {
   const element =
-    document.getElementById("lastUpdated");
+    document.getElementById(
+      "lastUpdated"
+    );
 
-  if (!element || !dateValue) {
+  if (
+    !element ||
+    !dateValue
+  ) {
     return;
   }
+
 
   const date =
-    new Date(dateValue);
+    new Date(
+      dateValue
+    );
 
-  if (Number.isNaN(date.getTime())) {
+
+  if (
+    Number.isNaN(
+      date.getTime()
+    )
+  ) {
     return;
   }
+
 
   const formatted =
     new Intl.DateTimeFormat(
@@ -267,7 +543,10 @@ function updateHeaderTimestamp(dateValue) {
         hour: "2-digit",
         minute: "2-digit"
       }
-    ).format(date);
+    ).format(
+      date
+    );
+
 
   element.innerHTML = `
     <span
@@ -295,74 +574,141 @@ function updateHeaderTimestamp(dateValue) {
 
 function renderFeed(updates) {
   const feedElement =
-    document.getElementById("feed");
+    document.getElementById(
+      "feed"
+    );
 
   if (!feedElement) {
     return;
   }
+
 
   feedElement.setAttribute(
     "aria-busy",
     "false"
   );
 
-  feedElement.innerHTML = "";
+
+  feedElement.innerHTML =
+    "";
+
 
   if (
     !Array.isArray(updates) ||
     updates.length === 0
   ) {
+
     feedElement.innerHTML = `
       <div class="empty-state">
-        No Microsoft admin updates match this filter.
+        Nothing matches the selected filters.
       </div>
     `;
 
     return;
   }
 
+
   const sortedUpdates =
-    [...updates].sort((a, b) => {
-      const dateA =
-        new Date(a.publishedDate || 0);
+    [...updates].sort(
+      (a, b) => {
 
-      const dateB =
-        new Date(b.publishedDate || 0);
+        const dateA =
+          new Date(
+            a.publishedDate || 0
+          );
 
-      return dateB - dateA;
-    });
+        const dateB =
+          new Date(
+            b.publishedDate || 0
+          );
 
-  for (const update of sortedUpdates) {
+        return dateB - dateA;
+      }
+    );
+
+
+  for (
+    const update
+    of sortedUpdates
+  ) {
+
     const card =
-      createUpdateCard(update);
+      createUpdateCard(
+        update
+      );
 
-    feedElement.appendChild(card);
+    feedElement.appendChild(
+      card
+    );
   }
 }
 
-function createUpdateCard(update) {
+
+/* =========================================================
+   CREATE CARD
+   ========================================================= */
+
+function createUpdateCard(
+  update
+) {
   const article =
-    document.createElement("article");
+    document.createElement(
+      "article"
+    );
 
-  article.className = "update-card";
 
-  if (isRead(update.id)) {
-    article.classList.add("is-read");
+  article.className =
+    "update-card";
+
+
+  const read =
+    isRead(
+      update.id
+    );
+
+
+  if (read) {
+    article.classList.add(
+      "is-read"
+    );
   }
 
-  const meta =
-    document.createElement("div");
 
-  meta.className = "update-meta";
+  const productClass =
+    getProductClass(
+      update.product
+    );
+
+
+  if (productClass) {
+
+    article.classList.add(
+      `product-${productClass}`
+    );
+  }
+
+
+  const meta =
+    document.createElement(
+      "div"
+    );
+
+
+  meta.className =
+    "update-meta";
+
 
   meta.appendChild(
     createBadge(
-      update.product || "Microsoft",
-      getProductClass(update.product)
+      update.product ||
+        "Microsoft",
+      productClass
     )
   );
 
+
   if (update.changeType) {
+
     meta.appendChild(
       createBadge(
         update.changeType
@@ -370,7 +716,9 @@ function createUpdateCard(update) {
     );
   }
 
+
   if (update.releaseStatus) {
+
     meta.appendChild(
       createBadge(
         update.releaseStatus,
@@ -381,7 +729,11 @@ function createUpdateCard(update) {
     );
   }
 
-  if (update.actionRequired === true) {
+
+  if (
+    update.actionRequired === true
+  ) {
+
     meta.appendChild(
       createBadge(
         "Action required",
@@ -390,104 +742,206 @@ function createUpdateCard(update) {
     );
   }
 
+
   const title =
-    document.createElement("h2");
+    document.createElement(
+      "h2"
+    );
+
 
   title.className =
     "update-title";
+
 
   title.textContent =
     update.title ||
     "Untitled Microsoft update";
 
+
   const summary =
-    document.createElement("p");
+    document.createElement(
+      "p"
+    );
+
 
   summary.className =
     "update-summary";
+
 
   summary.textContent =
     update.summary ||
     "No summary is available for this update.";
 
-  article.appendChild(meta);
-  article.appendChild(title);
-  article.appendChild(summary);
+
+  article.appendChild(
+    meta
+  );
+
+
+  article.appendChild(
+    title
+  );
+
+
+  article.appendChild(
+    summary
+  );
+
 
   if (update.whyItMatters) {
+
     const why =
-      document.createElement("div");
+      document.createElement(
+        "div"
+      );
+
 
     why.className =
       "update-why";
 
+
     const strong =
-      document.createElement("strong");
+      document.createElement(
+        "strong"
+      );
+
 
     strong.textContent =
       "Why it matters:";
 
+
     const text =
-      document.createElement("span");
+      document.createElement(
+        "span"
+      );
+
 
     text.textContent =
       ` ${update.whyItMatters}`;
 
-    why.appendChild(strong);
-    why.appendChild(text);
 
-    article.appendChild(why);
+    why.appendChild(
+      strong
+    );
+
+
+    why.appendChild(
+      text
+    );
+
+
+    article.appendChild(
+      why
+    );
   }
 
+
   const footer =
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
+
 
   footer.className =
     "update-footer";
 
+
   const date =
-    document.createElement("span");
+    document.createElement(
+      "span"
+    );
+
 
   date.textContent =
     formatUpdateDate(
       update.publishedDate
     );
 
-  footer.appendChild(date);
+
+  footer.appendChild(
+    date
+  );
+
+
+  /*
+   * Show a visual read indicator.
+   */
+
+  if (read) {
+
+    const readIndicator =
+      document.createElement(
+        "span"
+      );
+
+    readIndicator.className =
+      "read-indicator";
+
+    readIndicator.textContent =
+      "✓ Read";
+
+    footer.appendChild(
+      readIndicator
+    );
+  }
+
 
   if (update.sourceUrl) {
+
     const link =
-      document.createElement("a");
+      document.createElement(
+        "a"
+      );
+
 
     link.href =
       update.sourceUrl;
 
+
     link.target =
       "_blank";
+
 
     link.rel =
       "noopener noreferrer";
 
+
     link.textContent =
       "Read Microsoft source →";
+
 
     link.addEventListener(
       "click",
       () => {
-        markAsRead(update.id);
 
-        article.classList.add("is-read");
-
-        renderSummary(
-          getFilteredUpdates()
+        markAsRead(
+          update.id
         );
+
+        /*
+         * Immediately update everything
+         * on the page.
+         *
+         * Important when "Unread"
+         * is currently selected because
+         * the article should disappear.
+         */
+
+        renderCurrentView();
       }
     );
 
-    footer.appendChild(link);
+
+    footer.appendChild(
+      link
+    );
   }
 
-  article.appendChild(footer);
+
+  article.appendChild(
+    footer
+  );
+
 
   return article;
 }
@@ -502,48 +956,119 @@ function createBadge(
   extraClass = ""
 ) {
   const badge =
-    document.createElement("span");
+    document.createElement(
+      "span"
+    );
+
 
   badge.className =
-    `badge${extraClass ? ` ${extraClass}` : ""}`;
+    `badge${
+      extraClass
+        ? ` ${extraClass}`
+        : ""
+    }`;
 
-  badge.textContent = text;
+
+  badge.textContent =
+    text;
+
 
   return badge;
 }
 
-function getProductClass(product) {
-  const value =
-    String(product || "")
-      .toLowerCase();
 
-  if (value.includes("intune")) {
+/* =========================================================
+   PRODUCT CLASS
+   ========================================================= */
+
+function getProductClass(
+  product
+) {
+  const value =
+    String(
+      product || ""
+    ).toLowerCase();
+
+
+  if (
+    value.includes(
+      "intune"
+    )
+  ) {
     return "intune";
   }
 
-  if (value.includes("entra")) {
+
+  if (
+    value.includes(
+      "entra"
+    )
+  ) {
     return "entra";
   }
 
-  if (value.includes("purview")) {
+
+  if (
+    value.includes(
+      "purview"
+    )
+  ) {
     return "purview";
   }
 
-  if (value.includes("defender")) {
+
+  if (
+    value.includes(
+      "defender"
+    )
+  ) {
     return "defender";
   }
+
+
+  if (
+    value.includes(
+      "azure"
+    )
+  ) {
+    return "azure";
+  }
+
+
+  if (
+    value.includes(
+      "sharepoint"
+    )
+  ) {
+    return "sharepoint";
+  }
+
 
   return "";
 }
 
-function getStatusClass(status) {
-  const value =
-    String(status || "")
-      .toLowerCase();
 
-  if (value.includes("preview")) {
+/* =========================================================
+   RELEASE STATUS
+   ========================================================= */
+
+function getStatusClass(
+  status
+) {
+  const value =
+    String(
+      status || ""
+    ).toLowerCase();
+
+
+  if (
+    value.includes(
+      "preview"
+    )
+  ) {
     return "preview";
   }
+
 
   return "";
 }
@@ -553,17 +1078,30 @@ function getStatusClass(status) {
    DATE FORMATTING
    ========================================================= */
 
-function formatUpdateDate(dateValue) {
+function formatUpdateDate(
+  dateValue
+) {
   if (!dateValue) {
     return "Date unavailable";
   }
 
-  const date =
-    new Date(dateValue);
 
-  if (Number.isNaN(date.getTime())) {
-    return String(dateValue);
+  const date =
+    new Date(
+      dateValue
+    );
+
+
+  if (
+    Number.isNaN(
+      date.getTime()
+    )
+  ) {
+    return String(
+      dateValue
+    );
   }
+
 
   return new Intl.DateTimeFormat(
     "en-GB",
@@ -572,7 +1110,9 @@ function formatUpdateDate(dateValue) {
       month: "long",
       year: "numeric"
     }
-  ).format(date);
+  ).format(
+    date
+  );
 }
 
 
@@ -581,50 +1121,88 @@ function formatUpdateDate(dateValue) {
    ========================================================= */
 
 /*
- * Read state is intentionally stored in localStorage.
+ * Read history stays on the device/browser.
  *
- * This means:
- *
- * - Phone keeps its own read history
- * - Laptop keeps its own read history
- * - Work PC keeps its own read history
- * - No account is required
- * - Nothing is uploaded anywhere
- *
- * Clearing browser/site storage will reset the history.
+ * No tracking.
+ * No account.
+ * No server storage.
  */
 
-function getReadStorageKey(id) {
-  return `morning-admin-brief-read-${id}`;
+function getReadStorageKey(
+  id
+) {
+  return (
+    `365in5-read-${id}`
+  );
 }
 
-function isRead(id) {
+
+function isRead(
+  id
+) {
   if (!id) {
     return false;
   }
 
+
   try {
-    return (
+
+    /*
+     * Support the original Morning Admin Brief
+     * storage keys too.
+     *
+     * This prevents your current device from
+     * suddenly forgetting everything you've
+     * already read after the 365in5 rename.
+     */
+
+    const newKey =
       localStorage.getItem(
-        getReadStorageKey(id)
-      ) === "true"
+        getReadStorageKey(
+          id
+        )
+      );
+
+
+    const legacyKey =
+      localStorage.getItem(
+        `morning-admin-brief-read-${id}`
+      );
+
+
+    return (
+      newKey === "true" ||
+      legacyKey === "true"
     );
+
   } catch {
+
     return false;
   }
 }
 
-function markAsRead(id) {
+
+function markAsRead(
+  id
+) {
   if (!id) {
     return;
   }
 
+
   try {
+
     localStorage.setItem(
-      getReadStorageKey(id),
+      getReadStorageKey(
+        id
+      ),
       "true"
     );
+
   } catch {
-    // Local storage may be unavailable.
+
+    /*
+     * Local storage may be disabled.
+     */
   }
-      }
+}
