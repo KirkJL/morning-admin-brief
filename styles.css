@@ -1640,17 +1640,12 @@ svg {
     gap: 14px;
   }
 
-  .brand-icon {
-    width: 56px;
-    height: 56px;
+.brand-icon {
+  width: 56px;
+  height: 56px;
 
-    border-radius: 10px;
-  }
-
-  .brand-icon svg {
-    width: 34px;
-    height: 34px;
-  }
+  border-radius: 50%;
+}
 
   .brand-copy h1 {
     font-size: 2rem;
