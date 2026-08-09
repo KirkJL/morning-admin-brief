@@ -1658,3 +1658,528 @@ svg {
       1 !important;
   }
 }
+/* =========================================================
+   365IN5 PRODUCT COLOURS + FILTERING
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   PRODUCT COLOUR VARIABLES
+
+   Restrained colours inspired by the Microsoft product
+   families rather than random dashboard colours.
+   --------------------------------------------------------- */
+
+:root {
+  --product-entra: #4f6bed;
+  --product-intune: #0078d4;
+  --product-defender: #7a5af8;
+  --product-purview: #00a4a6;
+  --product-azure: #0089d6;
+  --product-sharepoint: #038387;
+
+  --product-read: #646b73;
+}
+
+
+/* =========================================================
+   SUMMARY FILTER BUTTONS
+   ========================================================= */
+
+.summary-filter {
+  appearance: none;
+
+  width: 100%;
+
+  text-align: left;
+
+  color: inherit;
+
+  border: 0;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  transition:
+    background 160ms ease,
+    box-shadow 160ms ease;
+}
+
+
+.summary-filter:hover {
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.018
+    );
+}
+
+
+.summary-filter.active {
+  background:
+    rgba(
+      59,
+      130,
+      246,
+      0.055
+    );
+
+  box-shadow:
+    inset
+    0
+    -2px
+    0
+    var(--blue);
+}
+
+
+.summary-filter:focus-visible {
+  outline:
+    2px
+    solid
+    var(--blue);
+
+  outline-offset:
+    -2px;
+}
+
+
+/* Updates */
+
+.summary-filter[data-status="all"].active
+.summary-icon {
+  color: var(--blue);
+}
+
+
+/* Action */
+
+.summary-filter[data-status="action"].active
+.summary-icon {
+  color: var(--amber);
+}
+
+
+/* Unread */
+
+.summary-filter[data-status="unread"].active
+.summary-icon {
+  color: #60a5fa;
+}
+
+
+/* Read */
+
+.summary-icon-read {
+  color: var(--product-read);
+}
+
+
+.summary-filter[data-status="read"].active
+.summary-icon {
+  color: #8f98a3;
+}
+
+
+/* =========================================================
+   ACTIVE FILTER DESCRIPTION
+   ========================================================= */
+
+.active-filter-description {
+  margin:
+    -2px
+    0
+    14px;
+
+  color: var(--muted);
+
+  font-size: 0.82rem;
+}
+
+
+/* =========================================================
+   PRODUCT TABS
+   ========================================================= */
+
+.filter-tab-entra.active {
+  color: var(--product-entra);
+}
+
+
+.filter-tab-entra.active::after {
+  background: var(--product-entra);
+}
+
+
+.filter-tab-intune.active {
+  color: var(--product-intune);
+}
+
+
+.filter-tab-intune.active::after {
+  background: var(--product-intune);
+}
+
+
+.filter-tab-defender.active {
+  color: var(--product-defender);
+}
+
+
+.filter-tab-defender.active::after {
+  background: var(--product-defender);
+}
+
+
+.filter-tab-purview.active {
+  color: var(--product-purview);
+}
+
+
+.filter-tab-purview.active::after {
+  background: var(--product-purview);
+}
+
+
+/* =========================================================
+   PRODUCT BADGES
+   ========================================================= */
+
+.badge.entra {
+  color: #e6ebff;
+
+  background:
+    rgba(
+      79,
+      107,
+      237,
+      0.26
+    );
+
+  border-color:
+    rgba(
+      79,
+      107,
+      237,
+      0.48
+    );
+}
+
+
+.badge.intune {
+  color: #e1f2ff;
+
+  background:
+    rgba(
+      0,
+      120,
+      212,
+      0.27
+    );
+
+  border-color:
+    rgba(
+      0,
+      120,
+      212,
+      0.5
+    );
+}
+
+
+.badge.defender {
+  color: #ede8ff;
+
+  background:
+    rgba(
+      122,
+      90,
+      248,
+      0.26
+    );
+
+  border-color:
+    rgba(
+      122,
+      90,
+      248,
+      0.48
+    );
+}
+
+
+.badge.purview {
+  color: #dfffff;
+
+  background:
+    rgba(
+      0,
+      164,
+      166,
+      0.23
+    );
+
+  border-color:
+    rgba(
+      0,
+      164,
+      166,
+      0.48
+    );
+}
+
+
+.badge.azure {
+  color: #e0f4ff;
+
+  background:
+    rgba(
+      0,
+      137,
+      214,
+      0.25
+    );
+
+  border-color:
+    rgba(
+      0,
+      137,
+      214,
+      0.5
+    );
+}
+
+
+.badge.sharepoint {
+  color: #dfffff;
+
+  background:
+    rgba(
+      3,
+      131,
+      135,
+      0.25
+    );
+
+  border-color:
+    rgba(
+      3,
+      131,
+      135,
+      0.5
+    );
+}
+
+
+/* =========================================================
+   PRODUCT CARD STRIPES
+   ========================================================= */
+
+.update-card.product-entra::before {
+  background:
+    var(--product-entra);
+}
+
+
+.update-card.product-intune::before {
+  background:
+    var(--product-intune);
+}
+
+
+.update-card.product-defender::before {
+  background:
+    var(--product-defender);
+}
+
+
+.update-card.product-purview::before {
+  background:
+    var(--product-purview);
+}
+
+
+.update-card.product-azure::before {
+  background:
+    var(--product-azure);
+}
+
+
+.update-card.product-sharepoint::before {
+  background:
+    var(--product-sharepoint);
+}
+
+
+/* =========================================================
+   WHY IT MATTERS PRODUCT STRIPE
+   ========================================================= */
+
+.update-card.product-entra
+.update-why {
+  border-left-color:
+    var(--product-entra);
+}
+
+
+.update-card.product-intune
+.update-why {
+  border-left-color:
+    var(--product-intune);
+}
+
+
+.update-card.product-defender
+.update-why {
+  border-left-color:
+    var(--product-defender);
+}
+
+
+.update-card.product-purview
+.update-why {
+  border-left-color:
+    var(--product-purview);
+}
+
+
+.update-card.product-azure
+.update-why {
+  border-left-color:
+    var(--product-azure);
+}
+
+
+.update-card.product-sharepoint
+.update-why {
+  border-left-color:
+    var(--product-sharepoint);
+}
+
+
+/* =========================================================
+   READ ARTICLES
+
+   Important:
+   DO NOT dim the entire card.
+
+   Read status is communicated through the removal of the
+   product colour instead.
+   ========================================================= */
+
+.update-card.is-read {
+  opacity: 1;
+}
+
+
+/*
+ * Grey left stripe once read.
+ */
+
+.update-card.is-read::before {
+  background:
+    var(--product-read);
+}
+
+
+/*
+ * Grey only the PRODUCT badge.
+
+ * Other badges such as:
+ *
+ * Preview
+ * Action required
+ * Retirement
+ *
+ * retain their meaning/colour.
+ */
+
+.update-card.is-read
+.badge.entra,
+
+.update-card.is-read
+.badge.intune,
+
+.update-card.is-read
+.badge.defender,
+
+.update-card.is-read
+.badge.purview,
+
+.update-card.is-read
+.badge.azure,
+
+.update-card.is-read
+.badge.sharepoint {
+
+  color: #c8cdd2;
+
+  background:
+    rgba(
+      100,
+      107,
+      115,
+      0.18
+    );
+
+  border-color:
+    rgba(
+      130,
+      138,
+      146,
+      0.32
+    );
+}
+
+
+/*
+ * Why-it-matters stripe also becomes neutral.
+ */
+
+.update-card.is-read
+.update-why {
+  border-left-color:
+    var(--product-read);
+}
+
+
+/* =========================================================
+   READ INDICATOR
+   ========================================================= */
+
+.read-indicator {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 4px;
+
+  color: #858d96;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   MOBILE SUMMARY BUTTON FIX
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .summary-filter {
+    min-height: 92px;
+  }
+
+  .summary-filter.active {
+    box-shadow:
+      inset
+      0
+      -2px
+      0
+      var(--blue);
+  }
+
+}
