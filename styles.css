@@ -199,14 +199,14 @@ svg {
   min-width: 0;
 }
 .brand-icon {
-  width: 74px;
-  height: 74px;
+  width: 110px;
+  height: 82px;
 
   flex: 0 0 auto;
 
-  border-radius: 50%;
-
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .brand-logo {
@@ -215,9 +215,7 @@ svg {
 
   display: block;
 
-  object-fit: cover;
-
-  border-radius: 50%;
+  object-fit: contain;
 }
 
 .brand-copy {
@@ -1641,8 +1639,9 @@ svg {
   }
 
 .brand-icon {
-  width: 56px;
-  height: 56px;
+  width: 82px;
+  height: 62px;
+}
 
   border-radius: 50%;
 }
