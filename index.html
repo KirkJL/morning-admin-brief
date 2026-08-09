@@ -15,14 +15,14 @@
 
   <meta
     name="description"
-    content="Morning Admin Brief - Microsoft Entra, Intune, Purview and Defender updates in one simple daily briefing."
+    content="365in5 - Your Microsoft cloud briefing. Everything worth knowing in five minutes."
   >
 
-  <title>Morning Admin Brief</title>
+  <title>365in5</title>
 
   <link
     rel="stylesheet"
-    href="styles.css"
+    href="styles.css?v=7"
   >
 </head>
 
@@ -93,11 +93,11 @@
         <div class="brand-copy">
 
           <h1>
-            Morning Admin Brief
+            365in5
           </h1>
 
           <p>
-            Everything new across Microsoft 365 while you were asleep.
+            Your Microsoft cloud briefing. Everything worth knowing in five minutes.
           </p>
 
         </div>
@@ -138,7 +138,7 @@
     <main>
 
       <!-- ===================================================
-           SUMMARY
+           SUMMARY / STATUS FILTERS
            =================================================== -->
 
       <section
@@ -151,7 +151,7 @@
           id="summaryHeading"
           class="sr-only"
         >
-          Today's Brief
+          Brief filters
         </h2>
 
         <p
@@ -163,7 +163,14 @@
 
         <div class="summary-grid">
 
-          <div class="summary-item">
+          <!-- ALL UPDATES -->
+
+          <button
+            class="summary-item summary-filter active"
+            type="button"
+            data-status="all"
+            aria-pressed="true"
+          >
 
             <div
               class="summary-icon summary-icon-updates"
@@ -185,19 +192,23 @@
                 updates
               </span>
 
-              <small
-                class="summary-detail"
-                id="summaryNew"
-              >
-                Latest Microsoft changes
+              <small class="summary-detail">
+                Show everything
               </small>
 
             </div>
 
-          </div>
+          </button>
 
 
-          <div class="summary-item">
+          <!-- ACTION REQUIRED -->
+
+          <button
+            class="summary-item summary-filter"
+            type="button"
+            data-status="action"
+            aria-pressed="false"
+          >
 
             <div
               class="summary-icon summary-icon-action"
@@ -220,21 +231,28 @@
               </span>
 
               <small class="summary-detail">
-                Review soon
+                Action required
               </small>
 
             </div>
 
-          </div>
+          </button>
 
 
-          <div class="summary-item">
+          <!-- UNREAD -->
+
+          <button
+            class="summary-item summary-filter"
+            type="button"
+            data-status="unread"
+            aria-pressed="false"
+          >
 
             <div
               class="summary-icon summary-icon-unread"
               aria-hidden="true"
             >
-              ✉
+              ●
             </div>
 
             <div class="summary-content">
@@ -251,43 +269,50 @@
               </span>
 
               <small class="summary-detail">
-                Keep up to date
+                Still to review
               </small>
 
             </div>
 
-          </div>
+          </button>
 
 
-          <div class="summary-item">
+          <!-- READ -->
+
+          <button
+            class="summary-item summary-filter"
+            type="button"
+            data-status="read"
+            aria-pressed="false"
+          >
 
             <div
-              class="summary-icon summary-icon-time"
+              class="summary-icon summary-icon-read"
               aria-hidden="true"
             >
-              ◷
+              ✓
             </div>
 
             <div class="summary-content">
 
               <strong
                 class="summary-number"
-                id="summaryMinutes"
+                id="summaryRead"
               >
-                ~1
+                0
               </strong>
 
               <span class="summary-label">
-                minutes to read
+                read
               </span>
 
               <small class="summary-detail">
-                Quick summary
+                Already reviewed
               </small>
 
             </div>
 
-          </div>
+          </button>
 
         </div>
 
@@ -295,12 +320,12 @@
 
 
       <!-- ===================================================
-           FILTERS
+           PRODUCT FILTERS
            =================================================== -->
 
       <section
         class="filter-bar"
-        aria-label="Filter updates"
+        aria-label="Filter updates by product"
       >
 
         <div
@@ -318,7 +343,7 @@
           </button>
 
           <button
-            class="filter-tab"
+            class="filter-tab filter-tab-entra"
             type="button"
             data-product="Entra"
           >
@@ -326,7 +351,7 @@
           </button>
 
           <button
-            class="filter-tab"
+            class="filter-tab filter-tab-intune"
             type="button"
             data-product="Intune"
           >
@@ -334,7 +359,7 @@
           </button>
 
           <button
-            class="filter-tab"
+            class="filter-tab filter-tab-purview"
             type="button"
             data-product="Purview"
           >
@@ -342,7 +367,7 @@
           </button>
 
           <button
-            class="filter-tab"
+            class="filter-tab filter-tab-defender"
             type="button"
             data-product="Defender"
           >
@@ -365,8 +390,9 @@
             id="productFilter"
             class="product-filter"
           >
+
             <option value="all">
-              Filter by product
+              All products
             </option>
 
             <option value="Entra">
@@ -384,6 +410,7 @@
             <option value="Defender">
               Defender
             </option>
+
           </select>
 
         </div>
@@ -392,8 +419,20 @@
 
 
       <!-- ===================================================
+           ACTIVE FILTER DESCRIPTION
+           =================================================== -->
+
+      <div
+        id="activeFilterDescription"
+        class="active-filter-description"
+        aria-live="polite"
+      >
+        Showing all updates
+      </div>
+
+
+      <!-- ===================================================
            UPDATE FEED
-           app.js injects cards into this element.
            =================================================== -->
 
       <section
@@ -444,7 +483,6 @@
 
   <!-- =======================================================
        BUY ME A COFFEE
-       Persistent support button.
        ======================================================= -->
 
   <a
@@ -476,11 +514,7 @@
   </a>
 
 
-  <!-- =======================================================
-       SCRIPT
-       ======================================================= -->
-
-  <script src="app.js"></script>
+  <script src="app.js?v=7"></script>
 
 </body>
 </html>
