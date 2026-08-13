@@ -749,9 +749,24 @@ def find_best_link(
 def should_ignore_heading(
     title: str,
 ) -> bool:
-    text = title.lower().strip()
+    """
+    Ignore Microsoft Learn structural/category headings that are
+    not standalone product updates.
 
-    ignored = {
+    These headings often sit underneath a real update and should
+    remain part of that update's body rather than becoming their
+    own feed card.
+    """
+
+    text = clean_text(
+        title
+    ).lower().strip()
+
+    # --------------------------------------------------------
+    # Generic Microsoft Learn page structure
+    # --------------------------------------------------------
+
+    ignored_exact = {
         "in this article",
         "related content",
         "see also",
@@ -760,10 +775,63 @@ def should_ignore_heading(
         "next steps",
         "overview",
         "notices",
+
+        # Supporting sections inside a real announcement
+        "how does this change affect you or your users?",
+        "how does this change affect you?",
+        "how does this affect you or your users?",
+        "how does this affect you?",
+        "how can you prepare?",
+        "what is changing",
+        "what's changing",
+        "when this is changing",
+        "when is this changing",
+        "why this is changing",
+        "why is this changing",
+        "what's next",
+        "what is next",
+        "what's not changing",
+        "what is not changing",
+        "action required from customers",
+        "action required",
+        "customer action required",
+        "admin action required",
+        "administrator action required",
+        "stay informed",
+        "additional information",
+        "more information",
+        "learn more",
+        "before you begin",
+        "prerequisites",
+        "known issues",
+
+        # Intune category/container headings
+        "device configuration",
+        "device enrollment",
+        "device management",
+        "device security",
+        "app management",
+        "intune apps",
+        "monitor and troubleshoot",
+        "tenant administration",
+        "role-based access control",
+        "windows",
+        "android",
+        "android enterprise",
+        "ios/ipados",
+        "macos",
+        "linux",
     }
 
-    if text in ignored:
+    if text in ignored_exact:
         return True
+
+    # --------------------------------------------------------
+    # Month headings such as:
+    #
+    # August 2026
+    # July 2026
+    # --------------------------------------------------------
 
     if re.fullmatch(
         r"(january|february|march|april|may|june|"
@@ -772,6 +840,30 @@ def should_ignore_heading(
         text,
     ):
         return True
+
+    # --------------------------------------------------------
+    # Generic question-style supporting sections Microsoft
+    # occasionally changes the wording of.
+    # --------------------------------------------------------
+
+    ignored_patterns = [
+        r"^how (does|will) this change affect\b",
+        r"^how can (you|customers|admins|administrators) prepare\b",
+        r"^what (is|'s) changing\??$",
+        r"^what (is|'s) not changing\??$",
+        r"^when (is )?this changing\??$",
+        r"^why (is )?this changing\??$",
+        r"^what (do|does) (you|customers|admins|administrators) need to do\??$",
+        r"^action required\b",
+        r"^additional information\b",
+    ]
+
+    for pattern in ignored_patterns:
+        if re.search(
+            pattern,
+            text,
+        ):
+            return True
 
     return False
 
