@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-14T02:43:27Z",
-  "updateCount": 223,
+  "generatedAt": "2026-08-14T07:52:37Z",
+  "updateCount": 224,
   "products": [
     "Entra",
     "Intune",
@@ -1425,6 +1425,20 @@
       "sourceType": "Microsoft Learn"
     },
     {
+      "id": "1c0e44bd36c53be82306",
+      "product": "Purview",
+      "title": "Sensitivity labels",
+      "summary": "Before enforcing an auto-labeling policy, run it in simulation mode to identify which items it would label without making any changes. Review the match results and source distribution to determine whether the policy is ready to enforce. For more information, see Review simulation results for auto-labeling policies in Microsoft Purview . The Insights tab in…",
+      "whyItMatters": "This may affect compliance, information protection, governance or data-security workflows.",
+      "publishedDate": "2026-08-01",
+      "releaseStatus": null,
+      "changeType": "Update",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#sensitivity-labels",
+      "sourceName": "Microsoft Purview",
+      "sourceType": "Microsoft Learn"
+    },
+    {
       "id": "94f823af1565532cb1b9",
       "product": "Defender",
       "title": "On-demand malware scanning now supports scanning specific blobs, files, containers, and file shares",
@@ -1831,7 +1845,7 @@
       "sourceType": "Microsoft Learn"
     },
     {
-      "id": "1c0e44bd36c53be82306",
+      "id": "c20edf9e59d3d32451d6",
       "product": "Purview",
       "title": "Sensitivity labels",
       "summary": "Preview : Rolling out, the sensitivity label setting to prevent connected experiences that analyze content now prevents all connected experiences in Word, Excel, and PowerPoint for Windows, rather than a subset of these experiences. Preview : Rolling out, the sensitivity label setting to prevent connected experiences that analyze content extends to Word,…",
@@ -1840,7 +1854,7 @@
       "releaseStatus": "Preview",
       "changeType": "Update",
       "actionRequired": false,
-      "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#sensitivity-labels",
+      "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#sensitivity-labels-1",
       "sourceName": "Microsoft Purview",
       "sourceType": "Microsoft Learn"
     },
@@ -2363,7 +2377,7 @@
       "sourceType": "Microsoft Learn"
     },
     {
-      "id": "c20edf9e59d3d32451d6",
+      "id": "bcb7d3e12d6e2a9e6fea",
       "product": "Purview",
       "title": "Sensitivity labels",
       "summary": "In preview : Rolling out, manual labeling support for MP4 files in SharePoint and OneDrive. For more information, see Video support (MP4 files . In preview : Rolling out, a new label policy setting for meetings , Apply meeting label to artifacts , automatically applies the meeting's sensitivity label to recordings and their transcripts (.mp4 files), and to…",
@@ -2372,7 +2386,7 @@
       "releaseStatus": "Preview",
       "changeType": "Update",
       "actionRequired": false,
-      "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#sensitivity-labels-1",
+      "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#sensitivity-labels-2",
       "sourceName": "Microsoft Purview",
       "sourceType": "Microsoft Learn"
     },
@@ -2881,7 +2895,7 @@
       "sourceType": "Microsoft Learn"
     },
     {
-      "id": "bcb7d3e12d6e2a9e6fea",
+      "id": "191e663775213b9c0333",
       "product": "Purview",
       "title": "Sensitivity labels",
       "summary": "General availability (GA) : Auto-labeling policies introduce a new flow where you must decide whether to automatically apply a sensitivity label, or remove a label when the configured conditions apply for files in SharePoint and OneDrive. When you chose to automatically apply a sensitivity label, you can now optionally choose to always overriding an…",
@@ -2890,7 +2904,7 @@
       "releaseStatus": "General availability",
       "changeType": "New feature",
       "actionRequired": false,
-      "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#sensitivity-labels-2",
+      "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#sensitivity-labels-3",
       "sourceName": "Microsoft Purview",
       "sourceType": "Microsoft Learn"
     },
@@ -3161,7 +3175,7 @@
       "sourceType": "Microsoft Learn"
     },
     {
-      "id": "191e663775213b9c0333",
+      "id": "b3348b2d073859dd6704",
       "product": "Purview",
       "title": "Sensitivity labels",
       "summary": "General availability (GA) : Manual labeling for OneNote, supported at the section level . Because retention labels also support labeling at the section level, you might find it helpful to review the architecture diagram for retention policies and retention labels . To enable the support for sensitivity labels, SharePoint and OneDrive must already be enabled…",
@@ -3170,7 +3184,7 @@
       "releaseStatus": "General availability",
       "changeType": "New feature",
       "actionRequired": false,
-      "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#sensitivity-labels-3",
+      "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#sensitivity-labels-4",
       "sourceName": "Microsoft Purview",
       "sourceType": "Microsoft Learn"
     },
