@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-18T07:05:55Z",
-  "updateCount": 225,
+  "generatedAt": "2026-08-18T13:06:00Z",
+  "updateCount": 226,
   "products": [
     "Entra",
     "Intune",
@@ -1436,6 +1436,20 @@
       "actionRequired": false,
       "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#sensitivity-labels",
       "sourceName": "Microsoft Purview",
+      "sourceType": "Microsoft Learn"
+    },
+    {
+      "id": "c16b8cea8e7eda0f2031",
+      "product": "Defender",
+      "title": "Classic Defender for SQL APIs retirement",
+      "summary": "August 17, 2026 The classic Defender for SQL APIs for Vulnerability Assessment and Advanced Threat Protection will be retired on August 16, 2027 . If you use these APIs, migrate to the supported configuration model and update any dependent scripts or automation before the retirement date. For migration guidance, see Prepare for the retirement of classic…",
+      "whyItMatters": "An existing feature or workflow is being removed or replaced, so check whether your environment still uses it.",
+      "publishedDate": "2026-08-01",
+      "releaseStatus": null,
+      "changeType": "Retirement",
+      "actionRequired": true,
+      "sourceUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/release-notes#classic-defender-for-sql-apis-retirement",
+      "sourceName": "Microsoft Defender for Cloud",
       "sourceType": "Microsoft Learn"
     },
     {
