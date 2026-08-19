@@ -1,1 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
 
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="365in5 Microsoft certification exam simulators. Practice Azure, Microsoft 365, Security, Endpoint and other Microsoft exams."
+  >
+
+  <title>Microsoft Exam Simulators | 365in5</title>
+
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <div id="app">
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="site-header">
+
+      <a
+        class="brand"
+        href="/"
+        aria-label="365in5 home"
+      >
+        <span class="brand-mark">365</span><span>in5</span>
+      </a>
+
+      <span class="header-label">
+        Exam Simulator
+      </span>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main>
+
+
+      <!-- ===================================================
+           HERO
+           =================================================== -->
+
+      <section class="exam-hub-hero">
+
+        <span class="eyebrow">
+          365in5 EXAM SIMULATOR
+        </span>
+
+        <h1>
+          Prepare for your next Microsoft exam.
+        </h1>
+
+        <p class="hero-copy">
+          Realistic Microsoft certification practice built around
+          the current published exam objectives, domain weighting
+          and exam structure.
+        </p>
+
+
+        <!-- ===============================================
+             SEARCH
+             =============================================== -->
+
+        <div class="exam-search-wrap">
+
+          <label
+            class="sr-only"
+            for="examSearch"
+          >
+            Search exams
+          </label>
+
+          <input
+            id="examSearch"
+            class="exam-search"
+            type="search"
+            placeholder="Search exams — AZ-104, MD-102, SC-300..."
+            autocomplete="off"
+          >
+
+        </div>
+
+      </section>
+
+
+      <!-- ===================================================
+           FEATURED EXAM
+           =================================================== -->
+
+      <section class="exam-section">
+
+        <div class="section-heading">
+
+          <div>
+
+            <span class="section-kicker">
+              AVAILABLE NOW
+            </span>
+
+            <h2>
+              Featured exam
+            </h2>
+
+          </div>
+
+        </div>
+
+
+        <article
+          class="exam-card exam-card-featured"
+          data-exam-search="az-104 azure administrator azure microsoft"
+        >
+
+          <div class="exam-card-top">
+
+            <div>
+
+              <span class="exam-code">
+                AZ-104
+              </span>
+
+              <span class="status-badge status-live">
+                Live
+              </span>
+
+            </div>
+
+            <span class="exam-provider">
+              Microsoft Azure
+            </span>
+
+          </div>
+
+
+          <h3>
+            Microsoft Azure Administrator
+          </h3>
+
+
+          <p>
+            Manage Azure identities, governance, storage,
+            compute, virtual networking and monitoring under
+            realistic simulated exam conditions.
+          </p>
+
+
+          <div class="exam-stats">
+
+            <span>
+              <strong>50</strong>
+              questions
+            </span>
+
+            <span>
+              <strong>100</strong>
+              minutes
+            </span>
+
+            <span>
+              <strong>700</strong>
+              simulated pass score
+            </span>
+
+          </div>
+
+
+          <div class="exam-card-actions">
+
+            <a
+              class="primary-btn"
+              href="./simulator.html?exam=az-104"
+            >
+              Start AZ-104
+            </a>
+
+          </div>
+
+        </article>
+
+      </section>
+
+
+      <!-- ===================================================
+           AZURE
+           =================================================== -->
+
+      <section class="exam-section">
+
+        <div class="section-heading">
+
+          <div>
+
+            <span class="section-kicker">
+              AZURE
+            </span>
+
+            <h2>
+              Azure exams
+            </h2>
+
+          </div>
+
+        </div>
+
+
+        <div class="exam-grid">
+
+
+          <!-- AZ-900 -->
+
+          <article
+            class="exam-card"
+            data-exam-search="az-900 azure fundamentals microsoft"
+          >
+
+            <div class="exam-card-top">
+
+              <span class="exam-code">
+                AZ-900
+              </span>
+
+              <span class="status-badge status-coming">
+                Coming soon
+              </span>
+
+            </div>
+
+            <h3>
+              Microsoft Azure Fundamentals
+            </h3>
+
+            <p>
+              Foundational Azure concepts, services,
+              management, governance and cloud principles.
+            </p>
+
+          </article>
+
+
+          <!-- AZ-104 -->
+
+          <article
+            class="exam-card"
+            data-exam-search="az-104 azure administrator microsoft"
+          >
+
+            <div class="exam-card-top">
+
+              <span class="exam-code">
+                AZ-104
+              </span>
+
+              <span class="status-badge status-live">
+                Live
+              </span>
+
+            </div>
+
+            <h3>
+              Microsoft Azure Administrator
+            </h3>
+
+            <p>
+              Administration of Azure identities,
+              storage, compute, networking and monitoring.
+            </p>
+
+            <div class="exam-card-actions">
+
+              <a
+                class="secondary-btn"
+                href="./simulator.html?exam=az-104"
+              >
+                Open simulator
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- AZ-305 -->
+
+          <article
+            class="exam-card"
+            data-exam-search="az-305 azure solutions architect design infrastructure"
+          >
+
+            <div class="exam-card-top">
+
+              <span class="exam-code">
+                AZ-305
+              </span>
+
+              <span class="status-badge status-coming">
+                Coming soon
+              </span>
+
+            </div>
+
+            <h3>
+              Designing Microsoft Azure Infrastructure Solutions
+            </h3>
+
+            <p>
+              Architecture, governance, data storage,
+              business continuity and infrastructure design.
+            </p>
+
+          </article>
+
+
+          <!-- AZ-400 -->
+
+          <article
+            class="exam-card"
+            data-exam-search="az-400 devops engineer azure microsoft"
+          >
+
+            <div class="exam-card-top">
+
+              <span class="exam-code">
+                AZ-400
+              </span>
+
+              <span class="status-badge status-coming">
+                Coming soon
+              </span>
+
+            </div>
+
+            <h3>
+              Designing and Implementing Microsoft DevOps Solutions
+            </h3>
+
+            <p>
+              Source control, pipelines, security,
+              collaboration and continuous delivery.
+            </p>
+
+          </article>
+
+
+          <!-- AZ-700 -->
+
+          <article
+            class="exam-card"
+            data-exam-search="az-700 azure network engineer networking"
+          >
+
+            <div class="exam-card-top">
+
+              <span class="exam-code">
+                AZ-700
+              </span>
+
+              <span class="status-badge status-coming">
+                Coming soon
+              </span>
+
+            </div>
+
+            <h3>
+              Designing and Implementing Microsoft Azure Networking Solutions
+            </h3>
+
+            <p>
+              Core networking, hybrid connectivity,
+              routing, private access and network security.
+            </p>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- ===================================================
+           MICROSOFT 365 / ENDPOINT
+           =================================================== -->
+
+      <section class="exam-section">
+
+        <div class="section-heading">
+
+          <div>
+
+            <span class="section-kicker">
+              MICROSOFT 365
+            </span>
+
+            <h2>
+              Microsoft 365 & Endpoint exams
+            </h2>
+
+          </div>
+
+        </div>
+
+
+        <div class="exam-grid">
+
+
+          <!-- MD-102 -->
+
+          <article
+            class="exam-card"
+            data-exam-search="md-102 endpoint administrator intune windows autopilot defender"
+          >
+
+            <div class="exam-card-top">
+
+              <span class="exam-code">
+                MD-102
+              </span>
+
+              <span class="status-badge status-coming">
+                Coming soon
+              </span>
+
+            </div>
+
+            <h3>
+              Endpoint Administrator
+            </h3>
+
+            <p>
+              Microsoft Intune, Windows deployment,
+              endpoint security, applications and device management.
+            </p>
+
+          </article>
+
+
+          <!-- MS-102 -->
+
+          <article
+            class="exam-card"
+            data-exam-search="ms-102 microsoft 365 administrator entra defender purview"
+          >
+
+            <div class="exam-card-top">
+
+              <span class="exam-code">
+                MS-102
+              </span>
+
+              <span class="status-badge status-coming">
+                Coming soon
+              </span>
+
+            </div>
+
+            <h3>
+              Microsoft 365 Administrator
+            </h3>
+
+            <p>
+              Microsoft 365 tenant administration,
+              identity, security and compliance.
+            </p>
+
+          </article>
+
+
+          <!-- MS-700 -->
+
+          <article
+            class="exam-card"
+            data-exam-search="ms-700 teams administrator microsoft teams"
+          >
+
+            <div class="exam-card-top">
+
+              <span class="exam-code">
+                MS-700
+              </span>
+
+              <span class="status-badge status-coming">
+                Coming soon
+              </span>
+
+            </div>
+
+            <h3>
+              Managing Microsoft Teams
+            </h3>
+
+            <p>
+              Teams governance, meetings,
+              collaboration, policies and administration.
+            </p>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- ===================================================
+           SECURITY
+           =================================================== -->
+
+      <section class="exam-section">
+
+        <div class="section-heading">
+
+          <div>
+
+            <span class="section-kicker">
+              SECURITY
+            </span>
+
+            <h2>
+              Security & Identity exams
+            </h2>
+
+          </div>
+
+        </div>
+
+
+        <div class="exam-grid">
+
+
+          <!-- SC-900 -->
+
+          <article
+            class="exam-card"
+            data-exam-search="sc-900 security compliance identity fundamentals"
+          >
+
+            <div class="exam-card-top">
+
+              <span class="exam-code">
+                SC-900
+              </span>
+
+              <span class="status-badge status-coming">
+                Coming soon
+              </span>
+
+            </div>
+
+            <h3>
+              Security, Compliance, and Identity Fundamentals
+            </h3>
+
+            <p>
+              Microsoft security, compliance,
+              identity and trust fundamentals.
+            </p>
+
+          </article>
+
+
+          <!-- SC-100 -->
+
+          <article
+            class="exam-card"
+            data-exam-search="sc-100 cybersecurity architect microsoft"
+          >
+
+            <div class="exam-card-top">
+
+              <span class="exam-code">
+                SC-100
+              </span>
+
+              <span class="status-badge status-coming">
+                Coming soon
+              </span>
+
+            </div>
+
+            <h3>
+              Microsoft Cybersecurity Architect
+            </h3>
+
+            <p>
+              Security strategy, architecture,
+              operations and risk management.
+            </p>
+
+          </article>
+
+
+          <!-- SC-200 -->
+
+          <article
+            class="exam-card"
+            data-exam-search="sc-200 security operations analyst sentinel defender"
+          >
+
+            <div class="exam-card-top">
+
+              <span class="exam-code">
+                SC-200
+              </span>
+
+              <span class="status-badge status-coming">
+                Coming soon
+              </span>
+
+            </div>
+
+            <h3>
+              Security Operations Analyst
+            </h3>
+
+            <p>
+              Microsoft Sentinel, Defender,
+              threat investigation and incident response.
+            </p>
+
+          </article>
+
+
+          <!-- SC-300 -->
+
+          <article
+            class="exam-card"
+            data-exam-search="sc-300 identity access administrator entra id"
+          >
+
+            <div class="exam-card-top">
+
+              <span class="exam-code">
+                SC-300
+              </span>
+
+              <span class="status-badge status-coming">
+                Coming soon
+              </span>
+
+            </div>
+
+            <h3>
+              Identity and Access Administrator
+            </h3>
+
+            <p>
+              Microsoft Entra ID, authentication,
+              authorization and identity governance.
+            </p>
+
+          </article>
+
+
+          <!-- SC-401 -->
+
+          <article
+            class="exam-card"
+            data-exam-search="sc-401 information security administrator purview"
+          >
+
+            <div class="exam-card-top">
+
+              <span class="exam-code">
+                SC-401
+              </span>
+
+              <span class="status-badge status-coming">
+                Coming soon
+              </span>
+
+            </div>
+
+            <h3>
+              Information Security Administrator
+            </h3>
+
+            <p>
+              Microsoft Purview, information protection,
+              DLP and insider risk.
+            </p>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- ===================================================
+           EMPTY SEARCH RESULT
+           =================================================== -->
+
+      <section
+        id="noResults"
+        class="no-results hidden"
+      >
+
+        <h2>
+          No exams found
+        </h2>
+
+        <p>
+          Try searching by exam code, product or role.
+        </p>
+
+      </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer>
+
+      <span>
+        365in5 Exam Simulator
+      </span>
+
+      <span>
+        Independent practice material.
+        Microsoft and related product names are trademarks
+        of Microsoft Corporation.
+      </span>
+
+    </footer>
+
+  </div>
+
+
+  <!-- =======================================================
+       HUB SEARCH
+       ======================================================= -->
+
+  <script>
+
+    (() => {
+
+      "use strict";
+
+
+      const searchInput =
+        document.getElementById("examSearch");
+
+
+      const examCards =
+        Array.from(
+          document.querySelectorAll(".exam-card")
+        );
+
+
+      const sections =
+        Array.from(
+          document.querySelectorAll(".exam-section")
+        );
+
+
+      const noResults =
+        document.getElementById("noResults");
+
+
+      function normalise(value) {
+
+        return String(value)
+          .toLowerCase()
+          .trim();
+
+      }
+
+
+      function filterExams() {
+
+        const query =
+          normalise(searchInput.value);
+
+
+        let visibleCards = 0;
+
+
+        examCards.forEach((card) => {
+
+          const haystack =
+            normalise(
+              card.dataset.examSearch +
+              " " +
+              card.textContent
+            );
+
+
+          const visible =
+            query === "" ||
+            haystack.includes(query);
+
+
+          card.classList.toggle(
+            "hidden",
+            !visible
+          );
+
+
+          if (visible) {
+
+            visibleCards++;
+
+          }
+
+        });
+
+
+        sections.forEach((section) => {
+
+          const visibleInside =
+            section.querySelector(
+              ".exam-card:not(.hidden)"
+            );
+
+
+          section.classList.toggle(
+            "hidden",
+            !visibleInside
+          );
+
+        });
+
+
+        noResults.classList.toggle(
+          "hidden",
+          visibleCards !== 0
+        );
+
+      }
+
+
+      searchInput.addEventListener(
+        "input",
+        filterExams
+      );
+
+    })();
+
+  </script>
+
+</body>
+</html>
