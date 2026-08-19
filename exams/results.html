@@ -1,1 +1,1376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
 
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="365in5 Microsoft certification exam simulator results."
+  >
+
+  <title>Exam Results | 365in5</title>
+
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <div id="app">
+
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="site-header">
+
+      <a
+        class="brand"
+        href="./"
+        aria-label="365in5 Exams home"
+      >
+        <span class="brand-mark">365</span><span>in5</span>
+      </a>
+
+      <div class="simulator-header-meta">
+
+        <span
+          id="headerExamCode"
+          class="exam-code"
+        >
+          Results
+        </span>
+
+        <span class="header-label">
+          Exam Simulator
+        </span>
+
+      </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main>
+
+
+      <!-- ===================================================
+           RESULTS VIEW
+           =================================================== -->
+
+      <section
+        id="resultsView"
+        class="view"
+      >
+
+        <div class="results-card">
+
+
+          <!-- ===============================================
+               RESULT HEADER
+               =============================================== -->
+
+          <span
+            id="resultExamCode"
+            class="eyebrow"
+          >
+            EXAM RESULT
+          </span>
+
+
+          <h1 id="resultStatus">
+            Loading...
+          </h1>
+
+
+          <!-- ===============================================
+               SCORE
+               =============================================== -->
+
+          <div
+            id="scaledScore"
+            class="score"
+          >
+            0
+          </div>
+
+
+          <p class="score-caption">
+            Simulated scaled score / 1000
+          </p>
+
+
+          <p
+            id="rawScore"
+            class="raw-score"
+          >
+          </p>
+
+
+          <!-- ===============================================
+               SCORING NOTE
+               =============================================== -->
+
+          <div class="score-note">
+
+            Microsoft certification exams use scaled scoring.
+
+            365in5 does not claim to reproduce Microsoft's
+            private scoring algorithm.
+
+            The score shown here is a simulated readiness
+            score based on this practice attempt.
+
+          </div>
+
+
+          <!-- ===============================================
+               DOMAIN PERFORMANCE
+               =============================================== -->
+
+          <div class="results-section">
+
+            <div class="section-heading compact">
+
+              <div>
+
+                <span class="section-kicker">
+                  PERFORMANCE
+                </span>
+
+                <h2>
+                  Skills breakdown
+                </h2>
+
+              </div>
+
+            </div>
+
+
+            <div
+              id="domainResults"
+              class="domain-results"
+            >
+            </div>
+
+          </div>
+
+
+          <!-- ===============================================
+               WEAK AREAS
+               =============================================== -->
+
+          <div class="results-section">
+
+            <div class="section-heading compact">
+
+              <div>
+
+                <span class="section-kicker">
+                  365in5 FOCUS
+                </span>
+
+                <h2>
+                  What to revise next
+                </h2>
+
+              </div>
+
+            </div>
+
+
+            <div id="weakAreas">
+            </div>
+
+          </div>
+
+
+          <!-- ===============================================
+               ACTIONS
+               =============================================== -->
+
+          <div class="results-actions">
+
+            <button
+              id="reviewAnswersBtn"
+              class="secondary-btn"
+              type="button"
+            >
+              Review answers
+            </button>
+
+
+            <a
+              id="retakeExamBtn"
+              class="primary-btn"
+              href="./"
+            >
+              Take exam again
+            </a>
+
+          </div>
+
+
+          <div class="results-home-link">
+
+            <a href="./">
+              Browse other exams
+            </a>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ===================================================
+           ANSWER REVIEW
+           =================================================== -->
+
+      <section
+        id="answerReviewView"
+        class="view hidden"
+      >
+
+        <div class="answer-review-shell">
+
+
+          <div class="answer-review-header">
+
+            <div>
+
+              <span
+                id="answerReviewExamCode"
+                class="eyebrow"
+              >
+                ANSWER REVIEW
+              </span>
+
+              <h1>
+                What you got right — and why
+              </h1>
+
+            </div>
+
+
+            <button
+              id="backToResultsBtn"
+              class="secondary-btn"
+              type="button"
+            >
+              Back to results
+            </button>
+
+          </div>
+
+
+          <div id="answerReviewList">
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ===================================================
+           NO RESULT FOUND
+           =================================================== -->
+
+      <section
+        id="noResultView"
+        class="view hidden"
+      >
+
+        <div class="error-card">
+
+          <span class="eyebrow">
+            NO RESULT FOUND
+          </span>
+
+          <h1>
+            There isn't an exam result to show.
+          </h1>
+
+          <p class="hero-copy">
+            Complete an exam first, then your result will appear here.
+          </p>
+
+          <a
+            href="./"
+            class="primary-btn"
+          >
+            Browse exams
+          </a>
+
+        </div>
+
+      </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer>
+
+      <span>
+        365in5 Exam Simulator
+      </span>
+
+      <span>
+        Independent practice material.
+        Microsoft and related product names are trademarks
+        of Microsoft Corporation.
+      </span>
+
+    </footer>
+
+  </div>
+
+
+  <!-- =======================================================
+       RESULTS LOGIC
+       ======================================================= -->
+
+  <script>
+
+    (() => {
+
+      "use strict";
+
+
+      const STORAGE_KEY =
+        "365in5_exam_result";
+
+
+      const DOMAIN_LABELS = {
+
+        identity:
+          "Manage Azure identities and governance",
+
+        storage:
+          "Implement and manage storage",
+
+        compute:
+          "Deploy and manage Azure compute resources",
+
+        networking:
+          "Implement and manage virtual networking",
+
+        monitoring:
+          "Monitor and maintain Azure resources"
+
+      };
+
+
+      const resultsView =
+        document.getElementById(
+          "resultsView"
+        );
+
+
+      const answerReviewView =
+        document.getElementById(
+          "answerReviewView"
+        );
+
+
+      const noResultView =
+        document.getElementById(
+          "noResultView"
+        );
+
+
+      const raw =
+        sessionStorage.getItem(
+          STORAGE_KEY
+        );
+
+
+      if (!raw) {
+
+        showNoResult();
+
+        return;
+
+      }
+
+
+      let payload;
+
+
+      try {
+
+        payload =
+          JSON.parse(
+            raw
+          );
+
+      } catch (error) {
+
+        console.error(
+          "[365in5] Invalid result data.",
+          error
+        );
+
+        showNoResult();
+
+        return;
+
+      }
+
+
+      if (
+        !payload ||
+        !payload.exam ||
+        !payload.results
+      ) {
+
+        showNoResult();
+
+        return;
+
+      }
+
+
+      renderResults(
+        payload
+      );
+
+
+      /*
+       * =====================================================
+       * RESULT RENDERING
+       * =====================================================
+       */
+
+
+      function renderResults(data) {
+
+        const exam =
+          data.exam;
+
+
+        const results =
+          data.results;
+
+
+        document.title =
+          exam.code +
+          " Results | 365in5";
+
+
+        setText(
+          "headerExamCode",
+          exam.code
+        );
+
+
+        setText(
+          "resultExamCode",
+          exam.code +
+          " · RESULT"
+        );
+
+
+        setText(
+          "answerReviewExamCode",
+          exam.code +
+          " · ANSWER REVIEW"
+        );
+
+
+        setText(
+          "resultStatus",
+          results.passed
+            ? "PASS"
+            : "NOT YET"
+        );
+
+
+        setText(
+          "scaledScore",
+          results.simulatedScore
+        );
+
+
+        let rawScoreText =
+
+          results.correctCount +
+          " of " +
+          results.totalQuestions +
+          " questions correct · " +
+          Math.round(
+            results.rawPercentage
+          ) +
+          "% raw accuracy";
+
+
+        if (
+          results.timedOut
+        ) {
+
+          rawScoreText +=
+            " · Time expired";
+
+        }
+
+
+        setText(
+          "rawScore",
+          rawScoreText
+        );
+
+
+        resultsView
+          .querySelector(
+            ".results-card"
+          )
+          .classList.toggle(
+            "pass",
+            results.passed
+          );
+
+
+        resultsView
+          .querySelector(
+            ".results-card"
+          )
+          .classList.toggle(
+            "fail",
+            !results.passed
+          );
+
+
+        const retake =
+          document.getElementById(
+            "retakeExamBtn"
+          );
+
+
+        retake.href =
+
+          "./simulator.html?exam=" +
+          encodeURIComponent(
+            exam.id
+          );
+
+
+        renderDomainResults(
+          results
+        );
+
+
+        renderWeakAreas(
+          results
+        );
+
+
+        bindReviewButtons(
+          data
+        );
+
+      }
+
+
+      /*
+       * =====================================================
+       * DOMAIN RESULTS
+       * =====================================================
+       */
+
+
+      function renderDomainResults(
+        results
+      ) {
+
+        const container =
+          document.getElementById(
+            "domainResults"
+          );
+
+
+        container.innerHTML =
+          "";
+
+
+        Object.entries(
+          results.domainResults
+        ).forEach(
+          (
+            [
+              domainId,
+              result
+            ]
+          ) => {
+
+            const percentage =
+
+              result.total === 0
+
+                ? 0
+
+                : Math.round(
+
+                    (
+                      result.correct /
+                      result.total
+                    ) *
+                    100
+
+                  );
+
+
+            const row =
+              document.createElement(
+                "div"
+              );
+
+
+            row.className =
+              "domain-result-row";
+
+
+            const heading =
+              document.createElement(
+                "div"
+              );
+
+
+            heading.className =
+              "domain-result-heading";
+
+
+            const label =
+              document.createElement(
+                "span"
+              );
+
+
+            label.textContent =
+              DOMAIN_LABELS[
+                domainId
+              ] || domainId;
+
+
+            const score =
+              document.createElement(
+                "strong"
+              );
+
+
+            score.textContent =
+
+              result.correct +
+              "/" +
+              result.total +
+              " · " +
+              percentage +
+              "%";
+
+
+            heading.appendChild(
+              label
+            );
+
+
+            heading.appendChild(
+              score
+            );
+
+
+            const progress =
+              document.createElement(
+                "div"
+              );
+
+
+            progress.className =
+              "progress";
+
+
+            const bar =
+              document.createElement(
+                "i"
+              );
+
+
+            bar.style.width =
+              percentage +
+              "%";
+
+
+            progress.appendChild(
+              bar
+            );
+
+
+            row.appendChild(
+              heading
+            );
+
+
+            row.appendChild(
+              progress
+            );
+
+
+            container.appendChild(
+              row
+            );
+
+          }
+        );
+
+      }
+
+
+      /*
+       * =====================================================
+       * WEAK AREAS
+       * =====================================================
+       */
+
+
+      function renderWeakAreas(
+        results
+      ) {
+
+        const container =
+          document.getElementById(
+            "weakAreas"
+          );
+
+
+        container.innerHTML =
+          "";
+
+
+        const domains =
+
+          Object.entries(
+            results.domainResults
+          )
+
+          .map(
+            (
+              [
+                domainId,
+                result
+              ]
+            ) => {
+
+              const percentage =
+
+                result.total === 0
+
+                  ? 0
+
+                  : Math.round(
+
+                      (
+                        result.correct /
+                        result.total
+                      ) *
+                      100
+
+                    );
+
+
+              return {
+
+                id:
+                  domainId,
+
+                name:
+                  DOMAIN_LABELS[
+                    domainId
+                  ] || domainId,
+
+                percentage,
+
+                correct:
+                  result.correct,
+
+                total:
+                  result.total
+
+              };
+
+            }
+          )
+
+          .sort(
+            (
+              first,
+              second
+            ) =>
+              first.percentage -
+              second.percentage
+          );
+
+
+        domains
+          .slice(
+            0,
+            3
+          )
+          .forEach(
+            (
+              domain,
+              index
+            ) => {
+
+              const card =
+                document.createElement(
+                  "div"
+                );
+
+
+              card.className =
+                "weak-area-card";
+
+
+              const rank =
+                document.createElement(
+                  "span"
+                );
+
+
+              rank.className =
+                "weak-area-rank";
+
+
+              rank.textContent =
+                index === 0
+                  ? "Priority"
+                  : "Review";
+
+
+              const heading =
+                document.createElement(
+                  "h3"
+                );
+
+
+              heading.textContent =
+                domain.name;
+
+
+              const score =
+                document.createElement(
+                  "p"
+                );
+
+
+              score.textContent =
+
+                domain.percentage +
+                "% accuracy · " +
+                domain.correct +
+                " of " +
+                domain.total +
+                " correct";
+
+
+              const advice =
+                document.createElement(
+                  "p"
+                );
+
+
+              advice.className =
+                "weak-area-advice";
+
+
+              if (
+                domain.percentage < 60
+              ) {
+
+                advice.textContent =
+                  "This is currently a significant weakness. Review this domain before your next full attempt.";
+
+              } else if (
+                domain.percentage < 75
+              ) {
+
+                advice.textContent =
+                  "You're close, but this domain is still costing you marks. Target it before retaking the simulator.";
+
+              } else {
+
+                advice.textContent =
+                  "This domain is performing reasonably well. Review the incorrect questions and tighten the remaining gaps.";
+
+              }
+
+
+              card.appendChild(
+                rank
+              );
+
+
+              card.appendChild(
+                heading
+              );
+
+
+              card.appendChild(
+                score
+              );
+
+
+              card.appendChild(
+                advice
+              );
+
+
+              container.appendChild(
+                card
+              );
+
+            }
+          );
+
+      }
+
+
+      /*
+       * =====================================================
+       * ANSWER REVIEW
+       * =====================================================
+       */
+
+
+      function bindReviewButtons(
+        data
+      ) {
+
+        document
+          .getElementById(
+            "reviewAnswersBtn"
+          )
+          .addEventListener(
+            "click",
+            () => {
+
+              renderAnswerReview(
+                data
+              );
+
+
+              resultsView
+                .classList
+                .add(
+                  "hidden"
+                );
+
+
+              answerReviewView
+                .classList
+                .remove(
+                  "hidden"
+                );
+
+
+              window.scrollTo({
+
+                top: 0,
+
+                left: 0,
+
+                behavior:
+                  "instant"
+
+              });
+
+            }
+          );
+
+
+        document
+          .getElementById(
+            "backToResultsBtn"
+          )
+          .addEventListener(
+            "click",
+            () => {
+
+              answerReviewView
+                .classList
+                .add(
+                  "hidden"
+                );
+
+
+              resultsView
+                .classList
+                .remove(
+                  "hidden"
+                );
+
+
+              window.scrollTo({
+
+                top: 0,
+
+                left: 0,
+
+                behavior:
+                  "instant"
+
+              });
+
+            }
+          );
+
+      }
+
+
+      function renderAnswerReview(
+        data
+      ) {
+
+        const container =
+          document.getElementById(
+            "answerReviewList"
+          );
+
+
+        container.innerHTML =
+          "";
+
+
+        data.results.detailedResults.forEach(
+          (
+            result,
+            index
+          ) => {
+
+            const question =
+              result.question;
+
+
+            const card =
+              document.createElement(
+                "article"
+              );
+
+
+            card.className =
+
+              "answer-review-item " +
+
+              (
+                result.correct
+                  ? "correct"
+                  : "incorrect"
+              );
+
+
+            const badge =
+              document.createElement(
+                "span"
+              );
+
+
+            badge.className =
+              "domain-badge";
+
+
+            badge.textContent =
+
+              DOMAIN_LABELS[
+                question.domain
+              ] ||
+              question.domain;
+
+
+            const heading =
+              document.createElement(
+                "h3"
+              );
+
+
+            heading.textContent =
+
+              (
+                index + 1
+              ) +
+              ". " +
+              question.question;
+
+
+            const yourAnswer =
+              document.createElement(
+                "p"
+              );
+
+
+            yourAnswer.className =
+              "answer-line";
+
+
+            yourAnswer.innerHTML =
+
+              "<strong>Your answer:</strong> " +
+
+              escapeHtml(
+                getAnswerText(
+                  question,
+                  result.selected
+                )
+              );
+
+
+            const correctAnswer =
+              document.createElement(
+                "p"
+              );
+
+
+            correctAnswer.className =
+              "answer-line";
+
+
+            correctAnswer.innerHTML =
+
+              "<strong>Correct answer:</strong> " +
+
+              escapeHtml(
+                getAnswerText(
+                  question,
+                  question.answer
+                )
+              );
+
+
+            const explanation =
+              document.createElement(
+                "p"
+              );
+
+
+            explanation.innerHTML =
+
+              "<strong>Why:</strong> " +
+
+              escapeHtml(
+                question.explanation
+              );
+
+
+            card.appendChild(
+              badge
+            );
+
+
+            card.appendChild(
+              heading
+            );
+
+
+            card.appendChild(
+              yourAnswer
+            );
+
+
+            card.appendChild(
+              correctAnswer
+            );
+
+
+            card.appendChild(
+              explanation
+            );
+
+
+            if (
+              question.objective
+            ) {
+
+              const objective =
+                document.createElement(
+                  "p"
+                );
+
+
+              objective.className =
+                "answer-objective";
+
+
+              objective.innerHTML =
+
+                "<strong>Objective:</strong> " +
+
+                escapeHtml(
+                  question.objective
+                );
+
+
+              card.appendChild(
+                objective
+              );
+
+            }
+
+
+            container.appendChild(
+              card
+            );
+
+          }
+        );
+
+      }
+
+
+      /*
+       * =====================================================
+       * HELPERS
+       * =====================================================
+       */
+
+
+      function getAnswerText(
+        question,
+        indexes
+      ) {
+
+        if (
+          !Array.isArray(
+            indexes
+          ) ||
+          indexes.length === 0
+        ) {
+
+          return "No answer";
+
+        }
+
+
+        return indexes
+
+          .map(
+            (index) => {
+
+              return (
+                question.options[
+                  index
+                ] ||
+                "Unknown answer"
+              );
+
+            }
+          )
+
+          .join(
+            "; "
+          );
+
+      }
+
+
+      function escapeHtml(
+        value
+      ) {
+
+        return String(
+          value
+        )
+
+          .replaceAll(
+            "&",
+            "&amp;"
+          )
+
+          .replaceAll(
+            "<",
+            "&lt;"
+          )
+
+          .replaceAll(
+            ">",
+            "&gt;"
+          )
+
+          .replaceAll(
+            "\"",
+            "&quot;"
+          )
+
+          .replaceAll(
+            "'",
+            "&#039;"
+          );
+
+      }
+
+
+      function setText(
+        id,
+        value
+      ) {
+
+        const element =
+          document.getElementById(
+            id
+          );
+
+
+        if (!element) {
+
+          return;
+
+        }
+
+
+        element.textContent =
+          String(
+            value ?? ""
+          );
+
+      }
+
+
+      function showNoResult() {
+
+        resultsView
+          .classList
+          .add(
+            "hidden"
+          );
+
+
+        answerReviewView
+          .classList
+          .add(
+            "hidden"
+          );
+
+
+        noResultView
+          .classList
+          .remove(
+            "hidden"
+          );
+
+      }
+
+    })();
+
+  </script>
+
+</body>
+  </html>
