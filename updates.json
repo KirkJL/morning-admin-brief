@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-21T07:09:05Z",
-  "updateCount": 226,
+  "generatedAt": "2026-08-21T13:09:19Z",
+  "updateCount": 229,
   "products": [
     "Entra",
     "Intune",
@@ -1428,7 +1428,7 @@
       "id": "1c0e44bd36c53be82306",
       "product": "Purview",
       "title": "Sensitivity labels",
-      "summary": "Before enforcing an auto-labeling policy, run it in simulation mode to identify which items it would label without making any changes. Review the match results and source distribution to determine whether the policy is ready to enforce. For more information, see Review simulation results for auto-labeling policies in Microsoft Purview . The Insights tab in…",
+      "summary": "New : Before enforcing an auto-labeling policy, run it in simulation mode to identify which items it would label without making any changes. Review the match results and source distribution to determine whether the policy is ready to enforce. New : The Insights tab in the policy details panel provides an at-a-glance view of an auto-labeling policy's…",
       "whyItMatters": "This may affect compliance, information protection, governance or data-security workflows.",
       "publishedDate": "2026-08-01",
       "releaseStatus": null,
@@ -1481,6 +1481,20 @@
       "sourceType": "Microsoft Learn"
     },
     {
+      "id": "026c5a987ca710a6fa50",
+      "product": "Purview",
+      "title": "Data Governance",
+      "summary": "Updated : Microsoft Purview protection policies no longer support Azure SQL Database . New : Configure a manual business continuity and disaster recovery environment for Microsoft Purview Data Map . The guidance covers creating a secondary account, mirroring scans, validating the environment, and requesting account promotion during a regional outage.",
+      "whyItMatters": "This may affect compliance, information protection, governance or data-security workflows.",
+      "publishedDate": "2026-07-01",
+      "releaseStatus": null,
+      "changeType": "Update",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#data-governance",
+      "sourceName": "Microsoft Purview",
+      "sourceType": "Microsoft Learn"
+    },
+    {
       "id": "ff2fa217cc8d9da93069",
       "product": "Purview",
       "title": "Data Loss Prevention",
@@ -1495,6 +1509,34 @@
       "sourceType": "Microsoft Learn"
     },
     {
+      "id": "c6b1290a0e1f7c4adb81",
+      "product": "Purview",
+      "title": "Data lifecycle management",
+      "summary": "Updated : Priority cleanup policies now require three separate approvals before content can be permanently deleted: one Priority Cleanup administrator, one retention manager, and one eDiscovery administrator.",
+      "whyItMatters": "This may affect compliance, information protection, governance or data-security workflows.",
+      "publishedDate": "2026-07-01",
+      "releaseStatus": null,
+      "changeType": "Update",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#data-lifecycle-management",
+      "sourceName": "Microsoft Purview",
+      "sourceType": "Microsoft Learn"
+    },
+    {
+      "id": "1e50569f5976195efc8e",
+      "product": "Purview",
+      "title": "Information Protection",
+      "summary": "Updated : Added a checklist to help administrators understand auditing, regional availability, label scope, encryption settings, sensitive information types, file eligibility, and required roles before creating an auto-labeling policy. Updated : Troubleshoot why a specific SharePoint or OneDrive file was or wasn't labeled . The diagnostic guidance covers…",
+      "whyItMatters": "This may affect compliance, information protection, governance or data-security workflows.",
+      "publishedDate": "2026-07-01",
+      "releaseStatus": null,
+      "changeType": "Update",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#information-protection",
+      "sourceName": "Microsoft Purview",
+      "sourceType": "Microsoft Learn"
+    },
+    {
       "id": "96204d2235a55f0ea747",
       "product": "Purview",
       "title": "Insider Risk Management",
@@ -1505,6 +1547,20 @@
       "changeType": "Update",
       "actionRequired": false,
       "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#insider-risk-management",
+      "sourceName": "Microsoft Purview",
+      "sourceType": "Microsoft Learn"
+    },
+    {
+      "id": "fa01e948ad47ab8139e5",
+      "product": "Purview",
+      "title": "Shared capabilities",
+      "summary": "Update : Microsoft Purview role-group assignments can be configured with an expiration date so that access is revoked automatically. Temporary assignments can last from one day to two years and are supported by most built-in and custom role groups, except eDiscovery Administrator and eDiscovery Manager.",
+      "whyItMatters": "This may affect compliance, information protection, governance or data-security workflows.",
+      "publishedDate": "2026-07-01",
+      "releaseStatus": null,
+      "changeType": "Update",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#shared-capabilities",
       "sourceName": "Microsoft Purview",
       "sourceType": "Microsoft Learn"
     },
@@ -2335,7 +2391,7 @@
       "sourceType": "Microsoft Learn"
     },
     {
-      "id": "026c5a987ca710a6fa50",
+      "id": "bb0cdc520901fbedb8e0",
       "product": "Purview",
       "title": "Data Governance",
       "summary": "General availability (GA) : Standalone data asset data quality scan is now generally available. General availability (GA) : Incremental data quality scan is now generally available. General availability (GA) : Configurable data quality thresholds for data quality rules and data assets are now generally available.",
@@ -2344,7 +2400,7 @@
       "releaseStatus": "General availability",
       "changeType": "New feature",
       "actionRequired": false,
-      "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#data-governance",
+      "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#data-governance-1",
       "sourceName": "Microsoft Purview",
       "sourceType": "Microsoft Learn"
     },
@@ -2811,7 +2867,7 @@
       "sourceType": "Microsoft Learn"
     },
     {
-      "id": "c6b1290a0e1f7c4adb81",
+      "id": "34e320694e4e3d1b6a2d",
       "product": "Purview",
       "title": "Data Lifecycle Management",
       "summary": "New : Newly created Teams call data records (often abbreviated to CDRs, and sometimes also called call detail records or just call records ) are no longer included with Teams chat retention policies. Instead, they are included in the new support for Teams call logs retention policies that you create by using PowerShell. These newly supported retention…",
@@ -2820,12 +2876,12 @@
       "releaseStatus": null,
       "changeType": "Update",
       "actionRequired": false,
-      "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#data-lifecycle-management",
+      "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#data-lifecycle-management-1",
       "sourceName": "Microsoft Purview",
       "sourceType": "Microsoft Learn"
     },
     {
-      "id": "bb0cdc520901fbedb8e0",
+      "id": "aa964f4221904d313629",
       "product": "Purview",
       "title": "Data Governance",
       "summary": "In preview : Use a one-time glossary migration and asset enablement process to curate data assets and columns with glossary terms. This process allows you to centralize the management of glossary terms by migrating glossary terms created in the classic governance experience into Unified Catalog. When you complete the process, you can curate data assets and…",
@@ -2834,7 +2890,7 @@
       "releaseStatus": "Preview",
       "changeType": "Update",
       "actionRequired": false,
-      "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#data-governance-1",
+      "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#data-governance-2",
       "sourceName": "Microsoft Purview",
       "sourceType": "Microsoft Learn"
     },
@@ -2937,7 +2993,7 @@
       "sourceType": "Microsoft Learn"
     },
     {
-      "id": "fa01e948ad47ab8139e5",
+      "id": "9bba529a7996e13a19c1",
       "product": "Purview",
       "title": "Shared capabilities",
       "summary": "General availability (GA) : Export policy configuration as a ZIP file containing a point-in-time snapshot of all policy configurations in XML format for DLP and sensitivity label publishing policies. Use the export for support requests, configuration reference, and local analysis by using PowerShell or Microsoft 365 Copilot.",
@@ -2946,7 +3002,7 @@
       "releaseStatus": "General availability",
       "changeType": "New feature",
       "actionRequired": false,
-      "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#shared-capabilities",
+      "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#shared-capabilities-1",
       "sourceName": "Microsoft Purview",
       "sourceType": "Microsoft Learn"
     },
@@ -3105,7 +3161,7 @@
       "sourceType": "Microsoft Learn"
     },
     {
-      "id": "aa964f4221904d313629",
+      "id": "5f8dc2215138185bb76a",
       "product": "Purview",
       "title": "Data Governance",
       "summary": "General availability (GA) : Authoring custom data quality rules using SQL expression language is now generally available. Users can create custom rules using both Azure Data Factory expression and SQL expression languages. In preview : Configurable Data Quality thresholds allows users to define minimum acceptable quality scores at the data quality rule and…",
@@ -3114,7 +3170,7 @@
       "releaseStatus": "General availability",
       "changeType": "New feature",
       "actionRequired": false,
-      "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#data-governance-2",
+      "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#data-governance-3",
       "sourceName": "Microsoft Purview",
       "sourceType": "Microsoft Learn"
     },
@@ -3213,20 +3269,6 @@
       "changeType": "New feature",
       "actionRequired": false,
       "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#sensitivity-labels-4",
-      "sourceName": "Microsoft Purview",
-      "sourceType": "Microsoft Learn"
-    },
-    {
-      "id": "5f8dc2215138185bb76a",
-      "product": "Purview",
-      "title": "Data Governance",
-      "summary": "In preview : Microsoft Purview Data Quality supports incremental data quality scans by using time-based filtering. By using incremental scans, you can choose between full scans, incremental scans, or both when you run data quality rules on data assets. In preview : Data quality scans for standalone data assets enable organizations to measure and improve…",
-      "whyItMatters": "This may affect compliance, information protection, governance or data-security workflows.",
-      "publishedDate": "2026-02-01",
-      "releaseStatus": "General availability",
-      "changeType": "New feature",
-      "actionRequired": false,
-      "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#data-governance-3",
       "sourceName": "Microsoft Purview",
       "sourceType": "Microsoft Learn"
     },
