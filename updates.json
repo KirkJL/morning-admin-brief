@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-23T07:02:46Z",
-  "updateCount": 229,
+  "generatedAt": "2026-08-23T13:00:24Z",
+  "updateCount": 230,
   "products": [
     "Entra",
     "Intune",
@@ -1436,6 +1436,20 @@
       "actionRequired": false,
       "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#sensitivity-labels",
       "sourceName": "Microsoft Purview",
+      "sourceType": "Microsoft Learn"
+    },
+    {
+      "id": "32e09278254ce8e60590",
+      "product": "Defender",
+      "title": "Update to CVE details data consumption in Azure Resource Graph",
+      "summary": "August 21, 2026 Microsoft Defender for Cloud has updated how vulnerability assessment CVE details are consumed in Azure Resource Graph. CVE information remains available, but detailed CVE properties are now consumed through the microsoft.security/cvedetails resource type to improve query performance, scalability, and support for larger data sets. Customers…",
+      "whyItMatters": "This may change security capabilities, detections, recommendations or investigation workflows.",
+      "publishedDate": "2026-08-01",
+      "releaseStatus": null,
+      "changeType": "Security",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/release-notes#update-to-cve-details-data-consumption-in-azure-resource-graph",
+      "sourceName": "Microsoft Defender for Cloud",
       "sourceType": "Microsoft Learn"
     },
     {
