@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-03T11:18:40Z",
-  "updateCount": 264,
+  "generatedAt": "2026-09-03T16:23:29Z",
+  "updateCount": 265,
   "products": [
     "Entra",
     "Intune",
@@ -1170,6 +1170,20 @@
       "actionRequired": false,
       "sourceUrl": "https://learn.microsoft.com/en-us/intune/whats-new/in-development#intune-moving-to-support-android-10-and-later-for-user-based-management-methods-in-october-2024",
       "sourceName": "Microsoft Intune - In development",
+      "sourceType": "Microsoft Learn"
+    },
+    {
+      "id": "aebe5ccb39a4b2732940",
+      "product": "Defender",
+      "title": "General availability of Defender for Cosmos DB in Azure Government cloud",
+      "summary": "September 3, 2026 With this general availability announcement, the Defender for Cosmos DB plan in Azure Government cloud now aligns with the commercial cloud offering in feature coverage and runtime protection capabilities. For more information about Microsoft Defender for Cosmos DB, see Overview of Microsoft Defender for Cosmos DB . For more information…",
+      "whyItMatters": "This may change security capabilities, detections, recommendations or investigation workflows.",
+      "publishedDate": "2026-09-01",
+      "releaseStatus": "General availability",
+      "changeType": "New feature",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/release-notes#general-availability-of-defender-for-cosmos-db-in-azure-government-cloud",
+      "sourceName": "Microsoft Defender for Cloud",
       "sourceType": "Microsoft Learn"
     },
     {
