@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-08T16:36:33Z",
+  "generatedAt": "2026-09-08T21:10:24Z",
   "updateCount": 266,
   "products": [
     "Entra",
@@ -62,7 +62,7 @@
       "type": "Microsoft Learn",
       "url": "https://learn.microsoft.com/en-us/intune/whats-new/in-development",
       "status": "ok",
-      "entries": 37
+      "entries": 36
     },
     {
       "name": "Microsoft Purview",
@@ -865,20 +865,6 @@
       "sourceType": "Microsoft Learn"
     },
     {
-      "id": "1be9e005c212ba4247cd",
-      "product": "Intune",
-      "title": "Associate devices to your organization with Windows Autopilot device preparation",
-      "summary": "A new capability for Windows Autopilot device preparation will be available soon: device association . Device association binds a Windows device to your organization and enables advanced functionality such as streamlined out-of-box experience (OOBE) pages, device naming before enrollment, and device-based targeting. It also improves onboarding security by…",
-      "whyItMatters": "This may affect device provisioning or enrollment workflows managed through Intune.",
-      "publishedDate": "2026-09-08",
-      "releaseStatus": null,
-      "changeType": "Security",
-      "actionRequired": false,
-      "sourceUrl": "https://learn.microsoft.com/en-us/intune/whats-new/in-development#associate-devices-to-your-organization-with-windows-autopilot-device-preparation",
-      "sourceName": "Microsoft Intune - In development",
-      "sourceType": "Microsoft Learn"
-    },
-    {
       "id": "a26b799f1da8fa937d39",
       "product": "Intune",
       "title": "New Linux antivirus settings for Microsoft Defender for Endpoint",
@@ -1169,6 +1155,20 @@
       "changeType": "Update",
       "actionRequired": false,
       "sourceUrl": "https://learn.microsoft.com/en-us/intune/whats-new/in-development#intune-moving-to-support-android-10-and-later-for-user-based-management-methods-in-october-2024",
+      "sourceName": "Microsoft Intune - In development",
+      "sourceType": "Microsoft Learn"
+    },
+    {
+      "id": "1be9e005c212ba4247cd",
+      "product": "Intune",
+      "title": "Associate devices to your organization with Windows Autopilot device preparation",
+      "summary": "A new capability for Windows Autopilot device preparation will be available soon: device association . Device association binds a Windows device to your organization and enables advanced functionality such as streamlined out-of-box experience (OOBE) pages, device naming before enrollment, and device-based targeting. It also improves onboarding security by…",
+      "whyItMatters": "This may affect device provisioning or enrollment workflows managed through Intune.",
+      "publishedDate": "2026-09-08",
+      "releaseStatus": null,
+      "changeType": "Security",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/intune/whats-new/in-development#associate-devices-to-your-organization-with-windows-autopilot-device-preparation",
       "sourceName": "Microsoft Intune - In development",
       "sourceType": "Microsoft Learn"
     },
