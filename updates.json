@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-10T11:23:38Z",
-  "updateCount": 266,
+  "generatedAt": "2026-09-10T16:21:54Z",
+  "updateCount": 267,
   "products": [
     "Entra",
     "Intune",
@@ -1170,6 +1170,20 @@
       "actionRequired": false,
       "sourceUrl": "https://learn.microsoft.com/en-us/intune/whats-new/in-development#associate-devices-to-your-organization-with-windows-autopilot-device-preparation",
       "sourceName": "Microsoft Intune - In development",
+      "sourceType": "Microsoft Learn"
+    },
+    {
+      "id": "ffbb9170a80f251a528e",
+      "product": "Defender",
+      "title": "Upcoming deprecation of the Machines should have a vulnerability assessment solution recommendation",
+      "summary": "September 10, 2026 As part of the transition to individual recommendations, the Machines should have a vulnerability assessment solution recommendation will be deprecated on October 11, 2026. Customers should use individual recommendations in Microsoft Defender for Cloud to review and manage vulnerability assessment coverage. For more information, see…",
+      "whyItMatters": "An existing feature or workflow is being removed or replaced, so check whether your environment still uses it.",
+      "publishedDate": "2026-09-01",
+      "releaseStatus": null,
+      "changeType": "Retirement",
+      "actionRequired": true,
+      "sourceUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/release-notes#upcoming-deprecation-of-the-machines-should-have-a-vulnerability-assessment-solution-recommendation",
+      "sourceName": "Microsoft Defender for Cloud",
       "sourceType": "Microsoft Learn"
     },
     {
