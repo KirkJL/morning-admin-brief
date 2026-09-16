@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-16T16:51:43Z",
+  "generatedAt": "2026-09-16T21:19:40Z",
   "updateCount": 272,
   "products": [
     "Entra",
@@ -1201,6 +1201,20 @@
       "sourceType": "Microsoft Learn"
     },
     {
+      "id": "ff2fa217cc8d9da93069",
+      "product": "Purview",
+      "title": "Data Loss Prevention",
+      "summary": "General availability : Integrate Microsoft Entra Global Secure Access with Purview to protect text, files, and AI interactions at the network layer, enforce restrictive actions based on DLP policies, and detect risky user activity through Insider Risk Management. It helps prevent sensitive data from being shared with untrusted cloud applications through…",
+      "whyItMatters": "This could affect how sensitive information is detected, protected or prevented from leaving the organisation.",
+      "publishedDate": "2026-09-01",
+      "releaseStatus": "General availability",
+      "changeType": "Security",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#data-loss-prevention",
+      "sourceName": "Microsoft Purview",
+      "sourceType": "Microsoft Learn"
+    },
+    {
       "id": "ffbb9170a80f251a528e",
       "product": "Defender",
       "title": "Upcoming deprecation of the Machines should have a vulnerability assessment solution recommendation",
@@ -1971,7 +1985,7 @@
       "sourceType": "Microsoft Learn"
     },
     {
-      "id": "ff2fa217cc8d9da93069",
+      "id": "27aca5bd6a992e7c7add",
       "product": "Purview",
       "title": "Data Loss Prevention",
       "summary": "In preview : Use data loss prevention policies for non-Microsoft connected apps . Create DLP policies that protect sensitive data at rest in non-Microsoft connected applications, such as Box and Google Workspace. These policies use the existing Microsoft Defender for Cloud Apps connectors and support the same classification engine available for Microsoft…",
@@ -1980,7 +1994,7 @@
       "releaseStatus": "Preview",
       "changeType": "Update",
       "actionRequired": false,
-      "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#data-loss-prevention",
+      "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#data-loss-prevention-1",
       "sourceName": "Microsoft Purview",
       "sourceType": "Microsoft Learn"
     },
@@ -2125,7 +2139,7 @@
       "sourceType": "Microsoft Learn"
     },
     {
-      "id": "27aca5bd6a992e7c7add",
+      "id": "2966830a7131ce0e4e08",
       "product": "Purview",
       "title": "Data Loss Prevention",
       "summary": "In preview : Protect sensitive data in text and prompts by integrating with Microsoft Entra Global Secure Access (GSA). This integration enables organizations to intercept and inspect text and AI interactions at the network layer, enforce restrictive actions based on DLP policies, and detect risky user activity through Insider Risk Management. It helps…",
@@ -2134,7 +2148,7 @@
       "releaseStatus": "Preview",
       "changeType": "Security",
       "actionRequired": false,
-      "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#data-loss-prevention-1",
+      "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#data-loss-prevention-2",
       "sourceName": "Microsoft Purview",
       "sourceType": "Microsoft Learn"
     },
@@ -2461,7 +2475,7 @@
       "sourceType": "Microsoft Learn"
     },
     {
-      "id": "2966830a7131ce0e4e08",
+      "id": "d4cfa495a87d667ed160",
       "product": "Purview",
       "title": "Data Loss Prevention",
       "summary": "New : Access Endpoint DLP device attribute data using Advanced Hunting . Query Endpoint DLP device configuration and policy sync attributes at scale through the DeviceInfo table's DlpInfo column in Advanced hunting in the Microsoft Defender portal, instead of relying on point-in-time exports from the Microsoft Purview portal. New : Create a DLP policy that…",
@@ -2470,7 +2484,7 @@
       "releaseStatus": "Preview",
       "changeType": "Update",
       "actionRequired": false,
-      "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#data-loss-prevention-2",
+      "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#data-loss-prevention-3",
       "sourceName": "Microsoft Purview",
       "sourceType": "Microsoft Learn"
     },
@@ -3035,7 +3049,7 @@
       "sourceType": "Microsoft Learn"
     },
     {
-      "id": "d4cfa495a87d667ed160",
+      "id": "d59d01559ef50d683707",
       "product": "Purview",
       "title": "Data Loss Prevention",
       "summary": "Updated : Added the admin permissions ( Directory Reader , Microsoft Edge administration , and Microsoft Intune administration ) required to activate DLP policies for unmanaged cloud apps in Microsoft Edge for Business. For more information, see Learn about Data Loss Prevention for Cloud Apps in Edge for Business . Updated : Clarified Edge browser profile…",
@@ -3044,7 +3058,7 @@
       "releaseStatus": null,
       "changeType": "Update",
       "actionRequired": false,
-      "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#data-loss-prevention-3",
+      "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#data-loss-prevention-4",
       "sourceName": "Microsoft Purview",
       "sourceType": "Microsoft Learn"
     },
@@ -3525,7 +3539,7 @@
       "sourceType": "Microsoft Learn"
     },
     {
-      "id": "d59d01559ef50d683707",
+      "id": "681cf75c4239d49fb228",
       "product": "Purview",
       "title": "Data Loss Prevention",
       "summary": "Updated : Restructured the just-in-time (JIT) protection documentation. Updated : The Get started with just-in-time protection article now focuses on deployment and configuration steps. New : A new conceptual article, Learn about just-in-time protection , now covers JIT concepts, terms, supported activities, device compatibility, and includes a detailed JIT…",
@@ -3534,7 +3548,7 @@
       "releaseStatus": "Preview",
       "changeType": "Update",
       "actionRequired": false,
-      "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#data-loss-prevention-4",
+      "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#data-loss-prevention-5",
       "sourceName": "Microsoft Purview",
       "sourceType": "Microsoft Learn"
     },
@@ -3788,20 +3802,6 @@
       "actionRequired": false,
       "sourceUrl": "https://learn.microsoft.com/en-us/entra/fundamentals/whats-new#stay-informed",
       "sourceName": "Microsoft Entra",
-      "sourceType": "Microsoft Learn"
-    },
-    {
-      "id": "681cf75c4239d49fb228",
-      "product": "Purview",
-      "title": "Data Loss Prevention",
-      "summary": "Preview : DLP supports adaptive scopes for scoping SharePoint policies. SharePoint location scoping",
-      "whyItMatters": "This could affect how sensitive information is detected, protected or prevented from leaving the organisation.",
-      "publishedDate": "2026-03-01",
-      "releaseStatus": "Preview",
-      "changeType": "Update",
-      "actionRequired": false,
-      "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#data-loss-prevention-5",
-      "sourceName": "Microsoft Purview",
       "sourceType": "Microsoft Learn"
     },
     {
