@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-30T12:38:52Z",
+  "generatedAt": "2026-09-30T17:59:06Z",
   "updateCount": 294,
   "products": [
     "Entra",
@@ -2531,20 +2531,6 @@
       "sourceType": "Microsoft Learn"
     },
     {
-      "id": "a18480e1c656aaba6109",
-      "product": "Defender",
-      "title": "Foundational CSPM moves to opt-in model for new Azure subscriptions",
-      "summary": "July 30, 2026 Starting October 27, 2026, Foundational CSPM will move to an opt-in model and will no longer be enabled by default for new Azure subscriptions. This change gives you more control over how security posture management is configured for each new Azure subscription and is part of the transition of cloud security posture management to the Microsoft…",
-      "whyItMatters": "This may change security capabilities, detections, recommendations or investigation workflows.",
-      "publishedDate": "2026-07-01",
-      "releaseStatus": null,
-      "changeType": "Security",
-      "actionRequired": false,
-      "sourceUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/release-notes#foundational-cspm-moves-to-opt-in-model-for-new-azure-subscriptions",
-      "sourceName": "Microsoft Defender for Cloud",
-      "sourceType": "Microsoft Learn"
-    },
-    {
       "id": "da05833782a4432c709e",
       "product": "Defender",
       "title": "Database-level recommendations for SQL Vulnerability Assessment (GA)",
@@ -2611,6 +2597,20 @@
       "changeType": "Security",
       "actionRequired": false,
       "sourceUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/release-notes#discovery-and-posture-for-serverless-container-workloads-is-now-generally-available",
+      "sourceName": "Microsoft Defender for Cloud",
+      "sourceType": "Microsoft Learn"
+    },
+    {
+      "id": "a18480e1c656aaba6109",
+      "product": "Defender",
+      "title": "Foundational CSPM moves to opt-in model for new Azure subscriptions",
+      "summary": "July 30, 2026 Starting October 27, 2026, Foundational CSPM will move to an opt-in model and will no longer be enabled by default for new Azure subscriptions. This change gives you more control over how security posture management is configured for each new Azure subscription and is part of the transition of cloud security posture management to the Microsoft…",
+      "whyItMatters": "This may change security capabilities, detections, recommendations or investigation workflows.",
+      "publishedDate": "2026-07-01",
+      "releaseStatus": null,
+      "changeType": "Security",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/release-notes#foundational-cspm-moves-to-opt-in-model-for-new-azure-subscriptions",
       "sourceName": "Microsoft Defender for Cloud",
       "sourceType": "Microsoft Learn"
     },
