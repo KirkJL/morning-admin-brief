@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-30T05:27:27Z",
-  "updateCount": 291,
+  "generatedAt": "2026-09-30T12:38:52Z",
+  "updateCount": 294,
   "products": [
     "Entra",
     "Intune",
@@ -1464,6 +1464,48 @@
       "actionRequired": false,
       "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#data-loss-prevention",
       "sourceName": "Microsoft Purview",
+      "sourceType": "Microsoft Learn"
+    },
+    {
+      "id": "519989d3444938b96d0e",
+      "product": "Defender",
+      "title": "Upcoming billing updates for Defender for Servers",
+      "summary": "September 30, 2026 Effective November 1, 2026, Microsoft Defender for Servers introduces two related updates: Billing policy update: Productivity and desktop client devices, such as Windows 10 and Windows 11 PCs, are no longer billed as servers. For more information, see the Billing Policy Update Details section. Affected plan: Defender for Servers Plan 1.…",
+      "whyItMatters": "This may change security capabilities, detections, recommendations or investigation workflows.",
+      "publishedDate": "2026-09-01",
+      "releaseStatus": null,
+      "changeType": "Update",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/release-notes#upcoming-billing-updates-for-defender-for-servers",
+      "sourceName": "Microsoft Defender for Cloud",
+      "sourceType": "Microsoft Learn"
+    },
+    {
+      "id": "ec676bce5d62af1eda25",
+      "product": "Defender",
+      "title": "Billing Policy Update Details",
+      "summary": "This update applies to Defender for Servers Plan 1 only. Understand how devices are classified and billed Microsoft Defender uses operating-system and device information to classify devices for licensing and billing. Classification doesn't depend on where a device is hosted, whether it's physical or virtual, or how you use it. The following examples aren't…",
+      "whyItMatters": "This may change security capabilities, detections, recommendations or investigation workflows.",
+      "publishedDate": "2026-09-01",
+      "releaseStatus": null,
+      "changeType": "Update",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/release-notes#billing-policy-update-details",
+      "sourceName": "Microsoft Defender for Cloud",
+      "sourceType": "Microsoft Learn"
+    },
+    {
+      "id": "606efbd25db4ee9b899f",
+      "product": "Defender",
+      "title": "Billable Server Identification Mechanism Update",
+      "summary": "This update applies to both Defender for Servers Plan 1 and Plan 2. Defender for Server service will check for online machines multiple times per hour up from once per hour, and count each deployed machine separately, including machines created from a golden image that share an Azure Arc ID.",
+      "whyItMatters": "This may change security capabilities, detections, recommendations or investigation workflows.",
+      "publishedDate": "2026-09-01",
+      "releaseStatus": null,
+      "changeType": "Update",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/release-notes#billable-server-identification-mechanism-update",
+      "sourceName": "Microsoft Defender for Cloud",
       "sourceType": "Microsoft Learn"
     },
     {
