@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-01T05:45:37Z",
-  "updateCount": 294,
+  "generatedAt": "2026-10-01T13:21:22Z",
+  "updateCount": 298,
   "products": [
     "Entra",
     "Intune",
@@ -62,7 +62,7 @@
       "type": "Microsoft Learn",
       "url": "https://learn.microsoft.com/en-us/intune/whats-new/in-development",
       "status": "ok",
-      "entries": 28
+      "entries": 32
     },
     {
       "name": "Microsoft Purview",
@@ -683,6 +683,34 @@
       "sourceType": "Microsoft Learn"
     },
     {
+      "id": "924bdffdc0a03f62a218",
+      "product": "Intune",
+      "title": "Apple OS 27 DDM status data in device inventory",
+      "summary": "Microsoft Intune will add Apple OS 27 declarative device management (DDM) status data to device inventory. You'll be able to review system health information for supported hardware components, content cache details, and MDM state such as enrollment type, awaiting configuration, Return to Service, Shared iPad, and Lockdown Mode. Reported values will depend…",
+      "whyItMatters": "This may affect device provisioning or enrollment workflows managed through Intune.",
+      "publishedDate": "2026-10-01",
+      "releaseStatus": null,
+      "changeType": "Update",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/intune/whats-new/in-development#apple-os-27-ddm-status-data-in-device-inventory",
+      "sourceName": "Microsoft Intune - In development",
+      "sourceType": "Microsoft Learn"
+    },
+    {
+      "id": "aa38590de378dc7b4e89",
+      "product": "Intune",
+      "title": "Add support for the MEFERI OEMConfig app on Android Enterprise",
+      "summary": "Intune will add support for the MEFERI OEMConfig app ( com.meferi.oemconfig ) for Android Enterprise devices. Once onboarded, admins will be able to use Intune's OEMConfig workflow to deploy and manage the device settings that MEFERI exposes through its OEM-provided schema. This update will expand the catalog of supported OEMConfig apps and reduce the need…",
+      "whyItMatters": "This may affect endpoint-management capabilities, policies, applications or managed devices.",
+      "publishedDate": "2026-10-01",
+      "releaseStatus": null,
+      "changeType": "Update",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/intune/whats-new/in-development#add-support-for-the-meferi-oemconfig-app-on-android-enterprise",
+      "sourceName": "Microsoft Intune - In development",
+      "sourceType": "Microsoft Learn"
+    },
+    {
       "id": "54c3d36be0c6fa56546c",
       "product": "Intune",
       "title": "Enforce Routes capability in iOS/iPadOS and macOS VPN profiles",
@@ -707,6 +735,34 @@
       "changeType": "Update",
       "actionRequired": false,
       "sourceUrl": "https://learn.microsoft.com/en-us/intune/whats-new/in-development#disable-mac-address-randomization-on-macos-wi-fi-profiles",
+      "sourceName": "Microsoft Intune - In development",
+      "sourceType": "Microsoft Learn"
+    },
+    {
+      "id": "27d89f1141753a2261ed",
+      "product": "Intune",
+      "title": "Remove legacy Apple MDM software update workloads from Intune",
+      "summary": "Intune will remove legacy Apple MDM software update workloads after Apple retires the underlying MDM update commands and payloads. This change will help keep the Intune admin experience, Graph surface, and documentation aligned to what Apple still supports, instead of leaving behind settings that no longer have a valid backend. Organizations that still…",
+      "whyItMatters": "An existing feature or workflow is being removed or replaced, so check whether your environment still uses it.",
+      "publishedDate": "2026-10-01",
+      "releaseStatus": null,
+      "changeType": "Retirement",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/intune/whats-new/in-development#remove-legacy-apple-mdm-software-update-workloads-from-intune",
+      "sourceName": "Microsoft Intune - In development",
+      "sourceType": "Microsoft Learn"
+    },
+    {
+      "id": "f9ec7a575de60ce2ca4f",
+      "product": "Intune",
+      "title": "New settings for Administrator protection in endpoint security Account Protection policy",
+      "summary": "Weâre adding two settings to Intune's Endpoint security Account Protection profile . These settings enhance device security by requiring user authentication for administrator level actions. This authentication request helps to safeguard devices from unauthorized changes and malware. The two new settings are already available in the Intune settings catalog…",
+      "whyItMatters": "Authentication changes can affect sign-in behaviour, Conditional Access and user access.",
+      "publishedDate": "2026-10-01",
+      "releaseStatus": null,
+      "changeType": "Security",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/intune/whats-new/in-development#new-settings-for-administrator-protection-in-endpoint-security-account-protection-policy",
       "sourceName": "Microsoft Intune - In development",
       "sourceType": "Microsoft Learn"
     },
