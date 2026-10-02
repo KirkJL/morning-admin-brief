@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-02T12:40:20Z",
-  "updateCount": 298,
+  "generatedAt": "2026-10-02T17:51:19Z",
+  "updateCount": 299,
   "products": [
     "Entra",
     "Intune",
@@ -1519,6 +1519,20 @@
       "changeType": "Security",
       "actionRequired": false,
       "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#data-loss-prevention",
+      "sourceName": "Microsoft Purview",
+      "sourceType": "Microsoft Learn"
+    },
+    {
+      "id": "c39101930ab573285bda",
+      "product": "Purview",
+      "title": "Information Barriers",
+      "summary": "New : Create an Information Barriers policy compliance report to identify SharePoint sites, OneDrive accounts, and user-owned SharePoint Embedded containers that no longer comply after Information Barriers policy changes.",
+      "whyItMatters": "This may affect device compliance policies, reporting or how access decisions are made.",
+      "publishedDate": "2026-09-01",
+      "releaseStatus": null,
+      "changeType": "Update",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#information-barriers",
       "sourceName": "Microsoft Purview",
       "sourceType": "Microsoft Learn"
     },
