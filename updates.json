@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-05T05:31:51Z",
-  "updateCount": 299,
+  "generatedAt": "2026-10-05T14:45:47Z",
+  "updateCount": 300,
   "products": [
     "Entra",
     "Intune",
@@ -1100,6 +1100,20 @@
       "actionRequired": false,
       "sourceUrl": "https://learn.microsoft.com/en-us/intune/whats-new/in-development#intune-moving-to-support-android-10-and-later-for-user-based-management-methods-in-october-2024",
       "sourceName": "Microsoft Intune - In development",
+      "sourceType": "Microsoft Learn"
+    },
+    {
+      "id": "81f4b0d977bc8c0d4e33",
+      "product": "Defender",
+      "title": "On-demand malware scanning now supports scanning specific blobs, files, containers, and file shares (GA)",
+      "summary": "October 5, 2026 On-demand malware scanning in Microsoft Defender for Storage now supports targeted scanning of specific items. Instead of scanning an entire storage account, you can scope scans to a single blob or file, a specific container or file share, or all objects matching a path prefix. You can use filters in the REST API request body to specify…",
+      "whyItMatters": "This may change security capabilities, detections, recommendations or investigation workflows.",
+      "publishedDate": "2026-10-01",
+      "releaseStatus": "General availability",
+      "changeType": "Update",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/release-notes#on-demand-malware-scanning-now-supports-scanning-specific-blobs-files-containers-and-file-shares-ga",
+      "sourceName": "Microsoft Defender for Cloud",
       "sourceType": "Microsoft Learn"
     },
     {
