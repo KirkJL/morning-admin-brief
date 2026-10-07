@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-07T13:28:59Z",
-  "updateCount": 304,
+  "generatedAt": "2026-10-07T18:55:56Z",
+  "updateCount": 305,
   "products": [
     "Entra",
     "Intune",
@@ -1142,6 +1142,20 @@
       "actionRequired": false,
       "sourceUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new#audit-mode-for-the-microsoft-defender-antivirus-template-for-linux",
       "sourceName": "Microsoft Intune - What's new",
+      "sourceType": "Microsoft Learn"
+    },
+    {
+      "id": "a7939f2c6bac3384e841",
+      "product": "Defender",
+      "title": "New Defender server security experience",
+      "summary": "October 6, 2026 The new Defender server security experience brings together cloud and endpoint data from Microsoft Defender for Endpoint and Defender for Servers. In the Microsoft Defender portal, you can: Review unified server inventory and combined cloud and endpoint details. Investigate servers across alerts, incidents, and the attack graph. Use Go hunt…",
+      "whyItMatters": "This may change security capabilities, detections, recommendations or investigation workflows.",
+      "publishedDate": "2026-10-01",
+      "releaseStatus": null,
+      "changeType": "Security",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/release-notes#new-defender-server-security-experience",
+      "sourceName": "Microsoft Defender for Cloud",
       "sourceType": "Microsoft Learn"
     },
     {
