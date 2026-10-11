@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-11T17:40:28Z",
+  "generatedAt": "2026-10-11T21:59:23Z",
   "updateCount": 305,
   "products": [
     "Entra",
@@ -1148,7 +1148,7 @@
       "id": "a7939f2c6bac3384e841",
       "product": "Defender",
       "title": "New Defender server security experience",
-      "summary": "October 6, 2026 The new Defender server security experience brings together cloud and endpoint data from Microsoft Defender for Endpoint and Defender for Servers. In the Microsoft Defender portal, you can: Review unified server inventory and combined cloud and endpoint details. Investigate servers across alerts, incidents, and the attack graph. Use Go hunt…",
+      "summary": "October 6, 2026 The new Defender server security experience brings together cloud and endpoint data from Microsoft Defender for Endpoint and Defender for Servers. In the Microsoft Defender portal, you can: Review the new server asset page with combined cloud and endpoint details. Investigate servers across alerts, incidents, and the attack graph. Use Go…",
       "whyItMatters": "This may change security capabilities, detections, recommendations or investigation workflows.",
       "publishedDate": "2026-10-01",
       "releaseStatus": null,
