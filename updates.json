@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-20T11:42:44Z",
-  "updateCount": 308,
+  "generatedAt": "2026-10-20T16:59:56Z",
+  "updateCount": 310,
   "products": [
     "Entra",
     "Intune",
@@ -1184,6 +1184,34 @@
       "actionRequired": false,
       "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#data-loss-prevention",
       "sourceName": "Microsoft Purview",
+      "sourceType": "Microsoft Learn"
+    },
+    {
+      "id": "41f5254f8dd538bd87bc",
+      "product": "Defender",
+      "title": "Expanded server onboarding experience",
+      "summary": "October 20, 2026 The new Defender server security experience expands to include onboarding guidance for Azure and on-premises servers, building on the investigation and access management capabilities released on October 6. With this update, you can: Onboard supported Azure virtual machines and Azure Arc-enabled servers automatically through Defender for…",
+      "whyItMatters": "This may change security capabilities, detections, recommendations or investigation workflows.",
+      "publishedDate": "2026-10-01",
+      "releaseStatus": null,
+      "changeType": "Security",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/release-notes#expanded-server-onboarding-experience",
+      "sourceName": "Microsoft Defender for Cloud",
+      "sourceType": "Microsoft Learn"
+    },
+    {
+      "id": "dd67a918e3259b7fc29f",
+      "product": "Defender",
+      "title": "Cloud security plan management in the Defender portal",
+      "summary": "October 20, 2026 Cloud security plan management is scheduled to become available in public preview in the Microsoft Defender portal for Azure commercial environments on October 20, 2026. With this experience, you can: Connect Azure subscriptions and management groups to cloud security in the Defender portal. Enable and manage cloud security plans globally…",
+      "whyItMatters": "This may change security capabilities, detections, recommendations or investigation workflows.",
+      "publishedDate": "2026-10-01",
+      "releaseStatus": "Preview",
+      "changeType": "Security",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/release-notes#cloud-security-plan-management-in-the-defender-portal",
+      "sourceName": "Microsoft Defender for Cloud",
       "sourceType": "Microsoft Learn"
     },
     {
