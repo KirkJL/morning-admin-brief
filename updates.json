@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-23T04:42:14Z",
-  "updateCount": 310,
+  "generatedAt": "2026-10-23T11:43:20Z",
+  "updateCount": 311,
   "products": [
     "Entra",
     "Intune",
@@ -20,21 +20,21 @@
       "type": "RSS",
       "url": "https://learn.microsoft.com/api/search/rss?search=%22What%27s%20new%20in%20Microsoft%20Intune%22&locale=en-us",
       "status": "ok",
-      "entries": 19
+      "entries": 26
     },
     {
       "name": "Microsoft Intune In Development RSS",
       "type": "RSS",
       "url": "https://learn.microsoft.com/api/search/rss?search=%22In%20development%20for%20Microsoft%20Intune%22&locale=en-us",
       "status": "ok",
-      "entries": 9
+      "entries": 11
     },
     {
       "name": "Microsoft Purview What's New RSS",
       "type": "RSS",
       "url": "https://learn.microsoft.com/api/search/rss?search=%22What%27s%20new%20in%20Microsoft%20Purview%22&locale=en-us",
       "status": "ok",
-      "entries": 11
+      "entries": 12
     },
     {
       "name": "Microsoft Defender What's New RSS",
@@ -94,6 +94,20 @@
     }
   ],
   "updates": [
+    {
+      "id": "cc5c8fd8eeed1f05c18b",
+      "product": "Intune",
+      "title": "Unlimited licenses for Apple volume purchase program (VPP) apps",
+      "summary": "You can now assign VPP apps with unlimited licenses from Apple Business and Apple School Manager, making it easier to deploy apps across your organization without managing license quantities. Applies to: iOS/iPadOS macOS",
+      "whyItMatters": "This may affect endpoint-management capabilities, policies, applications or managed devices.",
+      "publishedDate": "2026-10-23",
+      "releaseStatus": null,
+      "changeType": "Update",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new#unlimited-licenses-for-apple-volume-purchase-program-vpp-apps",
+      "sourceName": "Microsoft Intune - What's new",
+      "sourceType": "Microsoft Learn"
+    },
     {
       "id": "bd3f7e7ccc361d1709ac",
       "product": "Intune",
@@ -641,20 +655,6 @@
       "sourceType": "Microsoft Learn"
     },
     {
-      "id": "792806da9592f89a82cd",
-      "product": "Intune",
-      "title": "View expanded SIM inventory for corporate-owned Android devices",
-      "summary": "Microsoft Intune now surfaces expanded SIM inventory for corporate-owned Android Enterprise devices, including EIDs, multiple ICCIDs, and activation state. View these details under Devices > All devices > select a device > Hardware , and use the reported ICCID to identify the correct eSIM for a removal action. EID reporting requires Android 13 and later;…",
-      "whyItMatters": "This may affect endpoint-management capabilities, policies, applications or managed devices.",
-      "publishedDate": "2026-10-23",
-      "releaseStatus": null,
-      "changeType": "Update",
-      "actionRequired": false,
-      "sourceUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new#view-expanded-sim-inventory-for-corporate-owned-android-devices",
-      "sourceName": "Microsoft Intune - What's new",
-      "sourceType": "Microsoft Learn"
-    },
-    {
       "id": "33ff66204a4ca67437b6",
       "product": "Intune",
       "title": "Scope tags support for Endpoint Privilege Management reports",
@@ -1100,6 +1100,20 @@
       "actionRequired": false,
       "sourceUrl": "https://learn.microsoft.com/en-us/intune/whats-new/in-development#intune-moving-to-support-android-10-and-later-for-user-based-management-methods-in-october-2024",
       "sourceName": "Microsoft Intune - In development",
+      "sourceType": "Microsoft Learn"
+    },
+    {
+      "id": "792806da9592f89a82cd",
+      "product": "Intune",
+      "title": "View expanded SIM inventory for corporate-owned Android devices",
+      "summary": "Microsoft Intune now surfaces expanded SIM inventory for corporate-owned Android Enterprise devices, including EIDs, multiple ICCIDs, and activation state. View these details under Devices > All devices > select a device > Hardware , and use the reported ICCID to identify the correct eSIM for a removal action. EID reporting requires Android 13 and later;…",
+      "whyItMatters": "This may affect endpoint-management capabilities, policies, applications or managed devices.",
+      "publishedDate": "2026-10-23",
+      "releaseStatus": null,
+      "changeType": "Update",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new#view-expanded-sim-inventory-for-corporate-owned-android-devices",
+      "sourceName": "Microsoft Intune - What's new",
       "sourceType": "Microsoft Learn"
     },
     {
