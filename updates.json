@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-26T18:39:43Z",
-  "updateCount": 311,
+  "generatedAt": "2026-10-26T22:40:52Z",
+  "updateCount": 320,
   "products": [
     "Entra",
     "Intune",
@@ -62,7 +62,7 @@
       "type": "Microsoft Learn",
       "url": "https://learn.microsoft.com/en-us/intune/whats-new/in-development",
       "status": "ok",
-      "entries": 32
+      "entries": 40
     },
     {
       "name": "Microsoft Purview",
@@ -683,6 +683,62 @@
       "sourceType": "Microsoft Learn"
     },
     {
+      "id": "091939e2ae48e7463bdf",
+      "product": "Intune",
+      "title": "Maintenance windows for updates on Windows devices",
+      "summary": "Microsoft Intune will introduce maintenance windows to help you schedule firmware, driver, and operating system updates on Windows devices. You'll be able to choose supported update operations and configure a start date, start time, duration, and repeat schedule. You'll create a maintenance windows profile in the Microsoft Intune admin center to define when…",
+      "whyItMatters": "This may affect endpoint-management capabilities, policies, applications or managed devices.",
+      "publishedDate": "2026-10-26",
+      "releaseStatus": null,
+      "changeType": "Update",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/intune/whats-new/in-development#maintenance-windows-for-updates-on-windows-devices-",
+      "sourceName": "Microsoft Intune - In development",
+      "sourceType": "Microsoft Learn"
+    },
+    {
+      "id": "c14a5f018291914b0d4b",
+      "product": "Intune",
+      "title": "Automate tasks with local actions on Android Enterprise devices",
+      "summary": "Microsoft Intune will introduce local actions for Android Enterprise fully managed and dedicated devices. With local actions, you'll be able to automate tasks directly on a device by configuring actions that run in response to supported events. Events will include device restart, Managed Home Screen sign-in or sign-out, power connection changes, and…",
+      "whyItMatters": "This may affect endpoint-management capabilities, policies, applications or managed devices.",
+      "publishedDate": "2026-10-26",
+      "releaseStatus": null,
+      "changeType": "Update",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/intune/whats-new/in-development#automate-tasks-with-local-actions-on-android-enterprise-devices-",
+      "sourceName": "Microsoft Intune - In development",
+      "sourceType": "Microsoft Learn"
+    },
+    {
+      "id": "b5c4cfd4a701c6ae3a12",
+      "product": "Intune",
+      "title": "View eSIM profiles and deployment status for Windows devices",
+      "summary": "Microsoft Intune will add Windows eSIM profile information and deployment status to the Properties Catalog. This visibility will make it easier to identify devices that require follow-up and validate profile deployment across your managed Windows estate. Applies to: Windows",
+      "whyItMatters": "This may affect endpoint-management capabilities, policies, applications or managed devices.",
+      "publishedDate": "2026-10-26",
+      "releaseStatus": null,
+      "changeType": "Update",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/intune/whats-new/in-development#view-esim-profiles-and-deployment-status-for-windows-devices-",
+      "sourceName": "Microsoft Intune - In development",
+      "sourceType": "Microsoft Learn"
+    },
+    {
+      "id": "6d641bcb5a5ecee85ae9",
+      "product": "Intune",
+      "title": "Support for the KEYENCE OEMConfig app on Android Enterprise",
+      "summary": "Microsoft Intune will add support for the KEYENCE OEMConfig app ( com.keyence.autoid.oemconfigs ) for Android Enterprise devices. You'll be able to use the app with Intune's OEMConfig workflow to configure the device settings that KEYENCE exposes through its app schema. The app will be included in Intune's supported OEMConfig apps list. This addition will…",
+      "whyItMatters": "This may affect endpoint-management capabilities, policies, applications or managed devices.",
+      "publishedDate": "2026-10-26",
+      "releaseStatus": null,
+      "changeType": "Update",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/intune/whats-new/in-development#support-for-the-keyence-oemconfig-app-on-android-enterprise-",
+      "sourceName": "Microsoft Intune - In development",
+      "sourceType": "Microsoft Learn"
+    },
+    {
       "id": "924bdffdc0a03f62a218",
       "product": "Intune",
       "title": "Apple OS 27 DDM status data in device inventory",
@@ -735,6 +791,20 @@
       "changeType": "Update",
       "actionRequired": false,
       "sourceUrl": "https://learn.microsoft.com/en-us/intune/whats-new/in-development#disable-mac-address-randomization-on-macos-wi-fi-profiles",
+      "sourceName": "Microsoft Intune - In development",
+      "sourceType": "Microsoft Learn"
+    },
+    {
+      "id": "4c24cf034072b92b1423",
+      "product": "Intune",
+      "title": "Just-in-time registration automatically enabled for eligible iOS/iPadOS tenants",
+      "summary": "Microsoft Intune will automatically enable just-in-time (JIT) registration for eligible iOS/iPadOS tenants with the 2611 release. This change will apply to tenants with Microsoft Authenticator deployed as a required app and an existing device single sign-on (SSO) extension policy that doesn't already include the required JIT registration configuration.…",
+      "whyItMatters": "This may affect endpoint-management capabilities, policies, applications or managed devices.",
+      "publishedDate": "2026-10-26",
+      "releaseStatus": null,
+      "changeType": "Update",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/intune/whats-new/in-development#just-in-time-registration-automatically-enabled-for-eligible-iosipados-tenants-",
       "sourceName": "Microsoft Intune - In development",
       "sourceType": "Microsoft Learn"
     },
@@ -809,6 +879,34 @@
       "sourceType": "Microsoft Learn"
     },
     {
+      "id": "24a3913268a8bb9f1d67",
+      "product": "Intune",
+      "title": "Controlled Configuration for Microsoft Defender Antivirus on Windows",
+      "summary": "Intune will support Controlled Configuration for Microsoft Defender Antivirus settings on Windows. When you enable it, antivirus settings delivered by Intune or Microsoft Defender for Endpoint security settings management will take precedence over conflicting settings from Group Policy, Configuration Manager, and local changes or scripts. You'll be able to…",
+      "whyItMatters": "This may change security capabilities, detections, recommendations or investigation workflows.",
+      "publishedDate": "2026-10-26",
+      "releaseStatus": null,
+      "changeType": "Security",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/intune/whats-new/in-development#controlled-configuration-for-microsoft-defender-antivirus-on-windows",
+      "sourceName": "Microsoft Intune - In development",
+      "sourceType": "Microsoft Learn"
+    },
+    {
+      "id": "5ec40c4e93a5211ae9d2",
+      "product": "Intune",
+      "title": "STIG audit baselines for Windows devices in commercial tenants",
+      "summary": "Intune will support STIG audit baselines for Windows devices in commercial tenants. You'll be able to assess devices against Security Technical Implementation Guide (STIG) recommendations and review per-setting and per-device results to identify configuration gaps and prioritize remediation. The baseline will evaluate supported automated checks without…",
+      "whyItMatters": "This may affect endpoint-management capabilities, policies, applications or managed devices.",
+      "publishedDate": "2026-10-26",
+      "releaseStatus": null,
+      "changeType": "Security",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/intune/whats-new/in-development#stig-audit-baselines-for-windows-devices-in-commercial-tenants",
+      "sourceName": "Microsoft Intune - In development",
+      "sourceType": "Microsoft Learn"
+    },
+    {
       "id": "60e059db706f5240bbe8",
       "product": "Intune",
       "title": "Configure Quality Update approvals and policies for Quick Machine Recovery (QMR)",
@@ -865,6 +963,20 @@
       "sourceType": "Microsoft Learn"
     },
     {
+      "id": "35520b46dc64d58d4f9f",
+      "product": "Intune",
+      "title": "Share device diagnostics during Remote Help sessions on Windows",
+      "summary": "Helpdesk agents will be able to request device diagnostics during an attended Remote Help session on Windows. After the person receiving help consents, the agent will be able to review diagnostic information, such as system details and resource usage, to investigate the issue with less back-and-forth. The person receiving help will be able to view the…",
+      "whyItMatters": "This may affect endpoint-management capabilities, policies, applications or managed devices.",
+      "publishedDate": "2026-10-26",
+      "releaseStatus": null,
+      "changeType": "Update",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/intune/whats-new/in-development#share-device-diagnostics-during-remote-help-sessions-on-windows-",
+      "sourceName": "Microsoft Intune - In development",
+      "sourceType": "Microsoft Learn"
+    },
+    {
       "id": "93ef744276f72578e158",
       "product": "Intune",
       "title": "Remote Help support in GCCH",
@@ -903,6 +1015,20 @@
       "changeType": "New feature",
       "actionRequired": false,
       "sourceUrl": "https://learn.microsoft.com/en-us/intune/whats-new/in-development#scoped-permissions-for-role-based-access-control-moving-to-general-availability",
+      "sourceName": "Microsoft Intune - In development",
+      "sourceType": "Microsoft Learn"
+    },
+    {
+      "id": "5dfccb9667ff44b8ab0c",
+      "product": "Intune",
+      "title": "JIT registration reminder during Apple MDM push certificate renewal for iOS and iPadOS",
+      "summary": "Beginning with the November 2026 release, Intune will display a new acknowledgment when you renew an Apple MDM push certificate in the Microsoft Intune admin center. The acknowledgment will remind you to configure just-in-time (JIT) registration for iOS and iPadOS devices and will appear for all tenants, regardless of their current JIT configuration. This…",
+      "whyItMatters": "Microsoft indicates that administrators may need to prepare for this change or review their existing configuration.",
+      "publishedDate": "2026-10-26",
+      "releaseStatus": null,
+      "changeType": "Update",
+      "actionRequired": true,
+      "sourceUrl": "https://learn.microsoft.com/en-us/intune/whats-new/in-development#jit-registration-reminder-during-apple-mdm-push-certificate-renewal-for-ios-and-ipados-",
       "sourceName": "Microsoft Intune - In development",
       "sourceType": "Microsoft Learn"
     },
