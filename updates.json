@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-28T18:19:46Z",
+  "generatedAt": "2026-10-28T22:36:32Z",
   "updateCount": 320,
   "products": [
     "Entra",
@@ -94,6 +94,20 @@
     }
   ],
   "updates": [
+    {
+      "id": "9c0d192bf512533ae690",
+      "product": "Intune",
+      "title": "Bulk manage eSIMs on corporate-owned Android Enterprise devices",
+      "summary": "Microsoft Intune now supports bulk eSIM actions for corporate-owned Android Enterprise devices. From Devices > All devices > Bulk device actions , you can activate eSIMs on up to 100 selected devices running Android 15 or later by using a carrier activation server URL. Bulk eSIM activation is available only in the updated bulk device actions experience.…",
+      "whyItMatters": "This may affect endpoint-management capabilities, policies, applications or managed devices.",
+      "publishedDate": "2026-10-28",
+      "releaseStatus": null,
+      "changeType": "Update",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new#bulk-manage-esims-on-corporate-owned-android-enterprise-devices",
+      "sourceName": "Microsoft Intune - What's new",
+      "sourceType": "Microsoft Learn"
+    },
     {
       "id": "cc5c8fd8eeed1f05c18b",
       "product": "Intune",
@@ -637,20 +651,6 @@
       "changeType": "Update",
       "actionRequired": false,
       "sourceUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new#operating-system-version-property-in-assignment-filters-is-generally-available",
-      "sourceName": "Microsoft Intune - What's new",
-      "sourceType": "Microsoft Learn"
-    },
-    {
-      "id": "2968bedf67e6d2f48cd0",
-      "product": "Intune",
-      "title": "Collect enhanced diagnostic logs from supervised Apple devices",
-      "summary": "Microsoft Intune now supports Apple's Enhanced Logging device action on supported supervised devices running a compatible OS release. Administrators can start an AppleCare diagnostic-log collection session using an AppleCare-provided token and monitor device-reported status through Declarative Device Management, reducing the need to coordinate manual log…",
-      "whyItMatters": "This may affect endpoint-management capabilities, policies, applications or managed devices.",
-      "publishedDate": "2026-10-28",
-      "releaseStatus": null,
-      "changeType": "Update",
-      "actionRequired": false,
-      "sourceUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new#collect-enhanced-diagnostic-logs-from-supervised-apple-devices",
       "sourceName": "Microsoft Intune - What's new",
       "sourceType": "Microsoft Learn"
     },
@@ -1215,6 +1215,20 @@
       "sourceType": "Microsoft Learn"
     },
     {
+      "id": "2968bedf67e6d2f48cd0",
+      "product": "Intune",
+      "title": "Collect enhanced diagnostic logs from supervised Apple devices",
+      "summary": "Microsoft Intune now supports Apple's Enhanced Logging device action on supported supervised devices running a compatible OS release. Administrators can start an AppleCare diagnostic-log collection session using an AppleCare-provided token and monitor device-reported status through Declarative Device Management, reducing the need to coordinate manual log…",
+      "whyItMatters": "This may affect endpoint-management capabilities, policies, applications or managed devices.",
+      "publishedDate": "2026-10-28",
+      "releaseStatus": null,
+      "changeType": "Update",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new#collect-enhanced-diagnostic-logs-from-supervised-apple-devices",
+      "sourceName": "Microsoft Intune - What's new",
+      "sourceType": "Microsoft Learn"
+    },
+    {
       "id": "a145967c5bcbccf0313b",
       "product": "Intune",
       "title": "Intune moving to support Android 10 and later for user-based management methods in October 2024",
@@ -1394,20 +1408,6 @@
       "actionRequired": false,
       "sourceUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/release-notes#on-demand-malware-scanning-now-supports-scanning-specific-blobs-files-containers-and-file-shares-ga",
       "sourceName": "Microsoft Defender for Cloud",
-      "sourceType": "Microsoft Learn"
-    },
-    {
-      "id": "9c0d192bf512533ae690",
-      "product": "Intune",
-      "title": "Bulk manage eSIMs on corporate-owned Android Enterprise devices",
-      "summary": "Microsoft Intune now supports bulk eSIM actions for corporate-owned Android Enterprise devices. From Devices > All devices > Bulk device actions , you can activate eSIMs on up to 100 selected devices running Android 15 or later by using a carrier activation server URL. When you bulk wipe supported devices, Intune preserves eSIM data plans by default. You…",
-      "whyItMatters": "This may affect endpoint-management capabilities, policies, applications or managed devices.",
-      "publishedDate": "2026-09-29",
-      "releaseStatus": null,
-      "changeType": "Update",
-      "actionRequired": false,
-      "sourceUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new#bulk-manage-esims-on-corporate-owned-android-enterprise-devices",
-      "sourceName": "Microsoft Intune - What's new",
       "sourceType": "Microsoft Learn"
     },
     {
