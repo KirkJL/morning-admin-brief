@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-29T13:06:49Z",
-  "updateCount": 320,
+  "generatedAt": "2026-10-29T18:26:32Z",
+  "updateCount": 321,
   "products": [
     "Entra",
     "Intune",
@@ -1338,6 +1338,20 @@
       "actionRequired": false,
       "sourceUrl": "https://learn.microsoft.com/en-us/purview/whats-new#data-loss-prevention",
       "sourceName": "Microsoft Purview",
+      "sourceType": "Microsoft Learn"
+    },
+    {
+      "id": "1f6e53be8355253035b2",
+      "product": "Defender",
+      "title": "Posture policies and recommendation exemptions available in Microsoft Defender",
+      "summary": "October 28, 2026 Posture policies and recommendation exemptions are now available in public preview in the Microsoft Defender portal for Azure environments. With these new capabilities, you can: Gain visibility into your security posture through evaluations of Azure resources against the Microsoft Defender for Cloud baseline policy. Customize posture…",
+      "whyItMatters": "This may affect device compliance policies, reporting or how access decisions are made.",
+      "publishedDate": "2026-10-01",
+      "releaseStatus": "Preview",
+      "changeType": "Security",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/release-notes#posture-policies-and-recommendation-exemptions-available-in-microsoft-defender",
+      "sourceName": "Microsoft Defender for Cloud",
       "sourceType": "Microsoft Learn"
     },
     {
