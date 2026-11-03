@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-03T14:20:49Z",
+  "generatedAt": "2026-11-03T19:28:16Z",
   "updateCount": 336,
   "products": [
     "Entra",
@@ -259,20 +259,6 @@
       "changeType": "Update",
       "actionRequired": false,
       "sourceUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new#certificate-connector-health-monitoring-in-the-microsoft-intune-admin-center",
-      "sourceName": "Microsoft Intune - What's new",
-      "sourceType": "Microsoft Learn"
-    },
-    {
-      "id": "70610a0d4a508fd975d6",
-      "product": "Intune",
-      "title": "Scoped permissions for role-based access control are generally available",
-      "summary": "Microsoft Intune scoped permissions for role-based access control are now generally available. Permissions from role assignments with different scope tags are applied independently instead of being merged, giving admins the intended access within each scope. Use the Permissions Assessment Report before enabling scoped permissions to review how access will…",
-      "whyItMatters": "This may affect endpoint-management capabilities, policies, applications or managed devices.",
-      "publishedDate": "2026-11-03",
-      "releaseStatus": null,
-      "changeType": "Update",
-      "actionRequired": false,
-      "sourceUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new#scoped-permissions-for-role-based-access-control-are-generally-available",
       "sourceName": "Microsoft Intune - What's new",
       "sourceType": "Microsoft Learn"
     },
@@ -651,6 +637,20 @@
       "changeType": "Update",
       "actionRequired": false,
       "sourceUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new#new-remote-help-for-windows-version-available-1",
+      "sourceName": "Microsoft Intune - What's new",
+      "sourceType": "Microsoft Learn"
+    },
+    {
+      "id": "0874d522e479b1933d13",
+      "product": "Intune",
+      "title": "Advanced capabilities (formerly \"Microsoft Intune Suite\")",
+      "summary": "Unattended Remote Help sessions for Windows devices Microsoft Intune now supports unattended Remote Help sessions on physical Windows devices. Authorized helpdesk agents can sign in to a remote device with their own credentials without requiring the user to be present or take action. Helpers can view and control the device to troubleshoot issues and…",
+      "whyItMatters": "This may affect endpoint-management capabilities, policies, applications or managed devices.",
+      "publishedDate": "2026-11-03",
+      "releaseStatus": null,
+      "changeType": "Update",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new#advanced-capabilities-formerly-microsoft-intune-suite-3",
       "sourceName": "Microsoft Intune - What's new",
       "sourceType": "Microsoft Learn"
     },
@@ -1131,16 +1131,16 @@
       "sourceType": "Microsoft Learn"
     },
     {
-      "id": "0874d522e479b1933d13",
+      "id": "70610a0d4a508fd975d6",
       "product": "Intune",
-      "title": "Advanced capabilities (formerly \"Microsoft Intune Suite\")",
-      "summary": "Unattended Remote Help sessions for Windows devices Microsoft Intune now supports unattended Remote Help sessions on physical Windows devices. Authorized helpdesk agents can sign in to a remote device with their own credentials without requiring the user to be present or take action. Helpers can view and control the device to troubleshoot issues and…",
+      "title": "Scoped permissions for role-based access control are generally available",
+      "summary": "Microsoft Intune scoped permissions for role-based access control are now generally available. Permissions from role assignments with different scope tags are applied independently instead of being merged, giving admins the intended access within each scope. Use the Permissions Assessment Report before enabling scoped permissions to review how access will…",
       "whyItMatters": "This may affect endpoint-management capabilities, policies, applications or managed devices.",
-      "publishedDate": "2026-10-30",
+      "publishedDate": "2026-11-03",
       "releaseStatus": null,
       "changeType": "Update",
       "actionRequired": false,
-      "sourceUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new#advanced-capabilities-formerly-microsoft-intune-suite-3",
+      "sourceUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new#scoped-permissions-for-role-based-access-control-are-generally-available",
       "sourceName": "Microsoft Intune - What's new",
       "sourceType": "Microsoft Learn"
     },
