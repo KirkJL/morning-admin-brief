@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-05T14:42:01Z",
-  "updateCount": 336,
+  "generatedAt": "2026-11-05T19:54:37Z",
+  "updateCount": 337,
   "products": [
     "Entra",
     "Intune",
@@ -1142,6 +1142,20 @@
       "actionRequired": false,
       "sourceUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new#scoped-permissions-for-role-based-access-control-are-generally-available",
       "sourceName": "Microsoft Intune - What's new",
+      "sourceType": "Microsoft Learn"
+    },
+    {
+      "id": "39ee4534171b6444ef79",
+      "product": "Defender",
+      "title": "Arc proxy support for Defender for SQL Servers on Machines",
+      "summary": "November 4, 2026 Defender for SQL Servers on Machines now supports Azure Arc SQL Server instances with Arc proxy enabled, starting with Defender for SQL extension version 2.0.3585.403 . Organizations that don't allow direct internet access from their machines can tunnel outbound communication through Arc proxy and use all Defender for SQL Servers on…",
+      "whyItMatters": "This may change security capabilities, detections, recommendations or investigation workflows.",
+      "publishedDate": "2026-11-01",
+      "releaseStatus": null,
+      "changeType": "Update",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/release-notes#arc-proxy-support-for-defender-for-sql-servers-on-machines",
+      "sourceName": "Microsoft Defender for Cloud",
       "sourceType": "Microsoft Learn"
     },
     {
