@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T14:27:23Z",
+  "generatedAt": "2026-11-11T19:33:17Z",
   "updateCount": 337,
   "products": [
     "Entra",
@@ -94,6 +94,20 @@
     }
   ],
   "updates": [
+    {
+      "id": "fca5da7e30c309b14119",
+      "product": "Intune",
+      "title": "Newly available protected apps for Intune",
+      "summary": "The following protected apps are now available for Microsoft Intune: eScription One by DeliverHealth Prisma Browser for Intune by Palo Alto Networks, Inc. Elevate UC for Intune by Serverdata.net, Inc. For more information about protected apps, see Microsoft Intune protected apps .",
+      "whyItMatters": "This may affect endpoint-management capabilities, policies, applications or managed devices.",
+      "publishedDate": "2026-11-11",
+      "releaseStatus": null,
+      "changeType": "Update",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new#newly-available-protected-apps-for-intune",
+      "sourceName": "Microsoft Intune - What's new",
+      "sourceType": "Microsoft Learn"
+    },
     {
       "id": "a414a280eabb01d7d5a5",
       "product": "Intune",
@@ -641,20 +655,6 @@
       "sourceType": "Microsoft Learn"
     },
     {
-      "id": "0874d522e479b1933d13",
-      "product": "Intune",
-      "title": "Advanced capabilities (formerly \"Microsoft Intune Suite\")",
-      "summary": "Unattended Remote Help sessions for Windows devices Microsoft Intune now supports unattended Remote Help sessions on physical Windows devices. Authorized helpdesk agents can sign in to a remote device with their own credentials without requiring the user to be present or take action. Helpers can view and control the device to troubleshoot issues and…",
-      "whyItMatters": "This may affect endpoint-management capabilities, policies, applications or managed devices.",
-      "publishedDate": "2026-11-11",
-      "releaseStatus": null,
-      "changeType": "Update",
-      "actionRequired": false,
-      "sourceUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new#advanced-capabilities-formerly-microsoft-intune-suite-3",
-      "sourceName": "Microsoft Intune - What's new",
-      "sourceType": "Microsoft Learn"
-    },
-    {
       "id": "33ff66204a4ca67437b6",
       "product": "Intune",
       "title": "Scope tags support for Endpoint Privilege Management reports",
@@ -1131,6 +1131,20 @@
       "sourceType": "Microsoft Learn"
     },
     {
+      "id": "0874d522e479b1933d13",
+      "product": "Intune",
+      "title": "Advanced capabilities (formerly \"Microsoft Intune Suite\")",
+      "summary": "Unattended Remote Help sessions for Windows devices Microsoft Intune now supports unattended Remote Help sessions on physical Windows devices. Authorized helpdesk agents can sign in to a remote device with their own credentials without requiring the user to be present or take action. Helpers can view and control the device to troubleshoot issues and…",
+      "whyItMatters": "This may affect endpoint-management capabilities, policies, applications or managed devices.",
+      "publishedDate": "2026-11-11",
+      "releaseStatus": null,
+      "changeType": "Update",
+      "actionRequired": false,
+      "sourceUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new#advanced-capabilities-formerly-microsoft-intune-suite-3",
+      "sourceName": "Microsoft Intune - What's new",
+      "sourceType": "Microsoft Learn"
+    },
+    {
       "id": "70610a0d4a508fd975d6",
       "product": "Intune",
       "title": "Scoped permissions for role-based access control are generally available",
@@ -1183,20 +1197,6 @@
       "changeType": "Update",
       "actionRequired": false,
       "sourceUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new#unattended-remote-help-sessions-for-windows-devices",
-      "sourceName": "Microsoft Intune - What's new",
-      "sourceType": "Microsoft Learn"
-    },
-    {
-      "id": "fca5da7e30c309b14119",
-      "product": "Intune",
-      "title": "Newly available protected apps for Intune",
-      "summary": "The following protected apps are now available for Microsoft Intune: Notion by Notion Labs Superhuman Mail by Superhuman Labs Calven by Calven Pty Limited Heijmans by Heijmans Notability by Ginger Labs, Inc. (iOS) Ben for Intune by Thanks Ben Ltd SDP - On Premises | Intune by Zoho Corporation For more information about protected apps, see Microsoft Intune…",
-      "whyItMatters": "This may affect endpoint-management capabilities, policies, applications or managed devices.",
-      "publishedDate": "2026-10-30",
-      "releaseStatus": null,
-      "changeType": "Update",
-      "actionRequired": false,
-      "sourceUrl": "https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new#newly-available-protected-apps-for-intune",
       "sourceName": "Microsoft Intune - What's new",
       "sourceType": "Microsoft Learn"
     },
