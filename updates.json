@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-12T07:03:39Z",
+  "generatedAt": "2026-11-12T15:18:58Z",
   "updateCount": 337,
   "products": [
     "Entra",
@@ -34,7 +34,7 @@
       "type": "RSS",
       "url": "https://learn.microsoft.com/api/search/rss?search=%22What%27s%20new%20in%20Microsoft%20Purview%22&locale=en-us",
       "status": "ok",
-      "entries": 12
+      "entries": 13
     },
     {
       "name": "Microsoft Defender What's New RSS",
