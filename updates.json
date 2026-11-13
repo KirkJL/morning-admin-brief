@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-13T06:34:08Z",
+  "generatedAt": "2026-11-13T14:38:38Z",
   "updateCount": 337,
   "products": [
     "Entra",
@@ -27,7 +27,7 @@
       "type": "RSS",
       "url": "https://learn.microsoft.com/api/search/rss?search=%22In%20development%20for%20Microsoft%20Intune%22&locale=en-us",
       "status": "ok",
-      "entries": 11
+      "entries": 12
     },
     {
       "name": "Microsoft Purview What's New RSS",
